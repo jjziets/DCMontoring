@@ -1,0 +1,31 @@
+version: '3'
+services:
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "80:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+    restart: always
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: "mypass"
+      MYSQL_DATABASE: "database"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "SQLPass"
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    restart: always
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - /home/ubuntu/prometheus.yml:/etc/prometheus/prometheus.yml
+    restart: always
+volumes:
+  grafana-data:
+  mysql-data:
