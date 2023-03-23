@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  dcgm-exporter:
+    image: jjziets/dcgm-exporter:latest
+    container_name: dcgm-exporter
+    restart: unless-stopped
+    ports:
+      - "9400:9400"
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+
+  node-exporter:
+    image: jjziets/my-node-exporter:latest
+    container_name: my-node-exporter
+    restart: unless-stopped
+    network_mode: host
+    pid: host
+    volumes:
+      - "/:/host:ro,rslave"
+    command: ["--path.rootfs=/host"]
