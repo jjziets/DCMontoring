@@ -2,7 +2,7 @@
 
 TEMP_FILE="/var/lib/node_exporter/textfile_collector/cpu_temp.prom"
 
-# Clear the previous contents of the temp file
+# Remove the previous temp file
 rm -f "$TEMP_FILE"
 
 # Get JSON output from sensors
@@ -16,7 +16,7 @@ if [ "$IS_INTEL" = "true" ]; then
   # Intel CPU(s)
 
   INTEL_KEYS=$(echo "$SENSORS_JSON" | jq -r 'keys[] | select(test("coretemp-isa-"))')
-
+  
   PACKAGE_COUNTER=0
   for p in $INTEL_KEYS; do
     PACKAGE_TEMP=$(echo "$SENSORS_JSON" | jq ".\"$p\".\"Package id $PACKAGE_COUNTER\".temp1_input")
@@ -31,7 +31,10 @@ elif [ "$IS_AMD" = "true" ]; then
 
   PACKAGE_COUNTER=0
   for p in $AMD_KEYS; do
-    PACKAGE_TEMP=$(echo "$SENSORS_JSON" | jq ".\"$p\".Tdie.temp1_input")
+    PACKAGE_TEMP=$(echo "$SENSORS_JSON" | jq ".\"$p\".Tctl.temp1_input")
+    if [ "$PACKAGE_TEMP" == "null" ]; then
+      PACKAGE_TEMP=$(echo "$SENSORS_JSON" | jq ".\"$p\".Tdie.temp1_input")
+    fi
     echo "node_cpu_temperature{package=\"$PACKAGE_COUNTER\"} $PACKAGE_TEMP" >> "$TEMP_FILE"
     PACKAGE_COUNTER=$((PACKAGE_COUNTER + 1))
   done
