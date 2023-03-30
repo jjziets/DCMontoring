@@ -12,5 +12,5 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 sudo apt-get update && sudo apt-get install -y gettext-base
 wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/docker-compose.yml
-docker-compose up -d
+sed "s/__HOST_HOSTNAME__/$(hostname)/g" docker-compose.yml | docker-compose -f - up -d
 ```
