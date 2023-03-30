@@ -10,8 +10,7 @@ services:
     runtime: nvidia
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    hostname: "__HOST_HOSTNAME__"
 
   node-exporter:
     image: jjziets/my-node-exporter:latest
@@ -19,8 +18,7 @@ services:
     restart: unless-stopped
     network_mode: host
     pid: host
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    hostname: "__HOST_HOSTNAME__"
     volumes:
       - "/:/host:ro,rslave"
     command: ["--path.rootfs=/host"]
