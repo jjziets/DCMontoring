@@ -1,36 +1,42 @@
 #!/bin/bash
 
-# Check if sensors output contains Intel or AMD CPU information
-IS_INTEL=$(sensors | grep -E "Package id")
-IS_AMD=$(sensors | grep -E "Tdie")
+TEMP_FILE="/var/lib/node_exporter/textfile_collector/cpu_temp.prom"
 
-if [ -n "$IS_INTEL" ]; then
+# Clear the previous contents of the temp file
+rm "$TEMP_FILE"
+
+# Get JSON output from sensors
+SENSORS_JSON=$(sensors -j)
+
+# Check if sensors output contains Intel or AMD CPU information
+IS_INTEL=$(echo "$SENSORS_JSON" | jq 'keys[] | test("coretemp-isa-")' | grep -q "true" && echo "true" || echo "false")
+IS_AMD=$(echo "$SENSORS_JSON" | jq 'keys[] | test("k10temp-pci-")' | grep -q "true" && echo "true" || echo "false")
+
+if [ "$IS_INTEL" = "true" ]; then
   # Intel CPU(s)
 
-  # Get the number of CPU packages
-  PACKAGES=$(sensors | grep -E "Package id [0-9]:" | wc -l)
+  INTEL_KEYS=$(echo "$SENSORS_JSON" | jq -r 'keys[] | select(test("coretemp-isa-"))')
 
-  # Loop over each package
-  for p in $(seq 0 "$((PACKAGES - 1))"); do
-    # Get the package temperature
-    PACKAGE_TEMP=$(sensors | grep "Package id $p:" | awk '{print $4}' | sed 's/+//' | sed 's/°C//')
-    echo "node_cpu_temperature{package=\"$p\"} ${PACKAGE_TEMP}"
+  PACKAGE_COUNTER=0
+  for p in $INTEL_KEYS; do
+    PACKAGE_TEMP=$(echo "$SENSORS_JSON" | jq ".\"$p\".\"Package id $PACKAGE_COUNTER\".temp1_input")
+    echo "node_cpu_temperature{package=\"$PACKAGE_COUNTER\"} $PACKAGE_TEMP" >> "$TEMP_FILE"
+    PACKAGE_COUNTER=$((PACKAGE_COUNTER + 1))
   done
 
-elif [ -n "$IS_AMD" ]; then
+elif [ "$IS_AMD" = "true" ]; then
   # AMD CPU(s)
 
-  # Get the number of CPU packages
-  PACKAGES=$(sensors | grep -E "Tdie" | wc -l)
+  AMD_KEYS=$(echo "$SENSORS_JSON" | jq -r 'keys[] | select(test("k10temp-pci-"))')
 
-  # Loop over each package
-  for p in $(seq 0 "$((PACKAGES - 1))"); do
-    # Get the package temperature
-    PACKAGE_TEMP=$(sensors | grep -A1 "k10temp-pci" | grep "Tdie" | awk '{print $2}' | sed 's/+//' | sed 's/°C//' | awk "NR==$(($p+1))")
-    echo "node_cpu_temperature{package=\"$p\"} ${PACKAGE_TEMP}"
+  PACKAGE_COUNTER=0
+  for p in $AMD_KEYS; do
+    PACKAGE_TEMP=$(echo "$SENSORS_JSON" | jq ".\"$p\".Tdie.temp1_input")
+    echo "node_cpu_temperature{package=\"$PACKAGE_COUNTER\"} $PACKAGE_TEMP" >> "$TEMP_FILE"
+    PACKAGE_COUNTER=$((PACKAGE_COUNTER + 1))
   done
 
 else
-  echo "No Intel or AMD CPU information found in sensors output."
+  echo "No Intel or AMD CPU information found in sensors output." > "$TEMP_FILE"
   exit 1
-fi > /var/lib/node_exporter/textfile_collector/cpu_temp.prom
+fi
