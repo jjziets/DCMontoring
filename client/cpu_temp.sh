@@ -3,7 +3,7 @@
 TEMP_FILE="/var/lib/node_exporter/textfile_collector/cpu_temp.prom"
 
 # Clear the previous contents of the temp file
-rm "$TEMP_FILE"
+rm -f "$TEMP_FILE"
 
 # Get JSON output from sensors
 SENSORS_JSON=$(sensors -j)
