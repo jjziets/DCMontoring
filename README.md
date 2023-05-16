@@ -15,3 +15,16 @@ apt-get update && sudo apt-get install -y gettext-base
 wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/docker-compose.yml
 sed "s/__HOST_HOSTNAME__/$(hostname)/g" docker-compose.yml | docker-compose -f - up -d
 ```
+
+After getting the server running you need to link the Prometheus database to grafan
+Home
+Administration
+Data sources
+Prometheus
+. I found using the local ip works for example http://192.168.2.16:9090 not http://localhost:9090
+![image](https://github.com/jjziets/DCMontoring/assets/19214485/3b57733c-c8ca-47fb-8491-2f5afb0e4df8)
+
+Dashboards
+Cadvisor exporter-1684242167975.json
+Node Exporter Full-1684242153326.json
+NVIDIA DCGM Exporter-1684242180498.json
