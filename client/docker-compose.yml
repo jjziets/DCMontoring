@@ -3,7 +3,7 @@ version: '3.8'
 services:
   dcgm-exporter:
     image: jjziets/dcgm-exporter:latest
-    container_name: dcgm-exporter
+    container_name: safe_runpod-dcgm-exporter
     restart: unless-stopped
     ports:
       - "9400:9400"
@@ -14,7 +14,7 @@ services:
 
   node-exporter:
     image: jjziets/my-node-exporter:latest
-    container_name: my-node-exporter
+    container_name: safe_runpod-node-exporter
     restart: unless-stopped
     network_mode: host
     pid: host
@@ -25,7 +25,7 @@ services:
 
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:v0.47.1
-    container_name: cadvisor
+    container_name: safe_runpod-cadvisor
     restart: unless-stopped
     ports:
       - "8080:8080"
