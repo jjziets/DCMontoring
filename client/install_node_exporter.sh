@@ -33,7 +33,7 @@ After=network.target
 
 [Service]
 User=root
-ExecStart=/usr/local/bin/node_exporter --collector.textfile.directory=/var/lib/node_exporter/textfile_collector  "$@"
+ExecStart=/usr/local/bin/node_exporter --collector.textfile.directory=/var/lib/node_exporter/textfile_collector
 
 
 [Install]
