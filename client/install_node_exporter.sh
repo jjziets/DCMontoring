@@ -1,4 +1,10 @@
 #!/bin/bash
+apt update
+apt install lm-sensors
+mkdir /var/lib/node_exporter/textfile_collector/
+cd /usr/local/bin/cpu_temp.sh
+wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/cpu_temp.sh 
+chmod +x cpu_temp.sh
 
 # Variables
 url="https://github.com/prometheus/node_exporter/releases/download/v1.5.0/node_exporter-1.5.0.linux-amd64.tar.gz"
@@ -27,7 +33,8 @@ After=network.target
 
 [Service]
 User=root
-ExecStart=/usr/local/bin/node_exporter
+ExecStart=/usr/local/bin/node_exporter --collector.textfile.directory=/var/lib/node_exporter/textfile_collector  "$@"
+
 
 [Install]
 WantedBy=default.target
