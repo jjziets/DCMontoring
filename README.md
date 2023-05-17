@@ -16,6 +16,21 @@ wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/docker-co
 sed "s/__HOST_HOSTNAME__/$(hostname)/g" docker-compose.yml | docker-compose -f - up -d
 ```
 
+# Server install
+```
+sudo su
+apt remove docker-compose
+curl -L "https://github.com/docker/compose/releases/download/v2.17.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/server/docker-compose.yml
+```
+
+also make a prometheus.yml that looks like this https://github.com/jjziets/DCMontoring/blob/main/server/prometheus.yml
+
+you should edit the docker-compose.yml and have it mount the prometheus.yml
+
+
 After getting the server running you need to link the Prometheus database to grafan
 Home
 Administration
