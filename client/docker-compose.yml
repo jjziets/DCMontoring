@@ -15,6 +15,7 @@ services:
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:v0.47.1
     container_name: safe_runpod-cadvisor
+    userns_mode: host
     restart: unless-stopped
     ports:
       - "8080:8080"
@@ -24,6 +25,5 @@ services:
       - "/sys:/sys:ro"
       - "/var/lib/docker/:/var/lib/docker:ro"
       - "/dev/disk/:/dev/disk:ro"
-    privileged: true
     devices:
       - "/dev/kmsg:/dev/kmsg"
