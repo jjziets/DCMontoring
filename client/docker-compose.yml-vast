@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  dcgm-exporter:
+    image: jjziets/dcgm-exporter:latest
+    container_name: safe_runpod-dcgm-exporter
+    restart: unless-stopped
+    ports:
+      - "9400:9400"
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    hostname: "__HOST_HOSTNAME__"
+
+  node-exporter:
+    image: jjziets/my-node-exporter:latest
+    container_name: safe_runpod-node-exporter
+    restart: unless-stopped
+    network_mode: host
+    pid: host
+    hostname: "__HOST_HOSTNAME__"
+    volumes:
+      - "/:/host:ro,rslave"
+    command: ["--path.rootfs=/host"]
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:v0.47.1
+    container_name: safe_runpod-cadvisor
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - "/:/rootfs:ro"
+      - "/var/run:/var/run:ro"
+      - "/sys:/sys:ro"
+      - "/var/lib/docker/:/var/lib/docker:ro"
+      - "/dev/disk/:/dev/disk:ro"
+    privileged: true
+    devices:
+      - "/dev/kmsg:/dev/kmsg"
