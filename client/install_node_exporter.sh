@@ -1,6 +1,7 @@
 #!/bin/bash
 apt update
 apt install lm-sensors -y
+mkdir /var/lib/node_exporter/
 mkdir /var/lib/node_exporter/textfile_collector/
 cd /usr/local/bin/cpu_temp.sh
 wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/cpu_temp.sh 
