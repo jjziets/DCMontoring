@@ -21,6 +21,8 @@ services:
     restart: always
   prometheus:
     image: prom/prometheus
+    command:
+    - '--storage.tsdb.retention.time=30d'  # Retain data for 30 days
     ports:
       - "9090:9090"
     volumes:
