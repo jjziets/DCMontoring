@@ -5,8 +5,14 @@ apt install jq -y
 apt install xz-utils -y
 mkdir -p /var/lib/node_exporter/textfile_collector
 cd /usr/local/bin/
-wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/cpu_temp.sh 
-chmod +x cpu_temp.sh
+wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/run_cpu_temp.sh 
+chmod +x run_cpu_temp.sh
+
+ENTRY="@reboot screen -dmS cpu_temp.sh /usr/local/bin/run_cpu_temp.sh"
+# Get the current crontab, append your entry to it, and write it back out
+(crontab -l; echo "$ENTRY" ) | crontab -
+# run the cpu temp updater
+screen -dmS cpu_temp.sh /usr/local/bin/run_cpu_temp.sh
 
 # Variables
 url="https://github.com/prometheus/node_exporter/releases/download/v1.5.0/node_exporter-1.5.0.linux-amd64.tar.gz"
@@ -31,7 +37,6 @@ rm -f "$filename"
 sudo bash -c 'cat << EOF > /etc/systemd/system/node_exporter.service
 [Unit]
 Description=Node Exporter
-After=network.target
 
 [Service]
 User=root
@@ -49,3 +54,5 @@ sudo systemctl start node_exporter
 
 # Print the status of Node Exporter
 sudo systemctl status node_exporter
+
+
