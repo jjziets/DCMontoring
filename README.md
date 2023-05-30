@@ -16,7 +16,7 @@ wget -O docker-compose.yml https://raw.githubusercontent.com/jjziets/DCMontoring
 sed "s/__HOST_HOSTNAME__/$(hostname)/g" docker-compose.yml | docker-compose -f - up -d
 ```
 if you are using this on runpod you should change the wget command to get the runpod docker-compose file
-you should also then install node exporter. you can use https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/install_node_exporter.sh
+you should also then install node exporter as node exporter can't run in a docker on runpod. you can use https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/install_node_exporter.sh
 ```
 wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/install_node_exporter.sh
 chmod +x install_node_exporter.sh
