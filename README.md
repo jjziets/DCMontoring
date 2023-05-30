@@ -1,8 +1,14 @@
 # DCMontoring
 Prometheus Grafana nvidia GPU monitoring systems 
+Node exporter for system monitoring
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/95bcbabd-09da-4174-a985-3635e09aba41)
+Nvidia-dcgm-exporter for GPU matrix 
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/4a927ca9-9e0b-4037-8538-acafde3dfea3)
+Cadvisor exporter for container monitoring
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/676b465c-23bf-4b56-930d-8abfc86da7ce)
+Alerting with telegram alarms 
+![image](https://github.com/jjziets/DCMontoring/assets/19214485/99633c52-7b15-44be-b601-b52539a2fe6e)
+
 
 
 
