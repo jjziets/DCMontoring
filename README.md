@@ -50,3 +50,82 @@ https://github.com/jjziets/DCMontoring/blob/main/RemoverPrometheusDBLock.sh
 
 update the crontab to run the script on reboot. change the user 
 @reboot /home/user/prometheuse/RemoverPrometheusDBLock.sh 
+
+# Telegram alerts 
+you can set alerts for grafana to send to telegram 
+first setup a contact point telegram
+![image](https://github.com/jjziets/DCMontoring/assets/19214485/1f70ed1e-8e1d-4079-a173-2722e2abff5a)
+
+Contact point 
+
+![image](https://github.com/jjziets/DCMontoring/assets/19214485/2a19f198-f296-4b1d-a4f2-2004c3f793f0)
+
+Here are the steps to create a bot:
+Step 1: Creating the Bot
+Open the Telegram app, search for @BotFather and start a chat.
+Send the command "/newbot".
+BotFather will now ask you to choose a name for your bot. The bot name is the name that users will see in chats, notifications, group members lists. It can be anything, and does not have to be unique.
+After you've chosen a name, you'll need to choose a username for your bot. This must be unique, and must end in 'bot'. For example, "my_unique_bot".
+After successful creation, BotFather will provide you with a token, which is your API key. This token is used to authorize your bot and send requests to the Bot API. Keep this key secret and secure, and never share it publicly.
+Step 2: Getting the Chat ID
+A chat id in Telegram is a unique identifier for a chat, either a one-on-one chat or a group chat.
+You need to start a chat with your bot or add it to a group chat, then you can get the chat id:
+Start a chat with your bot or add it to a group. Send a message to the bot in this chat.
+Open a web browser and visit the following URL (replace YOUR_BOT_TOKEN with your bot token):
+
+```
+https://api.telegram.org/botYOUR_BOT_TOKEN/getUpdates
+
+```
+This will return a JSON response containing data about the messages your bot has received. Look for the "chat" object in the response, which has an "id" field. That "id" is the chat id.
+
+The response will look like this (some details are removed for simplicity):
+```
+{
+    "ok": true,
+    "result": [
+        {
+            "update_id": 8393,
+            "message": {
+                "message_id": 3,
+                "from": {
+                    "id": 123,
+                    "first_name": "YourName",
+                },
+                "chat": {
+                    "id": 123456789, // This is the chat id
+                    "first_name": "YourName",
+                    "type": "private"
+                },
+                "date": 1499402829,
+                "text": "Your message text"
+            }
+        }
+    ]
+}
+```
+after this set the templet telegram.message using this https://github.com/jjziets/DCMontoring/blob/main/telegram.message
+
+## createing a rule
+There are two ways to do this the easy way is to go to the dashboard and panle and set the rule on there
+![image](https://github.com/jjziets/DCMontoring/assets/19214485/5303cca4-868e-47ac-8822-4724e1e7bb9e)
+
+
+or under alert rule. 
+![image](https://github.com/jjziets/DCMontoring/assets/19214485/81f74ca2-ef67-48f5-9deb-0db0c1c6c701)
+
+in bot cases you will start at the create rule page
+![image](https://github.com/jjziets/DCMontoring/assets/19214485/cd4747d7-8cde-4932-9f4e-d015cf0213cf)
+![image](https://github.com/jjziets/DCMontoring/assets/19214485/57302e7c-a244-4cbd-8cc2-7f78ba72dfcb)
+
+The above is to fire when there a gpu temps are above B threasold > 80c
+
+For RootFS usage
+2) A Matric quary: round((100 - ((node_filesystem_avail_bytes{mountpoint="/",fstype!="rootfs"} * 100) / node_filesystem_size_bytes{mountpoint="/",fstype!="rootfs"})))
+C: threashold B  above 90
+4) Summery {{ $labels.job }} - {{ $values.B }} %
+
+For High CPU Temperature
+2 A Matrix qyary node_cpu_temperature{}
+C B above  threashold B  above 90
+4) Summery: - {{ $labels.job }} CPU {{$labels.package}} {{ $values.B }}C
