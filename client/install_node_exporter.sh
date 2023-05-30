@@ -1,6 +1,8 @@
 #!/bin/bash
 apt update
-apt install lm-sensors -y
+apt install lm-sensors -y 
+apt install jq -y
+apt install xz-utils -y
 mkdir -p /var/lib/node_exporter/textfile_collector
 cd /usr/local/bin/
 wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/cpu_temp.sh 
