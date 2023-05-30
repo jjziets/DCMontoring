@@ -1,5 +1,10 @@
 # DCMontoring
 Prometheus Grafana nvidia GPU monitoring systems 
+![image](https://github.com/jjziets/DCMontoring/assets/19214485/95bcbabd-09da-4174-a985-3635e09aba41)
+![image](https://github.com/jjziets/DCMontoring/assets/19214485/4a927ca9-9e0b-4037-8538-acafde3dfea3)
+![image](https://github.com/jjziets/DCMontoring/assets/19214485/676b465c-23bf-4b56-930d-8abfc86da7ce)
+
+
 
 
 # Client install
