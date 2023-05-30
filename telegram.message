@@ -1,0 +1,3 @@
+{{ define "alert_list" }}{{ range . }}
+{{ .Labels.alertname }} {{ range .Annotations.SortedPairs }}<strong>{{ .Name }}</strong>:{{ .Value }}—{{ end }}{{ end }}{{ end }}
+{{ define "telegram.message" }}{{ if gt (len .Alerts.Firing) 0 }}<strong>FIRING!!!</strong>{{ template "alert_list" .Alerts.Firing }}{{ end }}{{ if gt (len .Alerts.Resolved) 0 }}<strong>Resolved</strong>{{ template "alert_list" .Alerts.Resolved }}{{ end }}{{ end }}
