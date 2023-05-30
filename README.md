@@ -1,10 +1,10 @@
 # DCMontoring
-Prometheus Grafana nvidia gpu monitoring systems 
+Prometheus Grafana nvidia GPU monitoring systems 
 
 
 # Client install
 
-On the machine that you want to monotir run the following commands
+On the machine that you want to monitor run the following commands
 ```
 sudo su
 apt remove docker-compose
@@ -12,9 +12,18 @@ curl -L "https://github.com/docker/compose/releases/download/v2.17.1/docker-comp
 chmod +x /usr/local/bin/docker-compose
 ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 apt-get update && sudo apt-get install -y gettext-base
-wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/docker-compose.yml
+wget -O docker-compose.yml https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/docker-compose.yml-vast
 sed "s/__HOST_HOSTNAME__/$(hostname)/g" docker-compose.yml | docker-compose -f - up -d
 ```
+if you are using this on runpod you should change the wget command to get the runpod docker-compose file
+you should also then install node exporter. you can use https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/install_node_exporter.sh
+```
+wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/install_node_exporter.sh
+chmod +x install_node_exporter.sh
+./install_node_exporter.sh
+```
+if successful the output should show that node exporter is running as a service
+
 
 # Server install
 ```
@@ -26,12 +35,12 @@ ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/server/docker-compose.yml
 ```
 
-also make a prometheus.yml that looks like this https://github.com/jjziets/DCMontoring/blob/main/server/prometheus.yml
+also, make a prometheus.yml that looks like this https://github.com/jjziets/DCMontoring/blob/main/server/prometheus.yml
 
 you should edit the docker-compose.yml and have it mount the prometheus.yml
 
 
-After getting the server running you need to link the Prometheus database to grafan
+After getting the server running you need to link the Prometheus database to Grafan
 Home
 Administration
 Data sources
@@ -45,7 +54,7 @@ Node Exporter Full-1684242153326.json
 NVIDIA DCGM Exporter-1684242180498.json
 
 # DB Locked issues
-if you Prometheuse db gets locked you can try to remover the lock on reboot with this script
+if your Prometheuse db gets locked you can try to remove the lock on reboot with this script
 https://github.com/jjziets/DCMontoring/blob/main/RemoverPrometheusDBLock.sh
 
 update the crontab to run the script on reboot. change the user 
@@ -106,15 +115,15 @@ The response will look like this (some details are removed for simplicity):
 ```
 after this set the templet telegram.message using this https://github.com/jjziets/DCMontoring/blob/main/telegram.message
 
-## createing a rule
-There are two ways to do this the easy way is to go to the dashboard and panle and set the rule on there
+## creating a rule
+There are two ways to do this the easy way is to go to the dashboard and panel and set the rule on there
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/5303cca4-868e-47ac-8822-4724e1e7bb9e)
 
 
-or under alert rule. 
+or under the alert rule. 
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/81f74ca2-ef67-48f5-9deb-0db0c1c6c701)
 
-in bot cases you will start at the create rule page
+in bot cases, you will start at the create rule page
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/cd4747d7-8cde-4932-9f4e-d015cf0213cf)
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/57302e7c-a244-4cbd-8cc2-7f78ba72dfcb)
 
