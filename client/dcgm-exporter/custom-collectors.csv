@@ -75,9 +75,5 @@ DCGM_FI_DRIVER_VERSION,        label, Driver Version
 # DCGM_FI_DEV_INFOROM_IMAGE_VER, label, Inforom image version
 # DCGM_FI_DEV_VBIOS_VERSION,     label, VBIOS version of the device
 
-DCGM_FI_PROF_PCIE_RX_BYTES, gauge, Number of bytes received via PCIe.
-DCGM_FI_PROF_PCIE_TX_BYTES, gauge, Number of bytes transmitted via PCIe.
-DCGM_FI_DEV_FAN_SPEED, gauge, Fan speed for the device.
-DCGM_FI_PROF_GR_ENGINE_ACTIVE, gauge, Time the GR engine is active.
-DCGM_FI_PROF_PIPE_TENSOR_ACTIVE, gauge, Time the Tensor pipes are active.
-DCGM_FI_PROF_DRAM_ACTIVE, gauge, Time the DRAM is active.
+DCGM_FI_DEV_FAN_SPEED, gauge, Fan speed (in percent 0-100).
+DCGM_FI_DEV_CLOCK_THROTTLE_REASONS, gauge, Current clock throttle reasons (bitmask of DCGM_CLOCKS_THROTTLE_REASON_*)
