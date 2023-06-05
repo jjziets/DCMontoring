@@ -49,7 +49,11 @@ wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/server/docker-co
 
 also, make a prometheus.yml that looks like this https://github.com/jjziets/DCMontoring/blob/main/server/prometheus.yml
 
-you should edit the docker-compose.yml and have it mount the prometheus.yml
+you should edit the docker-compose.yml and have it mount the prometheus.yml in other word use nano to edit the path of prometheus.yml
+
+```
+docker-compose up -d # this will start all server
+```
 
 
 After getting the server running you need to link the Prometheus database to Grafan
