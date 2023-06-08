@@ -6,6 +6,12 @@ services:
       - "80:3000"
     volumes:
       - grafana-data:/var/lib/grafana
+      environment:
+      GF_DATABASE_TYPE: postgres
+      GF_DATABASE_HOST: db:5432
+      GF_DATABASE_NAME: grafana
+      GF_DATABASE_USER: grafana
+      GF_DATABASE_PASSWORD: secret
     restart: always
   mysql:
     image: mysql:8
