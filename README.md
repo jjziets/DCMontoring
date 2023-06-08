@@ -79,9 +79,11 @@ Prometheus
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/3b57733c-c8ca-47fb-8491-2f5afb0e4df8)
 
 # Dashboards
-Cadvisor exporter-1684242167975.json
-Node Exporter Full-1684242153326.json
-NVIDIA DCGM Exporter-1684242180498.json
+DC_OverView.json https://github.com/jjziets/DCMontoring/blob/main/DC_OverView.json
+Cadvisor exporter-1684242167975.json https://github.com/jjziets/DCMontoring/blob/main/Cadvisor%20exporter-1684242167975.json
+Node Exporter Full-1684242153326.json https://github.com/jjziets/DCMontoring/blob/main/Node%20Exporter%20Full-1684242153326.json
+NVIDIA DCGM Exporter-1684242180498.json https://github.com/jjziets/DCMontoring/blob/main/NVIDIA%20DCGM%20Exporter-1684242180498.json
+
 
 # DB Locked issues
 if your Prometheuse db gets locked you can try to remove the lock on reboot with this script
