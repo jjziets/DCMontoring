@@ -59,3 +59,4 @@ volumes:
   grafana-data:
   mysql-data:
   prometheus-data:  # Define the Prometheus volume here
+  postgres-data:
