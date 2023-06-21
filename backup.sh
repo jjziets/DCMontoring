@@ -17,6 +17,13 @@ echo -e "\nStopping services..."
 systemctl stop docker.socket
 systemctl stop docker
 systemctl stop runpod
+systemctl disable docker.socket
+systemctl disable docker
+systemctl disable runpod
+systemctl mask docker.socket
+systemctl mask docker
+systemctl mask runpod
+
 
 # Check and create folder if it does not exist
 echo -e "\nEnsuring the backup folder exists on remote server..."
