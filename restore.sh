@@ -22,12 +22,6 @@ systemctl enable docker.socket
 systemctl enable docker
 systemctl enable runpod
 
-# Start services
-echo -e "\nStarting services..."
-systemctl start docker.socket
-systemctl start docker
-systemctl start runpod
-
 # Reboot the system
 echo -e "\nRebooting..."
 reboot
