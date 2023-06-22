@@ -53,6 +53,6 @@ sudo systemctl enable node_exporter
 sudo systemctl start node_exporter
 
 # Print the status of Node Exporter
-sudo systemctl status node_exporter
+#sudo systemctl status node_exporter
 
 
