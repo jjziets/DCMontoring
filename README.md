@@ -15,7 +15,7 @@ Alerting with telegram alarms
 
 # Client install
 
-On the machine that you want to monitor run the following commands
+for vastai following the following steps
 ```
 sudo su
 apt remove docker-compose
@@ -26,14 +26,19 @@ apt-get update && sudo apt-get install -y gettext-base
 wget -O docker-compose.yml https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/docker-compose.yml-vast
 sed "s/__HOST_HOSTNAME__/$(hostname)/g" docker-compose.yml | docker-compose -f - up -d
 ```
-if you are using this on runpod you should change the wget command to get the runpod docker-compose file
-you should also then install node exporter as node exporter can't run in a docker on runpod. you can use https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/install_node_exporter.sh
-Vast host don't need to do this step.
+For Runpod you  need to run the following commands as sudo 
+Vast host don't need to do this step as all the monitoring tools will be in docker containers. 
 ```
 wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/install_node_exporter.sh
 chmod +x install_node_exporter.sh
 ./install_node_exporter.sh
+
+wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/install_NvidiaDCGM_Exporter.sh
+chmod +x install_NvidiaDCGM_Exporter.sh
+./install_NvidiaDCGM_Exporter.sh
 ```
+
+
 if successful the output should show that node exporter is running as a service
 
 
