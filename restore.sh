@@ -5,6 +5,11 @@ apt-get install pv pixz
 # Get hostname and modify it as per rules (lowercase and replace - with _)
 folder_name=$(hostname | tr '[:upper:]' '[:lower:]' | tr '-' '_')
 
+systemctl stop docker.socket
+systemctl stop docker
+systemctl stop runpod
+
+
 # Changing directory to root
 cd /
 
