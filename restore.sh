@@ -12,7 +12,7 @@ systemctl stop runpod
 # Generate SSH key and copy it to remote server
 echo -e "\nGenerating SSH key and copying to server..."
 ssh-keygen -f ~/.ssh/id_rsa -q -N "" 
-ssh-copy-id root@192.168.47.100
+ssh-copy-id root@192.168.47.99
 
 # Changing directory to root
 cd /
