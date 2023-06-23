@@ -12,7 +12,7 @@ ENTRY="@reboot screen -dmS cpu_temp.sh /usr/local/bin/run_cpu_temp.sh"
 # Get the current crontab, append your entry to it, and write it back out
 (crontab -l; echo "$ENTRY" ) | crontab -
 # run the cpu temp updater
-screen -dmS cpu_temp.sh /usr/local/bin/run_cpu_temp.sh
+screen -dmS cpu_temp.sh sleep 60; /usr/local/bin/run_cpu_temp.sh
 
 # Variables
 url="https://github.com/prometheus/node_exporter/releases/download/v1.5.0/node_exporter-1.5.0.linux-amd64.tar.gz"
