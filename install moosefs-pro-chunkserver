@@ -1,0 +1,5 @@
+  wget -O - https://repository.moosefs.com/moosefs.key | apt-key add -
+ echo "deb [arch=amd64] http://repository.moosefs.com/moosefs-4/apt/ubuntu/focal focal main" > /etc/apt/sources.list.d/moosefs.list
+apt update
+apt install moosefs-pro-chunkserver
+systemctl start moosefs-pro-chunkserver
