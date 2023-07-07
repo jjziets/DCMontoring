@@ -31,6 +31,6 @@ ssh root@192.168.47.100 "mkdir -p /mnt/user/backup/$folder_name"
 
 # Tar the folder /var/lib/docker and send it to the server
 echo -e "\nSending the tar file to server..."
-tar -c -I 'pixz -k -0' -f - /var/lib/docker | pv | ssh root@192.168.47.100 "cat > /mnt/user/backup/$folder_name/docker.tar.pixz"
+tar -c -I 'pixz -k -0' -f - /var/lib/docker | pv | ssh root@192.168.47.100 "cat > /mnt/Data2/Backup/$folder_name/docker.tar.pixz"
 
 echo -e "\nDone!"
