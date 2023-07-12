@@ -1,5 +1,7 @@
 # DCMontoring
 Prometheus Grafana nvidia GPU monitoring systems 
+Overview Dashboard
+![image](https://github.com/jjziets/DCMontoring/assets/19214485/fb6e026c-f9ee-4459-8d3f-6a9bcddda549)
 Node exporter for system monitoring
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/95bcbabd-09da-4174-a985-3635e09aba41)
 Nvidia-dcgm-exporter for GPU matrix 
