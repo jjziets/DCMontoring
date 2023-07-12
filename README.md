@@ -87,9 +87,13 @@ Prometheus
 
 # Dashboards
 DC_OverView.json https://github.com/jjziets/DCMontoring/blob/main/DC_OverView.json
+
 Cadvisor exporter-1684242167975.json https://github.com/jjziets/DCMontoring/blob/main/Cadvisor%20exporter-1684242167975.json
+
 Node Exporter Full-1684242153326.json https://github.com/jjziets/DCMontoring/blob/main/Node%20Exporter%20Full-1684242153326.json
+
 NVIDIA DCGM Exporter-1684242180498.json https://github.com/jjziets/DCMontoring/blob/main/NVIDIA%20DCGM%20Exporter-1684242180498.json
+
 
 
 # DB Locked issues
