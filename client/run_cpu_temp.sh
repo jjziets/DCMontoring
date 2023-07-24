@@ -33,7 +33,12 @@ elif [ "$IS_AMD" = "true" ]; then
 
   PACKAGE_COUNTER=0
   for p in $AMD_KEYS; do
-    CCD_TEMPS=$(echo "$SENSORS_JSON" | jq -r ".\"$p\" | to_entries | .[] | select(.key|test(\"Tccd\")) | .value.temp1_input")
+    CCD_KEYS=$(echo "$SENSORS_JSON" | jq -r ".\"$p\" | to_entries | .[] | select(.key|test(\"Tccd\")) | .key")
+    CCD_TEMPS=""
+    for c in $CCD_KEYS; do
+      CCD_TEMP=$(echo "$SENSORS_JSON" | jq -r ".\"$p\".\"$c\" | to_entries | .[] | select(.key|test(\"temp\")) | .value")
+      CCD_TEMPS=$(echo -e "$CCD_TEMPS\n$CCD_TEMP")
+    done
 
     if [ -z "$CCD_TEMPS" ]; then
       echo "No CCD temperatures found." > "$TEMP_FILE"
