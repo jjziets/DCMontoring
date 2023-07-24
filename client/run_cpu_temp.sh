@@ -34,7 +34,10 @@ elif [ "$IS_AMD" = "true" ]; then
 
   PACKAGE_COUNTER=0
   for p in $AMD_KEYS; do
-    PACKAGE_TEMP=$(echo "$SENSORS_JSON" | jq ".\"$p\".Tctl.temp1_input")
+    CCD_TEMPS=$(echo "$SENSORS_JSON" | jq ".\"$p\" | {Tccd1: .Tccd1.temp1_input, Tccd3: .Tccd3.temp1_input, Tccd5: .Tccd5.temp1_input, Tccd7: .Tccd7.temp1_input} | select(. != null) | .[]")
+    CCD_COUNT=$(echo "$CCD_TEMPS" | wc -l)
+    PACKAGE_TEMP=$(echo "$CCD_TEMPS" | awk '{s+=$1} END {print s/('"$CCD_COUNT"')}')
+
     if [ "$PACKAGE_TEMP" == "null" ]; then
       PACKAGE_TEMP=$(echo "$SENSORS_JSON" | jq ".\"$p\".Tdie.temp1_input")
     fi
