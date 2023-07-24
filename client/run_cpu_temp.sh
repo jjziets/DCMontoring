@@ -39,14 +39,19 @@ elif [ "$IS_AMD" = "true" ]; then
       CCD_TEMP=$(echo "$SENSORS_JSON" | jq -r ".\"$p\".\"$c\" | to_entries | .[] | select(.key|test(\"temp\")) | .value")
       CCD_TEMPS=$(echo -e "$CCD_TEMPS\n$CCD_TEMP")
     done
+    
+    TDIE_TEMP=$(echo "$SENSORS_JSON" | jq -r ".\"$p\".Tdie.temp1_input")
+    TCTL_TEMP=$(echo "$SENSORS_JSON" | jq -r ".\"$p\".Tctl.temp2_input")
+    
+    ALL_TEMPS=$(echo -e "$CCD_TEMPS\n$TDIE_TEMP\n$TCTL_TEMP" | grep -v null)
 
-    if [ -z "$CCD_TEMPS" ]; then
-      echo "No CCD temperatures found." > "$TEMP_FILE"
+    if [ -z "$ALL_TEMPS" ]; then
+      echo "No CCD, Tdie or Tctl temperatures found." > "$TEMP_FILE"
       exit 1
     fi
 
-    CCD_COUNT=$(echo "$CCD_TEMPS" | wc -l)
-    PACKAGE_TEMP=$(echo "$CCD_TEMPS" | awk '{s+=$1} END {print s/NR}')
+    TEMP_COUNT=$(echo "$ALL_TEMPS" | wc -l)
+    PACKAGE_TEMP=$(echo "$ALL_TEMPS" | awk '{s+=$1} END {print s/NR}')
 
     echo "node_cpu_temperature{package=\"$PACKAGE_COUNTER\"} $PACKAGE_TEMP" >> "$TEMP_FILE"
     PACKAGE_COUNTER=$((PACKAGE_COUNTER + 1))
