@@ -14,7 +14,6 @@ while true; do
   IS_AMD=$(echo "$SENSORS_JSON" | jq 'keys[] | test("k10temp-pci-")' | grep -q "true" && echo "true" || echo "false")
   IS_BNXT=$(echo "$SENSORS_JSON" | jq 'keys[] | test("bnxt_en-pci-")' | grep -q "true" && echo "true" || echo "false")
 
-
 if [ "$IS_INTEL" = "true" ]; then
   # Intel CPU(s)
 
@@ -34,13 +33,16 @@ elif [ "$IS_AMD" = "true" ]; then
 
   PACKAGE_COUNTER=0
   for p in $AMD_KEYS; do
-    CCD_TEMPS=$(echo "$SENSORS_JSON" | jq ".\"$p\" | {Tccd1: .Tccd1.temp1_input, Tccd3: .Tccd3.temp1_input, Tccd5: .Tccd5.temp1_input, Tccd7: .Tccd7.temp1_input} | select(. != null) | .[]")
-    CCD_COUNT=$(echo "$CCD_TEMPS" | wc -l)
-    PACKAGE_TEMP=$(echo "$CCD_TEMPS" | awk '{s+=$1} END {print s/('"$CCD_COUNT"')}')
+    CCD_TEMPS=$(echo "$SENSORS_JSON" | jq -r ".\"$p\" | to_entries | .[] | select(.key|test(\"Tccd\")) | .value.temp1_input")
 
-    if [ "$PACKAGE_TEMP" == "null" ]; then
-      PACKAGE_TEMP=$(echo "$SENSORS_JSON" | jq ".\"$p\".Tdie.temp1_input")
+    if [ -z "$CCD_TEMPS" ]; then
+      echo "No CCD temperatures found." > "$TEMP_FILE"
+      exit 1
     fi
+
+    CCD_COUNT=$(echo "$CCD_TEMPS" | wc -l)
+    PACKAGE_TEMP=$(echo "$CCD_TEMPS" | awk '{s+=$1} END {print s/NR}')
+
     echo "node_cpu_temperature{package=\"$PACKAGE_COUNTER\"} $PACKAGE_TEMP" >> "$TEMP_FILE"
     PACKAGE_COUNTER=$((PACKAGE_COUNTER + 1))
   done
