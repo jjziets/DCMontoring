@@ -45,7 +45,7 @@ if successful the output should show that node exporter is running as a service
 
 
 # Server install
-If you have docker running you can skip this step
+If you have docker running you can skip this step.
 ```
 sudo apt-get update
 sudo apt-get upgrade
@@ -70,7 +70,7 @@ wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/server/docker-co
 
 also, make a prometheus.yml that looks like this https://github.com/jjziets/DCMontoring/blob/main/server/prometheus.yml
 
-you should edit the docker-compose.yml and have it mount the prometheus.yml in other word use nano to edit the path of prometheus.yml
+you should edit the docker-compose.yml and edit the docker-compose.yml to add your vast apy key under  vastai-exporter:
 
 ```
 docker-compose up -d # this will start all server
