@@ -143,7 +143,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "sum by (job) (irate(node_cpu_seconds_total{mode=\"system\"}[$__rate_interval])) / on(job) group_left sum by (job)((irate(node_cpu_seconds_total{}[$__rate_interval]))) * 300 * count by (job)(node_cpu_temperature{package=~\"[0-9]+\"}) + sum by (job) (DCGM_FI_DEV_POWER_USAGE) + 100",
+          "expr": "sum by (job) (irate(node_cpu_seconds_total{mode=\"system\"}[$__rate_interval])) / on(job) group_left sum by (job)((irate(node_cpu_seconds_total{}[$__rate_interval]))) * $CPU_Max_Power * count by (job)(node_cpu_temperature{package=~\"[0-9]+\"}) + sum by (job) (DCGM_FI_DEV_POWER_USAGE) + $BasePower",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -166,8 +166,10 @@
           "custom": {
             "align": "auto",
             "cellOptions": {
-              "type": "color-text"
+              "mode": "gradient",
+              "type": "color-background"
             },
+            "filterable": false,
             "inspect": false,
             "minWidth": 65
           },
@@ -222,7 +224,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "text",
+                "color": "transparent",
                 "value": null
               }
             ]
@@ -371,6 +373,7 @@
           "id": "organize",
           "options": {
             "excludeByName": {
+              "DCGM_FI_DRIVER_VERSION 1": true,
               "DCGM_FI_DRIVER_VERSION 2": true,
               "DCGM_FI_DRIVER_VERSION 3": true,
               "DCGM_FI_DRIVER_VERSION 4": true,
@@ -1103,7 +1106,49 @@
     "Linux"
   ],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "300",
+          "value": "300"
+        },
+        "description": "This is the max power used by a CPU",
+        "hide": 0,
+        "label": "CPU Max Power",
+        "name": "CPU_Max_Power",
+        "options": [
+          {
+            "selected": true,
+            "text": "300",
+            "value": "300"
+          }
+        ],
+        "query": "300",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "100",
+          "value": "100"
+        },
+        "hide": 0,
+        "label": "System Base Power",
+        "name": "BasePower",
+        "options": [
+          {
+            "selected": true,
+            "text": "100",
+            "value": "100"
+          }
+        ],
+        "query": "100",
+        "skipUrlSync": false,
+        "type": "textbox"
+      }
+    ]
   },
   "time": {
     "from": "now-5m",
@@ -1113,6 +1158,6 @@
   "timezone": "",
   "title": "DC OverView",
   "uid": "b7573857-fb4d-4389-8159-edbad8b65e5b",
-  "version": 11,
+  "version": 17,
   "weekStart": ""
 }
