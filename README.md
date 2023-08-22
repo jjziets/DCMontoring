@@ -10,6 +10,8 @@ Cadvisor exporter for container monitoring
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/676b465c-23bf-4b56-930d-8abfc86da7ce)
 Alerting with telegram alarms 
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/99633c52-7b15-44be-b601-b52539a2fe6e)
+Vast-dasboard
+https://raw.githubusercontent.com/jjziets/DCMontoring/main/Vast%20Dashboard-1692692563948.json
 
 
 
@@ -70,7 +72,7 @@ wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/server/docker-co
 
 also, make a prometheus.yml that looks like this https://github.com/jjziets/DCMontoring/blob/main/server/prometheus.yml
 
-you should edit the docker-compose.yml and edit the docker-compose.yml to add your vast apy key under  vastai-exporter:
+you should edit the docker-compose.yml to add your vast api key under  vastai-exporter:
 
 ```
 docker-compose up -d # this will start all server
