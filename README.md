@@ -1,7 +1,9 @@
 # DCMontoring
 Prometheus Grafana nvidia GPU monitoring systems 
+Vast-dasboard
+![image](https://github.com/jjziets/DCMontoring/assets/19214485/793a57d0-3a4b-41fd-8e49-9ad4cc59934b)
 Overview Dashboard
-![image](https://github.com/jjziets/DCMontoring/assets/19214485/fb6e026c-f9ee-4459-8d3f-6a9bcddda549)
+![image](https://github.com/jjziets/DCMontoring/assets/19214485/cc5c1b4a-a8b5-4249-bc13-6bcc5c7f1cfb)
 Node exporter for system monitoring
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/95bcbabd-09da-4174-a985-3635e09aba41)
 Nvidia-dcgm-exporter for GPU matrix 
@@ -10,8 +12,7 @@ Cadvisor exporter for container monitoring
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/676b465c-23bf-4b56-930d-8abfc86da7ce)
 Alerting with telegram alarms 
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/99633c52-7b15-44be-b601-b52539a2fe6e)
-Vast-dasboard
-![image](https://github.com/jjziets/DCMontoring/assets/19214485/793a57d0-3a4b-41fd-8e49-9ad4cc59934b)
+
 
 
 
