@@ -1,6 +1,7 @@
 # DCMontoring
 Prometheus Grafana nvidia GPU monitoring systems 
-Vast-dasboard
+
+Vast-dashboard
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/793a57d0-3a4b-41fd-8e49-9ad4cc59934b)
 Overview Dashboard
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/cc5c1b4a-a8b5-4249-bc13-6bcc5c7f1cfb)
