@@ -11,7 +11,9 @@ Cadvisor exporter for container monitoring
 Alerting with telegram alarms 
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/99633c52-7b15-44be-b601-b52539a2fe6e)
 Vast-dasboard
-https://raw.githubusercontent.com/jjziets/DCMontoring/main/Vast%20Dashboard-1692692563948.json
+![image](https://github.com/jjziets/DCMontoring/assets/19214485/793a57d0-3a4b-41fd-8e49-9ad4cc59934b)
+
+
 
 
 
@@ -95,6 +97,8 @@ Cadvisor exporter-1684242167975.json https://github.com/jjziets/DCMontoring/blob
 Node Exporter Full-1684242153326.json https://github.com/jjziets/DCMontoring/blob/main/Node%20Exporter%20Full-1684242153326.json
 
 NVIDIA DCGM Exporter-1684242180498.json https://github.com/jjziets/DCMontoring/blob/main/NVIDIA%20DCGM%20Exporter-1684242180498.json
+
+Vast-dasboard https://raw.githubusercontent.com/jjziets/DCMontoring/main/Vast%20Dashboard-1692692563948.json
 
 
 
