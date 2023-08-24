@@ -810,19 +810,19 @@
               },
               {
                 "color": "blue",
-                "value": 30
+                "value": 20
               },
               {
                 "color": "yellow",
-                "value": 50
+                "value": 40
               },
               {
                 "color": "orange",
-                "value": 70
+                "value": 60
               },
               {
                 "color": "red",
-                "value": 100
+                "value": 80
               }
             ]
           },
@@ -1514,8 +1514,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "green",
-            "mode": "fixed"
+            "mode": "thresholds"
           },
           "custom": {
             "fillOpacity": 70,
@@ -1704,6 +1703,8 @@
             "spanNulls": false
           },
           "mappings": [],
+          "max": 10,
+          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -1713,7 +1714,7 @@
               },
               {
                 "color": "red",
-                "value": 1
+                "value": 5
               }
             ]
           }
@@ -1751,6 +1752,7 @@
           },
           "editorMode": "code",
           "expr": "vastai_machine_ErrorDescription",
+          "format": "time_series",
           "legendFormat": "{{machine_id}}",
           "range": true,
           "refId": "A"
@@ -2094,13 +2096,13 @@
     "list": []
   },
   "time": {
-    "from": "now-2d",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Vast Dashboard",
   "uid": "d1e22d5b-dcf4-4f54-8629-972173cb24eb",
-  "version": 27,
+  "version": 30,
   "weekStart": ""
 }
