@@ -57,9 +57,7 @@ services:
     image: jjziets/vastai-exporter
     ports:
       - "8622:8622"
-    command:
-      - "--key=YOURVASTAPIKEY"
-      - "--state-dir=/var/run/vastai-exporter"
+    command: "--api-key=vastkey"
     restart: always
     
 volumes:
