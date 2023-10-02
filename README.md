@@ -63,7 +63,7 @@ sudo apt  install docker.io
 
 ```
 
-Below is for getting the grafana and prometheus db up and running.
+Below is for getting the grafana, prometheus db up and running and he vast node exporter.
 
 ```
 sudo su
@@ -77,7 +77,17 @@ wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/server/docker-co
 also, make a prometheus.yml that looks like this https://github.com/jjziets/DCMontoring/blob/main/server/prometheus.yml
 change the job(Machine) names and IP's for the machine you want to scrape. The server that runs grafana/prometheuse needs to be able to access the host ips. I use tailscale and run a VPS but if its on your local host you can use the local IP's
 
-you should edit the docker-compose.yml to add your vast api key under  vastai-exporter:
+you should edit the docker-compose.yml to add your vast api key under  vastai-exporter: look for the section and replace the vastkey with the key for your account
+```
+vastai-exporter:
+    image: jjziets/vastai-exporter
+    ports:
+      - "8622:8622"
+    command:
+      - "--api-key=vastkey"
+    restart: always
+
+```
 
 ```
 docker-compose up -d # this will start all server
