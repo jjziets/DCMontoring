@@ -30,12 +30,6 @@ services:
     ports:
       - "8080:8080"
 
-  vastai-exporter:
-    image: jjziets/vastai-exporter
-    ports:
-      - "8622:8622"
-    command: "--api-key=vastkey"
-
 restart: always
     volumes:
       - "/:/rootfs:ro"
