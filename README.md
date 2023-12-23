@@ -1,5 +1,35 @@
-# DCMontoring
-Prometheus Grafana nvidia GPU monitoring systems 
+# DCMonitoring
+Welcome to DCMonitoring, your comprehensive solution for operational development and system performance tracking. This robust Prometheus Grafana Nvidia GPU monitoring system is designed for clients seeking advanced insights into their operational infrastructures.
+
+What is DCMonitoring?
+DCMonitoring is a state-of-the-art tool that integrates seamlessly with platforms like Vast, RunPod, and others, offering continuous support and deployment assistance. As a testament to our commitment to the community and quality, DCMonitoring is entirely free for use, modification, and distribution. It is provided 'as is' with no guarantee, serving not only as a reliable monitoring tool but also as an indicator of our expertise and dedication to operational excellence.
+
+Features:
+Comprehensive Monitoring: Track your system's health, performance, and reliability with detailed insights into GPU matrices, system statistics, container performance, and more.
+Customizable and Extendable: Adapt and extend the functionality according to your needs and preferences. The tool's open nature allows for modifications and enhancements.
+Community Supported: Join our community on Discord (Etherion#0700) for support, updates, and networking with other users and contributors.
+Donation Supported: While the tool is entirely free, we welcome donations to support ongoing development and improvement. Donations can be made via various cryptocurrencies or PayPal.
+Getting Started:
+Client Installation: Follow detailed instructions for setup on platforms like VastAI and RunPod. The installation guide ensures you are up and running with minimal hassle.
+Server Installation: Easy-to-follow steps to get your Grafana, Prometheus, and other necessary components up and running for a complete monitoring setup.
+Configuration and Customization: Detailed documentation to tailor the monitoring system to your specific needs, including how to link Prometheus with Grafana and set up custom dashboards.
+Troubleshooting and Support: Guidelines on addressing common issues such as DB locks and setting up Telegram alerts for real-time notifications.
+Contributions and Support:
+Your feedback and contributions are what make DCMonitoring a powerful and community-driven tool. Whether you're a developer looking to contribute to the project or a user seeking assistance, join us on Discord (Etherion#0700) for support and collaboration.
+
+Final Notes:
+As we offer DCMonitoring for free, Your welcome to use it. We can help with deoplyment for bigger users. Our aim is to provide a comprehensive set of tools that enhance operational development and system monitoring. We're continually evolving and appreciate every contribution and feedback.
+
+Note: The tool comes with no guarantee. Please review the documentation and license agreements before use.
+
+Find us on Discord: Etherion#0700 for more information, support, and community engagement. Your journey towards efficient and effective system monitoring starts here!
+
+If you find this useful and would like to donate, you can send your donations to the following wallets.
+BTC 15qkQSYXP2BvpqJkbj2qsNFb6nd7FyVcou
+XMR 897VkA8sG6gh7yvrKrtvWningikPteojfSgGff3JAUs3cu7jxPDjhiAZRdcQSYPE2VGFVHAdirHqRZEpZsWyPiNK6XPQKAg
+RVN RSgWs9Co8nQeyPqQAAqHkHhc5ykXyoMDUp
+USDT(ETH ERC20) 0xa5955cf9fe7af53bcaa1d2404e2b17a1f28aac4f
+Paypal PayPal.Me/cryptolabsZA
 
 Vast-dashboard
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/793a57d0-3a4b-41fd-8e49-9ad4cc59934b)
