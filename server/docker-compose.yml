@@ -7,24 +7,14 @@ services:
     volumes:
       - grafana-data:/var/lib/grafana
     restart: always
-  mysql:
-    image: mysql:8
-    environment:
-      MYSQL_ROOT_PASSWORD: "mypass"
-      MYSQL_DATABASE: "database"
-      MYSQL_USER: "user"
-      MYSQL_PASSWORD: "SQLPass"
-    ports:
-      - "3306:3306"
-    volumes:
-      - mysql-data:/var/lib/mysql
-    restart: always
   prometheus:
     image: prom/prometheus
     ports:
       - "9090:9090"
     volumes:
-      - /home/vast/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./cpu_power_usage_rules.yml:/etc/prometheus/cpu_power_usage_rules.yml
+      - prometheus-data:/prometheus
     restart: always
 
   node-exporter:
@@ -33,6 +23,7 @@ services:
     restart: unless-stopped
     network_mode: host
     pid: host
+    hostname: "vastbackup"
     volumes:
       - "/:/host:ro,rslave"
     command: ["--path.rootfs=/host"]
@@ -58,9 +49,22 @@ services:
     ports:
       - "8622:8622"
     command:
-      - "--api-key=vastkey"
+      - "--api-key=your_vast_api_key" //Remeber to chagne this 
     restart: always
+
+  dcgm-exporter:
+    image: jjziets/dcgm-exporter:latest
+    container_name: dcgm-exporter
+    restart: unless-stopped
+    ports:
+      - "9400:9400"
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    hostname: "vastbackup"
+
+
     
 volumes:
   grafana-data:
-  mysql-data:
+  prometheus-data:
