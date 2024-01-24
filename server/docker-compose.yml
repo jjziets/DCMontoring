@@ -49,7 +49,7 @@ services:
     ports:
       - "8622:8622"
     command:
-      - "--api-key=your_vast_api_key" //Remeber to change this 
+      - "--api-key=your_vast_api_key" //Remember to change this 
     restart: always
 
     
