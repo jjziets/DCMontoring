@@ -49,20 +49,8 @@ services:
     ports:
       - "8622:8622"
     command:
-      - "--api-key=your_vast_api_key" //Remeber to chagne this 
+      - "--api-key=your_vast_api_key" //Remeber to change this 
     restart: always
-
-  dcgm-exporter:
-    image: jjziets/dcgm-exporter:latest
-    container_name: dcgm-exporter
-    restart: unless-stopped
-    ports:
-      - "9400:9400"
-    runtime: nvidia
-    environment:
-      - NVIDIA_VISIBLE_DEVICES=all
-    hostname: "vastbackup"
-
 
     
 volumes:
