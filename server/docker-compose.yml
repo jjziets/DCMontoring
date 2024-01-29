@@ -49,9 +49,34 @@ services:
     ports:
       - "8622:8622"
     command:
-      - "--api-key=your_vast_api_key" //Remember to change this 
+      - "--api-key=Replace_With_your_Vast_API_Key" //Remember to replace this with your vast API Key
     restart: always
 
+  dcgm-exporter:
+    image: jjziets/dcgm-exporter:latest
+    container_name: dcgm-exporter
+    restart: unless-stopped
+    ports:
+      - "9400:9400"
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    hostname: "vastbackup"
+
+
+  gddr6-metrics-exporter:
+    image: jjziets/gddr6-metrics-exporter:latest
+    privileged: true
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    ports:
+      - "9500:9500"
     
 volumes:
   grafana-data:
