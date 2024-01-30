@@ -38,9 +38,9 @@ Vast-dashboard
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/32079c66-48a9-454c-b4f7-fb06907e0b87)
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/79ea9c8d-69c0-4d8e-9257-059265f643a9)
 
-
 Overview Dashboard
-![image](https://github.com/jjziets/DCMontoring/assets/19214485/cc5c1b4a-a8b5-4249-bc13-6bcc5c7f1cfb)
+![image](https://github.com/jjziets/DCMontoring/assets/19214485/114c2d00-cdce-4eac-9f7f-1777b9856377)
+
 Node exporter for system monitoring
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/95bcbabd-09da-4174-a985-3635e09aba41)
 Nvidia-dcgm-exporter for GPU matrix 
