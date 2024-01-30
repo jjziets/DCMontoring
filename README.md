@@ -69,7 +69,9 @@ chmod +x /usr/local/bin/docker-compose
 ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 apt-get update && sudo apt-get install -y gettext-base
 wget -O docker-compose.yml https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/docker-compose.yml-vast
+docker-compose pull
 sed "s/__HOST_HOSTNAME__/$(hostname)/g" docker-compose.yml | docker-compose -f - up -d
+
 ```
 For Runpod you  need to run the following commands as sudo 
 Vast host don't need to do this step as all the monitoring tools will be in docker containers. 
