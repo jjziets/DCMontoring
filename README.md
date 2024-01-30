@@ -83,6 +83,14 @@ chmod +x install_node_exporter.sh
 wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/install_NvidiaDCGM_Exporter.sh
 chmod +x install_NvidiaDCGM_Exporter.sh
 ./install_NvidiaDCGM_Exporter.sh
+
+bash -c "\
+sudo wget -q -O /usr/local/bin/gddr6-metrics-exporter_supervisor_script.sh https://raw.githubusercontent.com/jjziets/gddr6_temps/master/gddr6-metrics-exporter_supervisor_script.sh && \
+sudo chmod +x /usr/local/bin/gddr6-metrics-exporter_supervisor_script.sh && \
+sudo wget -q -O /etc/systemd/system/gddr6-metrics-exporter.service https://raw.githubusercontent.com/jjziets/gddr6_temps/master/gddr6-metrics-exporter.service && \
+sudo systemctl daemon-reload && \
+sudo systemctl enable gddr6-metrics-exporter && \
+sudo systemctl start gddr6-metrics-exporter"
 ```
 
 
