@@ -1252,27 +1252,70 @@
           "custom": {
             "align": "auto",
             "cellOptions": {
-              "type": "auto"
+              "mode": "gradient",
+              "type": "color-background"
             },
+            "filterable": false,
             "inspect": false,
             "minWidth": 65
           },
           "decimals": 0,
-          "mappings": [],
+          "mappings": [
+            {
+              "options": {
+                "from": 0,
+                "result": {
+                  "color": "blue",
+                  "index": 0
+                },
+                "to": 50
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 51,
+                "result": {
+                  "color": "green",
+                  "index": 1
+                },
+                "to": 70
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 71,
+                "result": {
+                  "color": "yellow",
+                  "index": 2
+                },
+                "to": 80
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 81,
+                "result": {
+                  "color": "red",
+                  "index": 3
+                },
+                "to": 100
+              },
+              "type": "range"
+            }
+          ],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
+                "color": "transparent",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
-          "unit": "percent"
+          "unit": "%"
         },
         "overrides": []
       },
@@ -1282,7 +1325,7 @@
         "x": 12,
         "y": 18
       },
-      "id": 3,
+      "id": 7,
       "options": {
         "cellHeight": "sm",
         "footer": {
@@ -1403,7 +1446,7 @@
           "refId": "H"
         }
       ],
-      "title": "Machine GPU Fans",
+      "title": "Machine GPU FAN Speeds",
       "transformations": [
         {
           "id": "joinByField",
@@ -1416,6 +1459,7 @@
           "id": "organize",
           "options": {
             "excludeByName": {
+              "DCGM_FI_DRIVER_VERSION 1": true,
               "DCGM_FI_DRIVER_VERSION 2": true,
               "DCGM_FI_DRIVER_VERSION 3": true,
               "DCGM_FI_DRIVER_VERSION 4": true,
@@ -1443,6 +1487,7 @@
               "UUID 6": true,
               "UUID 7": true,
               "UUID 8": true,
+              "Value #D": false,
               "__name__ 1": true,
               "__name__ 2": true,
               "__name__ 3": true,
@@ -1531,10 +1576,10 @@
               "Hostname 1": "",
               "Value #A": "GPU 0",
               "Value #B": "GPU 1",
-              "Value #C": "GPU 3",
-              "Value #D": "GPU 4",
-              "Value #E": "GPU 5",
-              "Value #F": "GPU 6",
+              "Value #C": "GPU 2",
+              "Value #D": "GPU 3",
+              "Value #E": "GPU 4",
+              "Value #F": "GPU 5",
               "Value #G": "GPU 6",
               "Value #H": "GPU 7",
               "job": "Machine"
@@ -1882,6 +1927,6 @@
   "timezone": "",
   "title": "DC OverView",
   "uid": "b7573857-fb4d-4389-8159-edbad8b65e5b",
-  "version": 18,
+  "version": 21,
   "weekStart": ""
 }
