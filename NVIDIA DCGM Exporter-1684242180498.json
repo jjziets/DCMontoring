@@ -278,6 +278,8 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMax": 100,
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -391,6 +393,9 @@
               "viz": false
             },
             "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
+            },
             "lineWidth": 2,
             "pointSize": 5,
             "scaleDistribution": {
@@ -414,10 +419,14 @@
               {
                 "color": "green",
                 "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
               }
             ]
           },
-          "unit": "watt"
+          "unit": "celsius"
         },
         "overrides": []
       },
@@ -427,7 +436,7 @@
         "x": 12,
         "y": 8
       },
-      "id": 10,
+      "id": 29,
       "options": {
         "legend": {
           "calcs": [
@@ -451,15 +460,14 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "exemplar": true,
-          "expr": "DCGM_FI_DEV_POWER_USAGE{job=\"$job\", gpu=~\"${gpu}\"}",
+          "expr": "DCGM_FI_DEV_VRAM_TEMP{job=\"$job\", gpu=~\"${gpu}\"}",
+          "instant": false,
           "interval": "",
           "legendFormat": "GPU {{gpu}}",
-          "range": true,
           "refId": "A"
         }
       ],
-      "title": "GPU Power Usage",
+      "title": "GPU VRAM Temperature",
       "type": "timeseries"
     },
     {
@@ -570,7 +578,6 @@
         "type": "prometheus",
         "uid": "${DS_PROMETHEUS}"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -608,8 +615,6 @@
           },
           "links": [],
           "mappings": [],
-          "max": 100,
-          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -619,7 +624,7 @@
               }
             ]
           },
-          "unit": "percent"
+          "unit": "watt"
         },
         "overrides": []
       },
@@ -629,7 +634,7 @@
         "x": 12,
         "y": 16
       },
-      "id": 21,
+      "id": 10,
       "options": {
         "legend": {
           "calcs": [
@@ -654,14 +659,14 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "DCGM_FI_DEV_MEM_COPY_UTIL{job=\"$job\", gpu=~\"${gpu}\"}",
+          "expr": "DCGM_FI_DEV_POWER_USAGE{job=\"$job\", gpu=~\"${gpu}\"}",
           "interval": "",
           "legendFormat": "GPU {{gpu}}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "GPU Memory Bandwidth Utilization",
+      "title": "GPU Power Usage",
       "type": "timeseries"
     },
     {
@@ -711,7 +716,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -786,15 +792,12 @@
               "viz": false
             },
             "lineInterpolation": "linear",
-            "lineStyle": {
-              "fill": "solid"
-            },
             "lineWidth": 2,
-            "pointSize": 4,
+            "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
+            "showPoints": "never",
             "spanNulls": 60000,
             "stacking": {
               "group": "A",
@@ -806,15 +809,18 @@
           },
           "links": [],
           "mappings": [],
+          "max": 100,
+          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
-          "unit": "cps"
+          "unit": "percent"
         },
         "overrides": []
       },
@@ -824,7 +830,7 @@
         "x": 12,
         "y": 24
       },
-      "id": 22,
+      "id": 21,
       "options": {
         "legend": {
           "calcs": [
@@ -849,14 +855,14 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "DCGM_FI_DEV_NVLINK_BANDWIDTH_TOTAL{job=\"$job\", gpu=~\"${gpu}\"}",
+          "expr": "DCGM_FI_DEV_MEM_COPY_UTIL{job=\"$job\", gpu=~\"${gpu}\"}",
           "interval": "",
           "legendFormat": "GPU {{gpu}}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "GPU NVLink Bandwidth",
+      "title": "GPU Memory Bandwidth Utilization",
       "type": "timeseries"
     },
     {
@@ -966,6 +972,7 @@
         "type": "prometheus",
         "uid": "${DS_PROMETHEUS}"
       },
+      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -990,11 +997,11 @@
               "fill": "solid"
             },
             "lineWidth": 2,
-            "pointSize": 5,
+            "pointSize": 4,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "never",
+            "showPoints": "auto",
             "spanNulls": 60000,
             "stacking": {
               "group": "A",
@@ -1010,15 +1017,12 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
-              },
-              {
-                "color": "red",
-                "value": 80
+                "color": "green",
+                "value": null
               }
             ]
           },
-          "unit": "celsius"
+          "unit": "cps"
         },
         "overrides": []
       },
@@ -1028,7 +1032,7 @@
         "x": 12,
         "y": 32
       },
-      "id": 28,
+      "id": 22,
       "options": {
         "legend": {
           "calcs": [
@@ -1051,15 +1055,16 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "DCGM_FI_DEV_MEMORY_TEMP{instance=~\"${instance}\", gpu=~\"${gpu}\"}",
-          "instant": false,
+          "expr": "DCGM_FI_DEV_NVLINK_BANDWIDTH_TOTAL{job=\"$job\", gpu=~\"${gpu}\"}",
           "interval": "",
           "legendFormat": "GPU {{gpu}}",
+          "range": true,
           "refId": "A"
         }
       ],
-      "title": "GPU Memory Temperature",
+      "title": "GPU NVLink Bandwidth",
       "type": "timeseries"
     },
     {
@@ -1165,7 +1170,6 @@
         "type": "prometheus",
         "uid": "${DS_PROMETHEUS}"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1190,11 +1194,11 @@
               "fill": "solid"
             },
             "lineWidth": 2,
-            "pointSize": 4,
+            "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
+            "showPoints": "never",
             "spanNulls": 60000,
             "stacking": {
               "group": "A",
@@ -1211,10 +1215,14 @@
             "steps": [
               {
                 "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
               }
             ]
           },
-          "unit": "binBps"
+          "unit": "celsius"
         },
         "overrides": []
       },
@@ -1224,7 +1232,7 @@
         "x": 12,
         "y": 40
       },
-      "id": 26,
+      "id": 28,
       "options": {
         "legend": {
           "calcs": [
@@ -1247,16 +1255,15 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "editorMode": "code",
           "exemplar": true,
-          "expr": "DCGM_FI_PROF_PCIE_RX_BYTES{job=\"$job\", gpu=~\"${gpu}\"}",
+          "expr": "DCGM_FI_DEV_MEMORY_TEMP{instance=~\"${instance}\", gpu=~\"${gpu}\"}",
+          "instant": false,
           "interval": "",
           "legendFormat": "GPU {{gpu}}",
-          "range": true,
           "refId": "A"
         }
       ],
-      "title": "GPU PCIe Receive",
+      "title": "GPU Memory Temperature",
       "type": "timeseries"
     },
     {
@@ -1362,6 +1369,7 @@
         "type": "prometheus",
         "uid": "${DS_PROMETHEUS}"
       },
+      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1382,8 +1390,11 @@
               "viz": false
             },
             "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
+            },
             "lineWidth": 2,
-            "pointSize": 5,
+            "pointSize": 4,
             "scaleDistribution": {
               "type": "linear"
             },
@@ -1399,8 +1410,6 @@
           },
           "links": [],
           "mappings": [],
-          "max": 1,
-          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -1409,7 +1418,7 @@
               }
             ]
           },
-          "unit": "percentunit"
+          "unit": "binBps"
         },
         "overrides": []
       },
@@ -1419,7 +1428,7 @@
         "x": 12,
         "y": 48
       },
-      "id": 23,
+      "id": 26,
       "options": {
         "legend": {
           "calcs": [
@@ -1444,14 +1453,14 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "DCGM_FI_PROF_PIPE_TENSOR_ACTIVE{job=\"$job\", gpu=~\"${gpu}\"}",
+          "expr": "DCGM_FI_PROF_PCIE_RX_BYTES{job=\"$job\", gpu=~\"${gpu}\"}",
           "interval": "",
           "legendFormat": "GPU {{gpu}}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "GPU Tensor Core Utilization",
+      "title": "GPU PCIe Receive",
       "type": "timeseries"
     },
     {
@@ -1552,12 +1561,111 @@
       ],
       "title": "GPU PCIe Transmit",
       "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": 60000,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "max": 1,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 56
+      },
+      "id": 23,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "8.2.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "DCGM_FI_PROF_PIPE_TENSOR_ACTIVE{job=\"$job\", gpu=~\"${gpu}\"}",
+          "interval": "",
+          "legendFormat": "GPU {{gpu}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "GPU Tensor Core Utilization",
+      "type": "timeseries"
     }
   ],
   "refresh": "",
   "schemaVersion": 38,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "nvidia"
+  ],
   "templating": {
     "list": [
       {
@@ -1631,6 +1739,6 @@
   "timezone": "",
   "title": "NVIDIA DCGM Exporter",
   "uid": "Oxed_c6Wz2",
-  "version": 11,
+  "version": 14,
   "weekStart": ""
 }
