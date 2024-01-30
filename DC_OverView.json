@@ -28,12 +28,6 @@
       "id": "table",
       "name": "Table",
       "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "timeseries",
-      "name": "Time series",
-      "version": ""
     }
   ],
   "annotations": {
@@ -59,99 +53,6 @@
   "links": [],
   "liveNow": false,
   "panels": [
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": true,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "watt"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 10,
-        "w": 24,
-        "x": 0,
-        "y": 0
-      },
-      "id": 4,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "sum by (job) (irate(node_cpu_seconds_total{mode=\"system\"}[$__rate_interval])) / on(job) group_left sum by (job)((irate(node_cpu_seconds_total{}[$__rate_interval]))) * $CPU_Max_Power * count by (job)(node_cpu_temperature{package=~\"[0-9]+\"}) + sum by (job) (DCGM_FI_DEV_POWER_USAGE) + $BasePower",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Machines Power usage",
-      "type": "timeseries"
-    },
     {
       "datasource": {
         "type": "prometheus",
@@ -237,7 +138,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 10
+        "y": 0
       },
       "id": 2,
       "options": {
@@ -599,7 +500,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 10
+        "y": 0
       },
       "id": 5,
       "options": {
@@ -961,7 +862,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 18
+        "y": 8
       },
       "id": 6,
       "options": {
@@ -1323,7 +1224,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 18
+        "y": 8
       },
       "id": 7,
       "options": {
@@ -1640,7 +1541,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 26
+        "y": 16
       },
       "id": 1,
       "options": {
@@ -1875,49 +1776,7 @@
     "Linux"
   ],
   "templating": {
-    "list": [
-      {
-        "current": {
-          "selected": false,
-          "text": "300",
-          "value": "300"
-        },
-        "description": "This is the max power used by a CPU",
-        "hide": 0,
-        "label": "CPU Max Power",
-        "name": "CPU_Max_Power",
-        "options": [
-          {
-            "selected": true,
-            "text": "300",
-            "value": "300"
-          }
-        ],
-        "query": "300",
-        "skipUrlSync": false,
-        "type": "textbox"
-      },
-      {
-        "current": {
-          "selected": false,
-          "text": "100",
-          "value": "100"
-        },
-        "hide": 0,
-        "label": "System Base Power",
-        "name": "BasePower",
-        "options": [
-          {
-            "selected": true,
-            "text": "100",
-            "value": "100"
-          }
-        ],
-        "query": "100",
-        "skipUrlSync": false,
-        "type": "textbox"
-      }
-    ]
+    "list": []
   },
   "time": {
     "from": "now-5m",
@@ -1927,6 +1786,6 @@
   "timezone": "",
   "title": "DC OverView",
   "uid": "b7573857-fb4d-4389-8159-edbad8b65e5b",
-  "version": 21,
+  "version": 22,
   "weekStart": ""
 }
