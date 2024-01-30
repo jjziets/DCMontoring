@@ -44,7 +44,8 @@ Overview Dashboard
 Node exporter for system monitoring
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/95bcbabd-09da-4174-a985-3635e09aba41)
 Nvidia-dcgm-exporter for GPU matrix 
-![image](https://github.com/jjziets/DCMontoring/assets/19214485/4a927ca9-9e0b-4037-8538-acafde3dfea3)
+![image](https://github.com/jjziets/DCMontoring/assets/19214485/fd415556-2b51-4d98-9795-bff4ab890432)
+
 Cadvisor exporter for container monitoring
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/676b465c-23bf-4b56-930d-8abfc86da7ce)
 Alerting with telegram alarms 
@@ -83,11 +84,11 @@ chmod +x install_NvidiaDCGM_Exporter.sh
 ```
 
 
-if successful the output should show that node exporter is running as a service
+if successful, the output should show that node exporter is running as a service
 
 
 # Server install
-If you have docker running you can skip this step.
+If you have docker running, you can skip this step.
 ```
 sudo apt-get update
 sudo apt-get upgrade -y
@@ -99,7 +100,7 @@ sudo apt  install docker.io
 
 ```
 
-Below is for getting the grafana, prometheus db up and running and he vast node exporter.
+Below is for getting the Grafana, Prometheus db up and running and the vast node exporter.
 
 ```
 sudo su
@@ -113,7 +114,7 @@ wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/server/docker-co
 also, make a prometheus.yml that looks like this https://github.com/jjziets/DCMontoring/blob/main/server/prometheus.yml
 change the job(Machine) names and IP's for the machine you want to scrape. The server that runs grafana/prometheuse needs to be able to access the host ips. I use tailscale and run a VPS but if its on your local host you can use the local IP's
 
-you should edit the docker-compose.yml to add your vast api key under  vastai-exporter: look for the section and replace the vastkey with the key for your account
+you should edit the docker-compose.yml to add your vast api key under vastai-exporter: look for the section and replace the vastkey with the key for your account
 ```
 vastai-exporter:
     image: jjziets/vastai-exporter
@@ -130,12 +131,12 @@ docker-compose up -d # this will start all server
 ```
 
 
-After getting the server running you need to link the Prometheus database to Grafan
+After getting the server running you need to link the Prometheus database to Grafana
 Home
 Administration
 Data sources
 Prometheus
-. I found using the local ip works for example http://192.168.2.16:9090 not http://localhost:9090
+. I found using the local ip works for example http://100.126.9.42:9090 not http://localhost:9090 You can us the local ip address also. 
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/3b57733c-c8ca-47fb-8491-2f5afb0e4df8)
 
 # Dashboards
