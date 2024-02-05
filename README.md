@@ -1,11 +1,13 @@
 # DCMonitoring
 Welcome to DCMonitoring, your comprehensive solution for operational development and system performance tracking. This robust Prometheus Grafana Nvidia GPU monitoring system is designed for clients seeking advanced insights into their operational infrastructures.
 
-# UPDATE
-* ADDED VRAMS Temps panel.
-* ADDED HOTSPOT Temps panel.
-* ADDED Thermal Throttle.
+# Key Fetures
+* GPU RAMS Temps panel.
+* GPU HOTSPOT Temps panel.
+* Thermal Throttle.
 * Now, support systems with NVLINK are installed.
+* Detailed GPU and systems usage 
+* Telegram Alerts for events such as low disk space or over temperature. 
 
 What is DCMonitoring?
 DCMonitoring is a state-of-the-art tool that integrates seamlessly with platforms like Vast, RunPod, and others are planned, offering continuous support and deployment assistance. As a testament to our commitment to the community and quality, DCMonitoring is entirely free for use, modification, and distribution. It is provided 'as is' with no guarantee, serving not only as a reliable monitoring tool but also as an indicator of our expertise and dedication to operational excellence.
