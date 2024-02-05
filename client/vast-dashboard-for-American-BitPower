@@ -2293,6 +2293,7 @@
           "refId": "N"
         }
       ],
+      "timeFrom": "30s",
       "title": "Machine GPU Core Hot Spot",
       "transformations": [
         {
@@ -2575,7 +2576,7 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 70
+                "value": 72
               }
             ]
           }
@@ -2792,6 +2793,7 @@
           "refId": "N"
         }
       ],
+      "timeFrom": "30s",
       "title": "Machine GPU FAN Speeds",
       "transformations": [
         {
@@ -3091,7 +3093,7 @@
                   "color": "red",
                   "index": 3
                 },
-                "to": 100
+                "to": 200
               },
               "type": "range"
             }
@@ -3329,6 +3331,7 @@
           "refId": "N"
         }
       ],
+      "timeFrom": "30s",
       "title": "Machine GPU Temps",
       "transformations": [
         {
@@ -3842,6 +3845,7 @@
           "refId": "N"
         }
       ],
+      "timeFrom": "30s",
       "title": "Machine GPU VRAM Temps ",
       "transformations": [
         {
@@ -4337,6 +4341,7 @@
           "refId": "N"
         }
       ],
+      "timeFrom": "30s",
       "title": "Machine GPU Power",
       "transformations": [
         {
@@ -4835,6 +4840,7 @@
           "refId": "N"
         }
       ],
+      "timeFrom": "30s",
       "title": "Machine GPU Thermal Throttle",
       "transformations": [
         {
@@ -5528,8 +5534,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -5639,8 +5644,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -5870,6 +5874,6 @@
   "timezone": "",
   "title": "Vast Dashboard",
   "uid": "d1e22d5b-dcf4-4f54-8629-972173cb24eb",
-  "version": 13,
+  "version": 16,
   "weekStart": ""
 }
