@@ -1235,6 +1235,7 @@
           "refId": "I"
         }
       ],
+      "timeFrom": "30s",
       "title": "Machine_Info",
       "transformations": [
         {
@@ -1442,6 +1443,7 @@
           "refId": "A"
         }
       ],
+      "timeFrom": "30s",
       "title": "Reported GPU Count",
       "transformations": [
         {
@@ -5534,7 +5536,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -5644,7 +5647,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -5754,7 +5758,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -5874,6 +5879,6 @@
   "timezone": "",
   "title": "Vast Dashboard",
   "uid": "d1e22d5b-dcf4-4f54-8629-972173cb24eb",
-  "version": 16,
+  "version": 17,
   "weekStart": ""
 }
