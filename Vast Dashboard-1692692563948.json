@@ -2087,7 +2087,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "DCGM_FI_DEV_HOT_SPOT_TEMP{gpu=\"0\"}",
+          "expr": "last_over_time(DCGM_FI_DEV_HOT_SPOT_TEMP{gpu=\"0\"}[1m])",
           "format": "table",
           "hide": false,
           "legendFormat": "__auto",
@@ -2100,7 +2100,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "DCGM_FI_DEV_HOT_SPOT_TEMP{gpu=\"1\"}",
+          "expr": "last_over_time(DCGM_FI_DEV_HOT_SPOT_TEMP{gpu=\"1\"}[1m])\r\n",
           "format": "table",
           "hide": false,
           "legendFormat": "__auto",
@@ -2113,7 +2113,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "DCGM_FI_DEV_HOT_SPOT_TEMP{gpu=\"2\"}",
+          "expr": "last_over_time(DCGM_FI_DEV_HOT_SPOT_TEMP{gpu=\"2\"}[1m])",
           "format": "table",
           "hide": false,
           "legendFormat": "__auto",
@@ -2126,7 +2126,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "DCGM_FI_DEV_HOT_SPOT_TEMP{gpu=\"3\"}",
+          "expr": "last_over_time(DCGM_FI_DEV_HOT_SPOT_TEMP{gpu=\"3\"}[1m])",
           "format": "table",
           "hide": false,
           "legendFormat": "__auto",
@@ -2139,7 +2139,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "DCGM_FI_DEV_HOT_SPOT_TEMP{gpu=\"4\"}",
+          "expr": "last_over_time(DCGM_FI_DEV_HOT_SPOT_TEMP{gpu=\"4\"}[1m])",
           "format": "table",
           "hide": false,
           "legendFormat": "__auto",
@@ -2152,7 +2152,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "DCGM_FI_DEV_HOT_SPOT_TEMP{gpu=\"5\"}",
+          "expr": "last_over_time(DCGM_FI_DEV_HOT_SPOT_TEMP{gpu=\"5\"}[1m])",
           "format": "table",
           "hide": false,
           "legendFormat": "__auto",
@@ -2165,7 +2165,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "DCGM_FI_DEV_HOT_SPOT_TEMP{gpu=\"6\"}",
+          "expr": "last_over_time(DCGM_FI_DEV_HOT_SPOT_TEMP{gpu=\"6\"}[1m])",
           "format": "table",
           "hide": false,
           "legendFormat": "__auto",
@@ -2178,7 +2178,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "DCGM_FI_DEV_HOT_SPOT_TEMP{gpu=\"7\"}",
+          "expr": "last_over_time(DCGM_FI_DEV_HOT_SPOT_TEMP{gpu=\"7\"}[1m])",
           "format": "table",
           "hide": false,
           "legendFormat": "__auto",
@@ -2186,6 +2186,7 @@
           "refId": "H"
         }
       ],
+      "timeFrom": "30s",
       "title": "Machine GPU Core Hot Spot",
       "transformations": [
         {
@@ -2549,6 +2550,7 @@
           "refId": "H"
         }
       ],
+      "timeFrom": "30s",
       "title": "Machine GPU VRAM Temps ",
       "transformations": [
         {
@@ -2912,6 +2914,7 @@
           "refId": "H"
         }
       ],
+      "timeFrom": "30s",
       "title": "Machine GPU Temps",
       "transformations": [
         {
@@ -3275,6 +3278,7 @@
           "refId": "H"
         }
       ],
+      "timeFrom": "30s",
       "title": "Machine GPU FAN Speeds",
       "transformations": [
         {
@@ -3459,13 +3463,13 @@
                   "color": "blue",
                   "index": 0
                 },
-                "to": 50
+                "to": 100
               },
               "type": "range"
             },
             {
               "options": {
-                "from": 51,
+                "from": 101,
                 "result": {
                   "color": "green",
                   "index": 1
@@ -3512,7 +3516,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
+        "h": 7,
         "w": 12,
         "x": 0,
         "y": 46
@@ -3638,6 +3642,7 @@
           "refId": "H"
         }
       ],
+      "timeFrom": "30s",
       "title": "Machine GPU Power",
       "transformations": [
         {
@@ -3979,6 +3984,7 @@
           "refId": "H"
         }
       ],
+      "timeFrom": "30s",
       "title": "Machine GPU Thermal Throttle",
       "transformations": [
         {
@@ -4200,10 +4206,10 @@
       "gridPos": {
         "h": 8,
         "w": 12,
-        "x": 12,
+        "x": 0,
         "y": 53
       },
-      "id": 24,
+      "id": 23,
       "options": {
         "legend": {
           "calcs": [],
@@ -4223,13 +4229,13 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "vastai_machine_InetUp",
+          "expr": "vast_machine_InetDown",
           "legendFormat": "{{machine_id}}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "Machine Internet Upload speed",
+      "title": "Machine Internet Down speed",
       "transformations": [
         {
           "filter": {
@@ -4311,10 +4317,10 @@
       "gridPos": {
         "h": 8,
         "w": 12,
-        "x": 0,
-        "y": 54
+        "x": 12,
+        "y": 53
       },
-      "id": 23,
+      "id": 24,
       "options": {
         "legend": {
           "calcs": [],
@@ -4334,13 +4340,124 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "vast_machine_InetDown",
+          "expr": "vastai_machine_InetUp",
           "legendFormat": "{{machine_id}}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "Machine Internet Down speed",
+      "title": "Machine Internet Upload speed",
+      "transformations": [
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": ""
+          },
+          "id": "filterByValue",
+          "options": {
+            "filters": [],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "As reported by vast api.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decmbytes",
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 61
+      },
+      "id": 18,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "(sum(vastai_machine_avail_disk_space)  by (machine_id) ) !=0",
+          "legendFormat": "{{machine_id}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Machine avail disk space reported by vast",
       "transformations": [
         {
           "filter": {
@@ -4445,7 +4562,7 @@
         "type": "prometheus",
         "uid": "${DS_PROMETHEUS}"
       },
-      "description": "As reported by vast api.",
+      "description": "As reported by vast api for the day before. ",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -4497,7 +4614,7 @@
               }
             ]
           },
-          "unit": "decmbytes",
+          "unit": "currencyUSD",
           "unitScale": true
         },
         "overrides": []
@@ -4506,9 +4623,9 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 62
+        "y": 69
       },
-      "id": 18,
+      "id": 17,
       "options": {
         "legend": {
           "calcs": [],
@@ -4528,13 +4645,13 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "(sum(vastai_machine_avail_disk_space)  by (machine_id) ) !=0",
+          "expr": "(sum(vastai_per_machine_bwd_earn+vastai_per_machine_bwu_earn)  by (machine_id) ) !=0",
           "legendFormat": "{{machine_id}}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "Machine avail disk space reported by vast",
+      "title": "Historic Machine earnings Bandwith  per day",
       "transformations": [
         {
           "filter": {
@@ -4728,9 +4845,9 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 70
+        "y": 77
       },
-      "id": 17,
+      "id": 16,
       "options": {
         "legend": {
           "calcs": [],
@@ -4750,13 +4867,13 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "(sum(vastai_per_machine_bwd_earn+vastai_per_machine_bwu_earn)  by (machine_id) ) !=0",
+          "expr": "(sum(vastai_per_machine_sto_earn)  by (machine_id) ) !=0",
           "legendFormat": "{{machine_id}}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "Historic Machine earnings Bandwith  per day",
+      "title": "Historic Machine earnings storage  per day",
       "transformations": [
         {
           "filter": {
@@ -4883,117 +5000,6 @@
         }
       ],
       "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "description": "As reported by vast api for the day before. ",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "currencyUSD",
-          "unitScale": true
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 78
-      },
-      "id": 16,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "(sum(vastai_per_machine_sto_earn)  by (machine_id) ) !=0",
-          "legendFormat": "{{machine_id}}",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Historic Machine earnings storage  per day",
-      "transformations": [
-        {
-          "filter": {
-            "id": "byRefId",
-            "options": ""
-          },
-          "id": "filterByValue",
-          "options": {
-            "filters": [],
-            "match": "any",
-            "type": "include"
-          }
-        }
-      ],
-      "type": "timeseries"
     }
   ],
   "refresh": "",
@@ -5053,6 +5059,6 @@
   "timezone": "",
   "title": "Vast Dashboard",
   "uid": "d1e22d5b-dcf4-4f54-8629-972173cb24eb",
-  "version": 73,
+  "version": 77,
   "weekStart": ""
 }
