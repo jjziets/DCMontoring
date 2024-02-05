@@ -1,7 +1,7 @@
 # DCMonitoring
 Welcome to DCMonitoring, your comprehensive solution for operational development and system performance tracking. This robust Prometheus Grafana Nvidia GPU monitoring system is designed for clients seeking advanced insights into their operational infrastructures.
 
-# Key Fetures
+# Key Features
 * GPU RAMS Temps panel.
 * GPU HOTSPOT Temps panel.
 * Thermal Throttle.
