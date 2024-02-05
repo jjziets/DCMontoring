@@ -159,7 +159,7 @@
         ]
       },
       "gridPos": {
-        "h": 35,
+        "h": 37,
         "w": 8,
         "x": 0,
         "y": 0
@@ -414,14 +414,14 @@
             },
             "renameByName": {
               "Hostname 1": "",
-              "Value #A": "GPU 0",
-              "Value #B": "GPU 1",
-              "Value #C": "GPU 2",
-              "Value #D": "GPU 3",
-              "Value #E": "GPU 4",
-              "Value #F": "GPU 5",
-              "Value #G": "GPU 6",
-              "Value #H": "GPU 7",
+              "Value #A": "GPU0",
+              "Value #B": "GPU1",
+              "Value #C": "GPU2",
+              "Value #D": "GPU3",
+              "Value #E": "GPU4",
+              "Value #F": "GPU5",
+              "Value #G": "GPU6",
+              "Value #H": "GPU7",
               "job": "Machine"
             }
           }
@@ -535,7 +535,7 @@
         ]
       },
       "gridPos": {
-        "h": 35,
+        "h": 37,
         "w": 8,
         "x": 8,
         "y": 0
@@ -790,14 +790,14 @@
             },
             "renameByName": {
               "Hostname 1": "",
-              "Value #A": "GPU 0",
-              "Value #B": "GPU 1",
-              "Value #C": "GPU 2",
-              "Value #D": "GPU 3",
-              "Value #E": "GPU 4",
-              "Value #F": "GPU 5",
-              "Value #G": "GPU 6",
-              "Value #H": "GPU 7",
+              "Value #A": "GPU0",
+              "Value #B": "GPU1",
+              "Value #C": "GPU2",
+              "Value #D": "GPU3",
+              "Value #E": "GPU4",
+              "Value #F": "GPU5",
+              "Value #G": "GPU6",
+              "Value #H": "GPU7",
               "job": "Machine"
             }
           }
@@ -911,7 +911,7 @@
         ]
       },
       "gridPos": {
-        "h": 35,
+        "h": 37,
         "w": 8,
         "x": 16,
         "y": 0
@@ -1166,14 +1166,14 @@
             },
             "renameByName": {
               "Hostname 1": "",
-              "Value #A": "GPU 0",
-              "Value #B": "GPU 1",
-              "Value #C": "GPU 2",
-              "Value #D": "GPU 3",
-              "Value #E": "GPU 4",
-              "Value #F": "GPU 5",
-              "Value #G": "GPU 6",
-              "Value #H": "GPU 7",
+              "Value #A": "GPU0",
+              "Value #B": "GPU1",
+              "Value #C": "GPU2",
+              "Value #D": "GPU3",
+              "Value #E": "GPU4",
+              "Value #F": "GPU5",
+              "Value #G": "GPU6",
+              "Value #H": "GPU7",
               "job": "Machine"
             }
           }
@@ -1287,10 +1287,10 @@
         ]
       },
       "gridPos": {
-        "h": 35,
+        "h": 37,
         "w": 8,
         "x": 0,
-        "y": 35
+        "y": 37
       },
       "id": 2,
       "options": {
@@ -1542,14 +1542,14 @@
             },
             "renameByName": {
               "Hostname 1": "",
-              "Value #A": "GPU 0",
-              "Value #B": "GPU 1",
-              "Value #C": "GPU 2",
-              "Value #D": "GPU 3",
-              "Value #E": "GPU 4",
-              "Value #F": "GPU 5",
-              "Value #G": "GPU 6",
-              "Value #H": "GPU 7",
+              "Value #A": "GPU0",
+              "Value #B": "GPU1",
+              "Value #C": "GPU2",
+              "Value #D": "GPU3",
+              "Value #E": "GPU4",
+              "Value #F": "GPU5",
+              "Value #G": "GPU6",
+              "Value #H": "GPU7",
               "job": "Machine"
             }
           }
@@ -1663,10 +1663,10 @@
         ]
       },
       "gridPos": {
-        "h": 35,
+        "h": 37,
         "w": 8,
         "x": 8,
-        "y": 35
+        "y": 37
       },
       "id": 5,
       "options": {
@@ -1918,14 +1918,14 @@
             },
             "renameByName": {
               "Hostname 1": "",
-              "Value #A": "GPU 0",
-              "Value #B": "GPU 1",
-              "Value #C": "GPU 2",
-              "Value #D": "GPU 3",
-              "Value #E": "GPU 4",
-              "Value #F": "GPU 5",
-              "Value #G": "GPU 6",
-              "Value #H": "GPU 7",
+              "Value #A": "GPU0",
+              "Value #B": "GPU1",
+              "Value #C": "GPU2",
+              "Value #D": "GPU3",
+              "Value #E": "GPU4",
+              "Value #F": "GPU5",
+              "Value #G": "GPU6",
+              "Value #H": "GPU7",
               "job": "Machine"
             }
           }
@@ -2017,10 +2017,10 @@
         ]
       },
       "gridPos": {
-        "h": 35,
+        "h": 37,
         "w": 8,
         "x": 16,
-        "y": 35
+        "y": 37
       },
       "id": 9,
       "options": {
@@ -2274,14 +2274,14 @@
             },
             "renameByName": {
               "Hostname 1": "",
-              "Value #A": "GPU 0",
-              "Value #B": "GPU 1",
-              "Value #C": "GPU 2",
-              "Value #D": "GPU 3",
-              "Value #E": "GPU 4",
-              "Value #F": "GPU 5",
-              "Value #G": "GPU 6",
-              "Value #H": "GPU 7",
+              "Value #A": "GPU0",
+              "Value #B": "GPU1",
+              "Value #C": "GPU2",
+              "Value #D": "GPU3",
+              "Value #E": "GPU4",
+              "Value #F": "GPU5",
+              "Value #G": "GPU6",
+              "Value #H": "GPU7",
               "job": "Machine"
             }
           }
@@ -2340,7 +2340,7 @@
         "h": 31,
         "w": 24,
         "x": 0,
-        "y": 70
+        "y": 74
       },
       "id": 1,
       "options": {
@@ -2585,6 +2585,6 @@
   "timezone": "",
   "title": "DC OverView",
   "uid": "b7573857-fb4d-4389-8159-edbad8b65e5b",
-  "version": 3,
+  "version": 5,
   "weekStart": ""
 }
