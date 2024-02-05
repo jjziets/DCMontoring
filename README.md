@@ -40,8 +40,10 @@ USDT(ETH ERC20) 0xa5955cf9fe7af53bcaa1d2404e2b17a1f28aac4f
 Paypal PayPal.Me/cryptolabsZA
 
 Vast-dashboard
-![image](https://github.com/jjziets/DCMontoring/assets/19214485/32079c66-48a9-454c-b4f7-fb06907e0b87)
-![image](https://github.com/jjziets/DCMontoring/assets/19214485/79ea9c8d-69c0-4d8e-9257-059265f643a9)
+![image](https://github.com/jjziets/DCMontoring/assets/19214485/3e200951-8ecc-404e-8267-babfbb3856eb)
+![image](https://github.com/jjziets/DCMontoring/assets/19214485/c0760231-1304-4e06-919a-9efe68c35eec)
+![image](https://github.com/jjziets/DCMontoring/assets/19214485/58d81698-7a8a-46db-acea-4da4c7740ecb)
+
 
 Overview Dashboard
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/114c2d00-cdce-4eac-9f7f-1777b9856377)
