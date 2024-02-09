@@ -300,7 +300,7 @@ To effectively update your DCMonitoring setup for both server and client sides, 
     docker-compose up -d
     ```
 
-## The dashboards on the grafana might also need to be updated. You can delete the ones and re-import them in the install guide. 
+### The dashboards on the grafana might also need to be updated. You can delete the ones and re-import them in the install guide. 
 https://github.com/jjziets/DCMontoring/blob/main/README.md#dashboards
 
 ### Client Side Update Procedure
@@ -336,9 +336,10 @@ https://github.com/jjziets/DCMontoring/blob/main/README.md#dashboards
 
 1. **Stop Current Services**:
     ```bash
-    sudo systemctl stop node_exporter
-    sudo systemctl stop dcgm-exporter
-    sudo systemctl start gddr6-metrics-exporter
+    sudo su    
+    systemctl stop node_exporter
+    systemctl stop dcgm-exporter
+    systemctl start gddr6-metrics-exporter
     ```
 
 2. **Update Exporters**:
@@ -358,14 +359,14 @@ https://github.com/jjziets/DCMontoring/blob/main/README.md#dashboards
 3. **Update and Start gddr6-metrics-exporter Service**:
     ```bash
     bash -c "\
-    sudo wget -q -O /usr/local/bin/gddr6-metrics-exporter_supervisor_script.sh https://raw.githubusercontent.com/jjziets/gddr6_temps/master/gddr6-metrics-exporter_supervisor_script.sh && \
-    sudo chmod +x /usr/local/bin/gddr6-metrics-exporter_supervisor_script.sh && \
-    sudo wget -q -O /etc/systemd/system/gddr6-metrics-exporter.service https://raw.githubusercontent.com/jjziets/gddr6_temps/master/gddr6-metrics-exporter.service && \
-    sudo systemctl daemon-reload && \
-    sudo systemctl enable gddr6-metrics-exporter && \
-    sudo systemctl start gddr6-metrics-exporter"
+    wget -q -O /usr/local/bin/gddr6-metrics-exporter_supervisor_script.sh https://raw.githubusercontent.com/jjziets/gddr6_temps/master/gddr6-metrics-exporter_supervisor_script.sh && \
+    chmod +x /usr/local/bin/gddr6-metrics-exporter_supervisor_script.sh && \
+    wget -q -O /etc/systemd/system/gddr6-metrics-exporter.service https://raw.githubusercontent.com/jjziets/gddr6_temps/master/gddr6-metrics-exporter.service && \
+    systemctl daemon-reload && \
+    systemctl enable gddr6-metrics-exporter && \
+    systemctl start gddr6-metrics-exporter"
     ```
-
+* all of the above should be executed as root. 
 
 
 ### Final Notes
