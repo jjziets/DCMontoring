@@ -300,7 +300,7 @@ To effectively update your DCMonitoring setup for both server and client sides, 
     docker-compose up -d
     ```
 
-### The dashboards on the grafana might also need to be updated. You can delete the ones and re-import them in the install guide. 
+### The dashboards on Grafana might also need to be updated. You can delete the existing dashboards and then use the import command to update the new ones as stated in the install guide. 
 https://github.com/jjziets/DCMontoring/blob/main/README.md#dashboards
 
 ### Client Side Update Procedure
