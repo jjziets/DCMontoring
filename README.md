@@ -243,7 +243,7 @@ in bot cases, you will start at the create rule page
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/cd4747d7-8cde-4932-9f4e-d015cf0213cf)
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/57302e7c-a244-4cbd-8cc2-7f78ba72dfcb)
 
-The above is to fire when there a gpu temps are above B threasold > 80c
+The above is to fire when their GPU temps are above B threshold > 80c
 
 For RootFS usage
 2) A Matric quary: round((100 - ((node_filesystem_avail_bytes{mountpoint="/",fstype!="rootfs"} * 100) / node_filesystem_size_bytes{mountpoint="/",fstype!="rootfs"})))
@@ -254,3 +254,121 @@ For High CPU Temperature
 2 A Matrix qyary node_cpu_temperature{}
 C B above  threashold B  above 90
 4) Summery: - {{ $labels.job }} CPU {{$labels.package}} {{ $values.B }}C
+
+
+## Update Procedure
+To effectively update your DCMonitoring setup for both server and client sides, follow the procedures detailed below. This guide assumes your server and clients are already running and operational.
+
+### Server Side Update Procedure
+
+1. **Navigate to the Directory**: Go to the directory containing `docker-compose.yml` and `prometheus.yml`.
+
+2. **Gain Root Access**:
+    ```bash
+    sudo su
+    ```
+
+3. **Stop Docker Containers**:
+    ```bash
+    sudo docker-compose down
+    ```
+
+4. **Remove Old Docker Compose**:
+    ```bash
+    apt remove docker-compose
+    ```
+
+5. **Install Docker Compose**:
+    ```bash
+    curl -L "https://github.com/docker/compose/releases/download/v2.24.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    chmod +x /usr/local/bin/docker-compose
+    ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+    ```
+
+6. **Update Configuration Files**:
+    - Download the latest `docker-compose.yml`:
+        ```bash
+        wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/server/docker-compose.yml
+        ```
+    - If required, modify `prometheus.yml` as needed.
+
+7. **Pull Latest Images and Start Services**:
+    ```bash
+    docker-compose pull
+    docker-compose up -d
+    ```
+
+## The dashboards on the grafana might also need to be updated. You can delete the ones and re-import them as above. 
+
+### Client Side Update Procedure
+
+#### For Docker Compose Clients:
+
+1. **Stop Running Containers**:
+    ```bash
+    sudo docker-compose down
+    sudo su
+    ```
+
+2. **Remove and Install Docker Compose** (Follow the same steps as server-side for Docker Compose installation).
+
+3. **Update and Install Dependencies**:
+    ```bash
+    apt-get update && sudo apt-get install -y gettext-base
+    ```
+
+4. **Update Configuration File**:
+    - Download the latest `docker-compose.yml`:
+        ```bash
+        wget -O docker-compose.yml https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/docker-compose.yml-vast
+        ```
+
+5. **Start Services with Updated Configuration**:
+    ```bash
+    docker-compose pull
+    sed "s/__HOST_HOSTNAME__/$(hostname)/g" docker-compose.yml | docker-compose -f - up -d
+    ```
+
+#### For Clients Running as Services:
+
+1. **Stop Current Services**:
+    ```bash
+    sudo systemctl stop node_exporter
+    sudo systemctl stop dcgm-exporter
+    sudo systemctl start gddr6-metrics-exporter
+    ```
+
+2. **Update Exporters**:
+    - Node Exporter:
+        ```bash
+        wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/install_node_exporter.sh
+        chmod +x install_node_exporter.sh
+        ./install_node_exporter.sh
+        ```
+    - NvidiaDCGM Exporter:
+        ```bash
+        wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/install_NvidiaDCGM_Exporter.sh
+        chmod +x install_NvidiaDCGM_Exporter.sh
+        ./install_NvidiaDCGM_Exporter.sh
+        ```
+
+3. **Update and Start gddr6-metrics-exporter Service**:
+    ```bash
+    bash -c "\
+    sudo wget -q -O /usr/local/bin/gddr6-metrics-exporter_supervisor_script.sh https://raw.githubusercontent.com/jjziets/gddr6_temps/master/gddr6-metrics-exporter_supervisor_script.sh && \
+    sudo chmod +x /usr/local/bin/gddr6-metrics-exporter_supervisor_script.sh && \
+    sudo wget -q -O /etc/systemd/system/gddr6-metrics-exporter.service https://raw.githubusercontent.com/jjziets/gddr6_temps/master/gddr6-metrics-exporter.service && \
+    sudo systemctl daemon-reload && \
+    sudo systemctl enable gddr6-metrics-exporter && \
+    sudo systemctl start gddr6-metrics-exporter"
+    ```
+
+
+
+### Final Notes
+
+- Ensure that all commands are executed with proper permissions and in the correct directories.
+- Always back up your configuration files before making any changes.
+- After updating, monitor your system to ensure that all components are running smoothly and without errors.
+
+This update procedure is designed to keep your DCMonitoring system up-to-date with the latest features and improvements, ensuring optimal performance and reliability.
