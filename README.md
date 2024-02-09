@@ -157,6 +157,11 @@ Prometheus
 ![image](https://github.com/jjziets/DCMontoring/assets/19214485/3b57733c-c8ca-47fb-8491-2f5afb0e4df8)
 
 # Dashboards
+Here are a few dashboards that I have made that work with the exporters. You can use them and modify them. To add one, go to new and import, then paste the Jason file content below. Or download them and have them updated.
+
+![image](https://github.com/jjziets/DCMontoring/assets/19214485/38538d77-4424-4d04-8c02-fee37211c484)
+
+
 DC_OverView.json https://github.com/jjziets/DCMontoring/blob/main/DC_OverView.json
 
 Cadvisor exporter-1684242167975.json https://github.com/jjziets/DCMontoring/blob/main/Cadvisor%20exporter-1684242167975.json
