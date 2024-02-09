@@ -246,15 +246,17 @@ in bot cases, you will start at the create rule page
 The above is to fire when their GPU temps are above B threshold > 80c
 
 For RootFS usage
+```
 2) A Matric quary: round((100 - ((node_filesystem_avail_bytes{mountpoint="/",fstype!="rootfs"} * 100) / node_filesystem_size_bytes{mountpoint="/",fstype!="rootfs"})))
 C: threashold B  above 90
 4) Summery {{ $labels.job }} - {{ $values.B }} %
-
+```
 For High CPU Temperature
+```
 2 A Matrix qyary node_cpu_temperature{}
 C B above  threashold B  above 90
 4) Summery: - {{ $labels.job }} CPU {{$labels.package}} {{ $values.B }}C
-
+```
 
 ## Update Procedure
 To effectively update your DCMonitoring setup for both server and client sides, follow the procedures detailed below. This guide assumes your server and clients are already running and operational.
