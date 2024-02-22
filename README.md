@@ -26,11 +26,7 @@ Getting Started:
 * Troubleshooting and Support: Guidelines on addressing common issues such as DB locks and setting up Telegram alerts for real-time notifications.
 
 Final Notes:
-As we offer DCMonitoring for free, Your welcome to use it. We can help with deoplyment for bigger users. Our aim is to provide a comprehensive set of tools that enhance operational development and system monitoring. We're continually evolving and appreciate every contribution and feedback.
-
-Note: The tool comes with no guarantee. Please review the documentation and license agreements before use.
-
-Find us on Discord: Etherion#0700 for more information, support, and community engagement. Your journey towards efficient and effective system monitoring starts here!
+As we offer DCMonitoring for free, You're welcome to use it. We can help with deployment for bigger users. Our aim is to provide a comprehensive set of tools that enhance operational development and system monitoring. We're continually evolving and appreciate every contribution and feedback.  The tool comes with no guarantee. Please review the documentation and license agreements before use.
 
 If you find this useful and would like to donate, you can send your donations to the following wallets.
 BTC 15qkQSYXP2BvpqJkbj2qsNFb6nd7FyVcou
