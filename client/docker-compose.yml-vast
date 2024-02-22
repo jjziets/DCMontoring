@@ -44,6 +44,8 @@ services:
     image: jjziets/gddr6-metrics-exporter:latest
     privileged: true
     restart: unless-stopped
+    volumes:
+      - "/var/log/syslog:/var/log/syslog:ro"
     deploy:
       resources:
         reservations:
