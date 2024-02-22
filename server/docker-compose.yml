@@ -49,7 +49,7 @@ services:
     ports:
       - "8622:8622"
     command:
-      - "--api-key=Replace_With_your_Vast_API_Key" //Remember to replace this with your vast API Key
+      - "--api-key=vastkey" //Remember to replace this with your vast API Key
     restart: always
    
 volumes:
