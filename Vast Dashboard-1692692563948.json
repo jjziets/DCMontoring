@@ -4535,7 +4535,7 @@
               "options": {
                 "from": 0,
                 "result": {
-                  "color": "blue",
+                  "color": "transparent",
                   "index": 0
                 },
                 "to": 0
@@ -4546,10 +4546,21 @@
               "options": {
                 "from": 1,
                 "result": {
-                  "color": "red",
+                  "color": "green",
                   "index": 1
                 },
-                "to": 100
+                "to": 1
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 2,
+                "result": {
+                  "color": "red",
+                  "index": 2
+                },
+                "to": 2
               },
               "type": "range"
             }
@@ -4563,7 +4574,7 @@
               }
             ]
           },
-          "unit": "bool",
+          "unit": "none",
           "unitScale": true
         },
         "overrides": []
@@ -5122,8 +5133,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -5215,8 +5225,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -5316,8 +5325,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -5427,8 +5435,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -5768,6 +5775,6 @@
   "timezone": "",
   "title": "Vast Dashboard",
   "uid": "d1e22d5b-dcf4-4f54-8629-972173cb24eb",
-  "version": 84,
+  "version": 85,
   "weekStart": ""
 }
