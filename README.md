@@ -81,7 +81,8 @@ sed "s/__HOST_HOSTNAME__/$(hostname)/g" docker-compose.yml | docker-compose -f -
 
 ```
 For Runpod you  need to run the following commands as sudo 
-Vast host don't need to do this step as all the monitoring tools will be in docker containers. 
+
+**Vast host don't need to do this step as all the monitoring tools will be in docker containers. **
 ```
 wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/install_node_exporter.sh
 chmod +x install_node_exporter.sh
