@@ -16,7 +16,7 @@ DCMonitoring is a state-of-the-art tool that integrates seamlessly with platform
 Features:
 * Comprehensive Monitoring: Track your system's health, performance, and reliability with detailed insights into GPU matrices, system statistics, container performance, and more.
 * Customizable and Extendable: Adapt and extend the functionality according to your needs and preferences. The tool's open nature allows for modifications and enhancements.
-* Community Supported: Join our community on Discord (Etherion#0700) for support, updates, and networking with other users and contributors.
+* Community Supported: Connect with me on Discord (Etherion#0700) for support and updates.
 * Donation Supported: While the tool is entirely free, we welcome donations to support ongoing development and improvement. Donations can be made via various cryptocurrencies or PayPal.
 
 Getting Started:
