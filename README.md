@@ -6,6 +6,7 @@ Welcome to DCMonitoring, your comprehensive solution for operational development
 * GPU HOTSPOT Temps panel.
 * Thermal Throttle.
 * Now, support systems with NVLINK are installed.
+* Reports PCIE AER errors in logs per device. 
 * Detailed GPU and systems usage historical charts.
 * Telegram Alerts for events such as low disk space or over temperature. 
 
