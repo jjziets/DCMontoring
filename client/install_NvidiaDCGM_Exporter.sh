@@ -15,6 +15,7 @@ git clone https://github.com/NVIDIA/dcgm-exporter.git
 cd dcgm-exporter
 make binary
 make install
+mkdir /etc/dcgm-exporter/
 wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/dcgm-exporter/custom-collectors.csv -O /etc/dcgm-exporter/default-counters.csv 
 
 echo '[Unit]
