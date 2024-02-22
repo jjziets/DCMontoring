@@ -13,15 +13,16 @@ What is DCMonitoring?
 DCMonitoring is a state-of-the-art tool that integrates seamlessly with platforms like Vast, RunPod, and others are planned, offering continuous support and deployment assistance. As a testament to our commitment to the community and quality, DCMonitoring is entirely free for use, modification, and distribution. It is provided 'as is' with no guarantee, serving not only as a reliable monitoring tool but also as an indicator of our expertise and dedication to operational excellence.
 
 Features:
-Comprehensive Monitoring: Track your system's health, performance, and reliability with detailed insights into GPU matrices, system statistics, container performance, and more.
-Customizable and Extendable: Adapt and extend the functionality according to your needs and preferences. The tool's open nature allows for modifications and enhancements.
-Community Supported: Join our community on Discord (Etherion#0700) for support, updates, and networking with other users and contributors.
-Donation Supported: While the tool is entirely free, we welcome donations to support ongoing development and improvement. Donations can be made via various cryptocurrencies or PayPal.
+* Comprehensive Monitoring: Track your system's health, performance, and reliability with detailed insights into GPU matrices, system statistics, container performance, and more.
+* Customizable and Extendable: Adapt and extend the functionality according to your needs and preferences. The tool's open nature allows for modifications and enhancements.
+* Community Supported: Join our community on Discord (Etherion#0700) for support, updates, and networking with other users and contributors.
+* Donation Supported: While the tool is entirely free, we welcome donations to support ongoing development and improvement. Donations can be made via various cryptocurrencies or PayPal.
+
 Getting Started:
-Client Installation: Follow detailed instructions for setup on platforms like VastAI and RunPod. The installation guide ensures you are up and running with minimal hassle.
-Server Installation: Easy-to-follow steps to get your Grafana, Prometheus, and other necessary components up and running for a complete monitoring setup.
-Configuration and Customization: Detailed documentation to tailor the monitoring system to your specific needs, including how to link Prometheus with Grafana and set up custom dashboards.
-Troubleshooting and Support: Guidelines on addressing common issues such as DB locks and setting up Telegram alerts for real-time notifications.
+* Client Installation: Follow detailed instructions for setup on platforms like VastAI and RunPod. The installation guide ensures you are up and running with minimal hassle.
+* Server Installation: Easy-to-follow steps to get your Grafana, Prometheus, and other necessary components up and running for a complete monitoring setup.
+* Configuration and Customization: Detailed documentation to tailor the monitoring system to your specific needs, including how to link Prometheus with Grafana and set up custom dashboards.
+* Troubleshooting and Support: Guidelines on addressing common issues such as DB locks and setting up Telegram alerts for real-time notifications.
 
 Final Notes:
 As we offer DCMonitoring for free, Your welcome to use it. We can help with deoplyment for bigger users. Our aim is to provide a comprehensive set of tools that enhance operational development and system monitoring. We're continually evolving and appreciate every contribution and feedback.
