@@ -22,8 +22,6 @@ Client Installation: Follow detailed instructions for setup on platforms like Va
 Server Installation: Easy-to-follow steps to get your Grafana, Prometheus, and other necessary components up and running for a complete monitoring setup.
 Configuration and Customization: Detailed documentation to tailor the monitoring system to your specific needs, including how to link Prometheus with Grafana and set up custom dashboards.
 Troubleshooting and Support: Guidelines on addressing common issues such as DB locks and setting up Telegram alerts for real-time notifications.
-Contributions and Support:
-Your feedback and contributions are what make DCMonitoring a powerful and community-driven tool. Whether you're a developer looking to contribute to the project or a user seeking assistance, join us on Discord (Etherion#0700) for support and collaboration.
 
 Final Notes:
 As we offer DCMonitoring for free, Your welcome to use it. We can help with deoplyment for bigger users. Our aim is to provide a comprehensive set of tools that enhance operational development and system monitoring. We're continually evolving and appreciate every contribution and feedback.
