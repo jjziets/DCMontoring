@@ -4149,7 +4149,7 @@
         "type": "prometheus",
         "uid": "${DS_PROMETHEUS}"
       },
-      "description": "AER  Advanced Error Reporting by PCI Express devices",
+      "description": "Cont of AER in system logs per GPU:  Advanced Error Reporting by PCI Express devices",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -4513,7 +4513,7 @@
         "type": "prometheus",
         "uid": "${DS_PROMETHEUS}"
       },
-      "description": "",
+      "description": "Current error state for GPU (2 for error, 1 for no error, 0 unknown state)",
       "fieldConfig": {
         "defaults": {
           "color": {
