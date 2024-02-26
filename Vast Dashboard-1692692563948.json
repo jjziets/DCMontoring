@@ -4536,7 +4536,8 @@
                 "from": 0,
                 "result": {
                   "color": "transparent",
-                  "index": 0
+                  "index": 0,
+                  "text": "Unknown"
                 },
                 "to": 0
               },
@@ -4547,7 +4548,8 @@
                 "from": 1,
                 "result": {
                   "color": "green",
-                  "index": 1
+                  "index": 1,
+                  "text": "OK"
                 },
                 "to": 1
               },
@@ -4558,7 +4560,8 @@
                 "from": 2,
                 "result": {
                   "color": "red",
-                  "index": 2
+                  "index": 2,
+                  "text": "ERROR"
                 },
                 "to": 2
               },
@@ -5133,7 +5136,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -5225,7 +5229,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -5325,7 +5330,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -5435,7 +5441,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -5775,6 +5782,6 @@
   "timezone": "",
   "title": "Vast Dashboard",
   "uid": "d1e22d5b-dcf4-4f54-8629-972173cb24eb",
-  "version": 85,
+  "version": 87,
   "weekStart": ""
 }
