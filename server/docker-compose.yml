@@ -48,8 +48,8 @@ services:
     image: jjziets/vastai-exporter
     ports:
       - "8622:8622"
-    command:
-      - "--api-key=vastkey" //Remember to replace this with your vast API Key
+    command: 
+      - "--api-key=vastkey" #Remember to replace this with your vast API Key
     restart: always
    
 volumes:
