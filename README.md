@@ -371,9 +371,15 @@ https://github.com/jjziets/DCMontoring/blob/main/README.md#dashboards
 * all of the above should be executed as root. 
 
 
-### Final Notes
+### Notes
 
 - Ensure that all commands are executed with proper permissions and in the correct directories.
+
+### Planned features to include. 
+1. Provide a count for pending updates per machine
+2. Total AER errors count for the machine. not just per GPU
+3. Mapping for GPU occupation. Create a GPU table showing the current state of rentals per machine
+4. Runpod dashboard for income logging etc. 
 - Always back up your configuration files before making any changes.
 - After updating, monitor your system to ensure that all components are running smoothly and without errors.
 
