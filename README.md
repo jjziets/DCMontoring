@@ -341,7 +341,7 @@ https://github.com/jjziets/DCMontoring/blob/main/README.md#dashboards
     sudo su    
     systemctl stop node_exporter
     systemctl stop dcgm-exporter
-    systemctl start gddr6-metrics-exporter
+    systemctl stop gddr6-metrics-exporter
     ```
 
 2. **Update Exporters**:
