@@ -293,7 +293,7 @@ To effectively update your DCMonitoring setup for both server and client sides, 
 6. **Update Configuration Files**:
     - Download the latest `docker-compose.yml`:
         ```bash
-        wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/server/docker-compose.yml
+        wget -O docker-compose.yml https://raw.githubusercontent.com/jjziets/DCMontoring/main/server/docker-compose.yml
         ```
     - If required, modify `prometheus.yml` as needed.
 
