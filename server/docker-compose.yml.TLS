@@ -30,7 +30,7 @@ services:
       - node-exporter
       - cadvisor
   db:
-    image: postgres:15
+    image: postgres
     environment:
       POSTGRES_USER: grafana
       POSTGRES_PASSWORD: secret_key # update
