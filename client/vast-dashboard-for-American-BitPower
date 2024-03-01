@@ -21,7 +21,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "10.3.1"
+      "version": "10.3.3"
     },
     {
       "type": "datasource",
@@ -126,7 +126,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -196,7 +196,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -266,7 +266,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -349,7 +349,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -432,7 +432,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -500,7 +500,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -568,7 +568,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -639,7 +639,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -722,7 +722,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -805,7 +805,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -888,7 +888,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -1101,7 +1101,7 @@
         ]
       },
       "gridPos": {
-        "h": 28,
+        "h": 30,
         "w": 12,
         "x": 0,
         "y": 8
@@ -1127,7 +1127,7 @@
           }
         ]
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -1444,7 +1444,7 @@
         ]
       },
       "gridPos": {
-        "h": 28,
+        "h": 30,
         "w": 3,
         "x": 12,
         "y": 8
@@ -1463,7 +1463,7 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -1573,7 +1573,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 28,
+        "h": 13,
         "w": 9,
         "x": 15,
         "y": 8
@@ -1606,85 +1606,6 @@
       ],
       "title": "Machine Reliability",
       "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "description": "As reported by vast api.",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "custom": {
-            "fillOpacity": 70,
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineWidth": 0,
-            "spanNulls": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 1
-              }
-            ]
-          },
-          "unitScale": true
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 36
-      },
-      "id": 13,
-      "options": {
-        "alignValue": "left",
-        "legend": {
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": false
-        },
-        "mergeValues": false,
-        "rowHeight": 0.9,
-        "showValue": "auto",
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "9.5.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "sum by(machine_id) (vast_machine_timeout)",
-          "legendFormat": "{{machine_id}}",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Machine Online Status",
-      "type": "state-timeline"
     },
     {
       "datasource": {
@@ -1749,10 +1670,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 36
+        "h": 17,
+        "w": 9,
+        "x": 15,
+        "y": 21
       },
       "id": 19,
       "options": {
@@ -1795,6 +1716,259 @@
           }
         }
       ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "As reported by vast api.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineWidth": 0,
+            "spanNulls": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          },
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 38
+      },
+      "id": 13,
+      "options": {
+        "alignValue": "left",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "mergeValues": false,
+        "rowHeight": 0.9,
+        "showValue": "auto",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "sum by(machine_id) (vast_machine_timeout)",
+          "legendFormat": "{{machine_id}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Machine Online Status",
+      "type": "state-timeline"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "As reported by vast api.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineWidth": 0,
+            "spanNulls": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 10
+              }
+            ]
+          },
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 38
+      },
+      "id": 36,
+      "options": {
+        "alignValue": "left",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "mergeValues": false,
+        "rowHeight": 0.9,
+        "showValue": "auto",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "sum by(machine_id) (vastai_machine_ErrorDescription)",
+          "legendFormat": "{{machine_id}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Machine Error Status",
+      "type": "state-timeline"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "watt",
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 50
+      },
+      "id": 26,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "$CPU_Max_Power * count by (job)(node_cpu_temperature{package=~\"[0-9]+\"})/2 + sum by (job) (DCGM_FI_DEV_POWER_USAGE) + $BasePower +$CPU_Max_Power",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Machines Power usage",
       "type": "timeseries"
     },
     {
@@ -1846,8 +2020,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1863,8 +2036,8 @@
       "gridPos": {
         "h": 8,
         "w": 12,
-        "x": 0,
-        "y": 44
+        "x": 12,
+        "y": 50
       },
       "id": 27,
       "options": {
@@ -1920,102 +2093,6 @@
           }
         }
       ],
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": true,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "watt",
-          "unitScale": true
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 44
-      },
-      "id": 26,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "$CPU_Max_Power * count by (job)(node_cpu_temperature{package=~\"[0-9]+\"})/2 + sum by (job) (DCGM_FI_DEV_POWER_USAGE) + $BasePower +$CPU_Max_Power",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Machines Power usage",
       "type": "timeseries"
     },
     {
@@ -2101,8 +2178,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "transparent",
-                "value": null
+                "color": "transparent"
               }
             ]
           },
@@ -2125,10 +2201,10 @@
         ]
       },
       "gridPos": {
-        "h": 27,
+        "h": 35,
         "w": 12,
         "x": 0,
-        "y": 52
+        "y": 58
       },
       "id": 32,
       "options": {
@@ -2145,7 +2221,7 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -2551,6 +2627,1045 @@
               "options": {
                 "from": 0,
                 "result": {
+                  "color": "transparent",
+                  "index": 0,
+                  "text": "idle"
+                },
+                "to": 0
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 1,
+                "result": {
+                  "color": "yellow",
+                  "index": 1,
+                  "text": "I"
+                },
+                "to": 1
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 2,
+                "result": {
+                  "color": "green",
+                  "index": 2,
+                  "text": "D"
+                },
+                "to": 2
+              },
+              "type": "range"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "transparent"
+              }
+            ]
+          },
+          "unit": "none",
+          "unitScale": true
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Machine"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 75
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "job 1"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 55
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 35,
+        "w": 12,
+        "x": 12,
+        "y": 58
+      },
+      "id": 37,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 0,
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "10.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "vastai_machine_gpu_occupancy{gpu=\"0\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "vastai_machine_gpu_occupancy{gpu=\"1\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "vastai_machine_gpu_occupancy{gpu=\"2\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "vastai_machine_gpu_occupancy{gpu=\"3\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "vastai_machine_gpu_occupancy{gpu=\"4\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "vastai_machine_gpu_occupancy{gpu=\"5\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "F"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "vastai_machine_gpu_occupancy{gpu=\"6\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "G"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "vastai_machine_gpu_occupancy{gpu=\"7\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "H"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "vastai_machine_gpu_occupancy{gpu=\"8\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "I"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "vastai_machine_gpu_occupancy{gpu=\"9\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "J"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "vastai_machine_gpu_occupancy{gpu=\"10\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "K"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "vastai_machine_gpu_occupancy{gpu=\"11\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "L"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "vastai_machine_gpu_occupancy{gpu=\"12\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "M"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "vastai_machine_gpu_occupancy{gpu=\"13\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "N"
+        }
+      ],
+      "timeFrom": "30s",
+      "title": "Machine GPU Core Hot Spot",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "Hostname",
+            "mode": "outer"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "DCGM_FI_DRIVER_VERSION 1": true,
+              "DCGM_FI_DRIVER_VERSION 2": true,
+              "DCGM_FI_DRIVER_VERSION 3": true,
+              "DCGM_FI_DRIVER_VERSION 4": true,
+              "Hostname 1": true,
+              "Hostname 2": true,
+              "Hostname 3": true,
+              "Hostname 4": true,
+              "Hostname 5": true,
+              "Hostname 6": true,
+              "Hostname 7": true,
+              "Hostname 8": true,
+              "Time": true,
+              "Time 1": true,
+              "Time 10": true,
+              "Time 11": true,
+              "Time 12": true,
+              "Time 13": true,
+              "Time 14": true,
+              "Time 2": true,
+              "Time 3": true,
+              "Time 4": true,
+              "Time 5": true,
+              "Time 6": true,
+              "Time 7": true,
+              "Time 8": true,
+              "Time 9": true,
+              "UUID 1": true,
+              "UUID 10": true,
+              "UUID 11": true,
+              "UUID 12": true,
+              "UUID 13": true,
+              "UUID 14": true,
+              "UUID 2": true,
+              "UUID 3": true,
+              "UUID 4": true,
+              "UUID 5": true,
+              "UUID 6": true,
+              "UUID 7": true,
+              "UUID 8": true,
+              "UUID 9": true,
+              "Value #D": false,
+              "__name__": true,
+              "__name__ 1": true,
+              "__name__ 10": true,
+              "__name__ 12": true,
+              "__name__ 13": true,
+              "__name__ 14": true,
+              "__name__ 2": true,
+              "__name__ 3": true,
+              "__name__ 4": true,
+              "__name__ 5": true,
+              "__name__ 6": true,
+              "__name__ 7": true,
+              "__name__ 8": true,
+              "__name__ 9": true,
+              "device 1": true,
+              "device 2": true,
+              "device 3": true,
+              "device 4": true,
+              "device 5": true,
+              "device 6": true,
+              "device 7": true,
+              "device 8": true,
+              "gpu 1": true,
+              "gpu 10": true,
+              "gpu 11": true,
+              "gpu 12": true,
+              "gpu 13": true,
+              "gpu 14": true,
+              "gpu 2": true,
+              "gpu 3": true,
+              "gpu 4": true,
+              "gpu 5": true,
+              "gpu 6": true,
+              "gpu 7": true,
+              "gpu 8": true,
+              "gpu 9": true,
+              "instance": true,
+              "instance 1": true,
+              "instance 10": true,
+              "instance 11": true,
+              "instance 12": true,
+              "instance 13": true,
+              "instance 14": true,
+              "instance 2": true,
+              "instance 3": true,
+              "instance 4": true,
+              "instance 5": true,
+              "instance 6": true,
+              "instance 7": true,
+              "instance 8": true,
+              "instance 9": true,
+              "job 1": true,
+              "job 10": true,
+              "job 11": true,
+              "job 12": true,
+              "job 13": true,
+              "job 14": true,
+              "job 2": true,
+              "job 3": true,
+              "job 4": true,
+              "job 5": true,
+              "job 6": true,
+              "job 7": true,
+              "job 8": true,
+              "job 9": true,
+              "machine_id 1": true,
+              "machine_id 10": true,
+              "machine_id 11": true,
+              "machine_id 12": true,
+              "machine_id 13": true,
+              "machine_id 14": true,
+              "machine_id 2": true,
+              "machine_id 3": true,
+              "machine_id 4": true,
+              "machine_id 5": true,
+              "machine_id 6": true,
+              "machine_id 7": true,
+              "machine_id 8": true,
+              "machine_id 9": true,
+              "modelName 1": true,
+              "modelName 2": true,
+              "modelName 3": true,
+              "modelName 4": true,
+              "modelName 5": true,
+              "modelName 6": true,
+              "modelName 7": true,
+              "modelName 8": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "DCGM_FI_DRIVER_VERSION 1": 1,
+              "DCGM_FI_DRIVER_VERSION 2": 13,
+              "DCGM_FI_DRIVER_VERSION 3": 22,
+              "DCGM_FI_DRIVER_VERSION 4": 32,
+              "Hostname 1": 5,
+              "Hostname 2": 14,
+              "Hostname 3": 23,
+              "Hostname 4": 33,
+              "Time 1": 4,
+              "Time 2": 12,
+              "Time 3": 21,
+              "Time 4": 31,
+              "UUID 1": 6,
+              "UUID 2": 15,
+              "UUID 3": 24,
+              "UUID 4": 34,
+              "Value #A": 2,
+              "Value #B": 3,
+              "Value #C": 30,
+              "Value #D": 40,
+              "__name__ 1": 7,
+              "__name__ 2": 16,
+              "__name__ 3": 25,
+              "__name__ 4": 35,
+              "device 1": 8,
+              "device 2": 17,
+              "device 3": 26,
+              "device 4": 36,
+              "gpu 1": 9,
+              "gpu 2": 18,
+              "gpu 3": 27,
+              "gpu 4": 37,
+              "instance 1": 10,
+              "instance 2": 19,
+              "instance 3": 28,
+              "instance 4": 38,
+              "job": 0,
+              "modelName 1": 11,
+              "modelName 2": 20,
+              "modelName 3": 29,
+              "modelName 4": 39
+            },
+            "renameByName": {
+              "Hostname 1": "",
+              "Value #A": "GPU0",
+              "Value #B": "GPU1",
+              "Value #C": "GPU2",
+              "Value #D": "GPU3",
+              "Value #E": "GPU4",
+              "Value #F": "GPU5",
+              "Value #G": "GPU6",
+              "Value #H": "GPU7",
+              "Value #I": "GPU8",
+              "Value #J": "GPU9",
+              "Value #K": "GPU10",
+              "Value #L": "GPU11",
+              "Value #M": "GPU12",
+              "Value #N": "GPU13",
+              "job": "Machine"
+            }
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "Machine"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "mode": "gradient",
+              "type": "color-background"
+            },
+            "filterable": false,
+            "inspect": false,
+            "minWidth": 55
+          },
+          "decimals": 0,
+          "mappings": [
+            {
+              "options": {
+                "from": 0,
+                "result": {
+                  "color": "blue",
+                  "index": 0
+                },
+                "to": 50
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 51,
+                "result": {
+                  "color": "green",
+                  "index": 1
+                },
+                "to": 70
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 71,
+                "result": {
+                  "color": "yellow",
+                  "index": 2
+                },
+                "to": 80
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 81,
+                "result": {
+                  "color": "red",
+                  "index": 3
+                },
+                "to": 200
+              },
+              "type": "range"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "transparent"
+              }
+            ]
+          },
+          "unit": "celsius",
+          "unitScale": true
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Machine"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 75
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 27,
+        "w": 12,
+        "x": 0,
+        "y": 93
+      },
+      "id": 25,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 0,
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "10.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"0\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"1\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"2\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"3\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"4\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"5\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "F"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"6\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "G"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"7\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "H"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"8\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "I"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"9\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "J"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"10\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "K"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"11\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "L"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"12\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "M"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"13\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "N"
+        }
+      ],
+      "timeFrom": "30s",
+      "title": "Machine GPU Temps",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "job",
+            "mode": "outer"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "DCGM_FI_DRIVER_VERSION 1": true,
+              "DCGM_FI_DRIVER_VERSION 2": true,
+              "DCGM_FI_DRIVER_VERSION 3": true,
+              "DCGM_FI_DRIVER_VERSION 4": true,
+              "Hostname": true,
+              "Hostname 1": true,
+              "Hostname 10": true,
+              "Hostname 11": true,
+              "Hostname 12": true,
+              "Hostname 13": true,
+              "Hostname 14": true,
+              "Hostname 2": true,
+              "Hostname 3": true,
+              "Hostname 4": true,
+              "Hostname 5": true,
+              "Hostname 6": true,
+              "Hostname 7": true,
+              "Hostname 8": true,
+              "Hostname 9": true,
+              "Time 1": true,
+              "Time 10": true,
+              "Time 11": true,
+              "Time 12": true,
+              "Time 13": true,
+              "Time 14": true,
+              "Time 2": true,
+              "Time 3": true,
+              "Time 4": true,
+              "Time 5": true,
+              "Time 6": true,
+              "Time 7": true,
+              "Time 8": true,
+              "Time 9": true,
+              "UUID 1": true,
+              "UUID 10": true,
+              "UUID 11": true,
+              "UUID 12": true,
+              "UUID 13": true,
+              "UUID 14": true,
+              "UUID 2": true,
+              "UUID 3": true,
+              "UUID 4": true,
+              "UUID 5": true,
+              "UUID 6": true,
+              "UUID 7": true,
+              "UUID 8": true,
+              "UUID 9": true,
+              "Value #D": false,
+              "__name__": true,
+              "__name__ 1": true,
+              "__name__ 10": true,
+              "__name__ 11": true,
+              "__name__ 12": true,
+              "__name__ 13": true,
+              "__name__ 14": true,
+              "__name__ 2": true,
+              "__name__ 3": true,
+              "__name__ 4": true,
+              "__name__ 5": true,
+              "__name__ 6": true,
+              "__name__ 7": true,
+              "__name__ 8": true,
+              "__name__ 9": true,
+              "device 1": true,
+              "device 10": true,
+              "device 11": true,
+              "device 12": true,
+              "device 13": true,
+              "device 14": true,
+              "device 2": true,
+              "device 3": true,
+              "device 4": true,
+              "device 5": true,
+              "device 6": true,
+              "device 7": true,
+              "device 8": true,
+              "device 9": true,
+              "gpu 1": true,
+              "gpu 10": true,
+              "gpu 11": true,
+              "gpu 12": true,
+              "gpu 13": true,
+              "gpu 14": true,
+              "gpu 2": true,
+              "gpu 3": true,
+              "gpu 4": true,
+              "gpu 5": true,
+              "gpu 6": true,
+              "gpu 7": true,
+              "gpu 8": true,
+              "gpu 9": true,
+              "instance": true,
+              "instance 1": true,
+              "instance 10": true,
+              "instance 12": true,
+              "instance 13": true,
+              "instance 14": true,
+              "instance 2": true,
+              "instance 3": true,
+              "instance 4": true,
+              "instance 5": true,
+              "instance 6": true,
+              "instance 7": true,
+              "instance 8": true,
+              "instance 9": true,
+              "modelName": true,
+              "modelName 1": true,
+              "modelName 10": true,
+              "modelName 11": true,
+              "modelName 12": true,
+              "modelName 13": true,
+              "modelName 14": true,
+              "modelName 2": true,
+              "modelName 3": true,
+              "modelName 4": true,
+              "modelName 5": true,
+              "modelName 6": true,
+              "modelName 7": true,
+              "modelName 8": true,
+              "modelName 9": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "DCGM_FI_DRIVER_VERSION 1": 1,
+              "DCGM_FI_DRIVER_VERSION 2": 13,
+              "DCGM_FI_DRIVER_VERSION 3": 22,
+              "DCGM_FI_DRIVER_VERSION 4": 32,
+              "Hostname 1": 5,
+              "Hostname 2": 14,
+              "Hostname 3": 23,
+              "Hostname 4": 33,
+              "Time 1": 4,
+              "Time 2": 12,
+              "Time 3": 21,
+              "Time 4": 31,
+              "UUID 1": 6,
+              "UUID 2": 15,
+              "UUID 3": 24,
+              "UUID 4": 34,
+              "Value #A": 2,
+              "Value #B": 3,
+              "Value #C": 30,
+              "Value #D": 40,
+              "__name__ 1": 7,
+              "__name__ 2": 16,
+              "__name__ 3": 25,
+              "__name__ 4": 35,
+              "device 1": 8,
+              "device 2": 17,
+              "device 3": 26,
+              "device 4": 36,
+              "gpu 1": 9,
+              "gpu 2": 18,
+              "gpu 3": 27,
+              "gpu 4": 37,
+              "instance 1": 10,
+              "instance 2": 19,
+              "instance 3": 28,
+              "instance 4": 38,
+              "job": 0,
+              "modelName 1": 11,
+              "modelName 2": 20,
+              "modelName 3": 29,
+              "modelName 4": 39
+            },
+            "renameByName": {
+              "Hostname 1": "",
+              "Value #A": "GPU0",
+              "Value #B": "GPU1",
+              "Value #C": "GPU2",
+              "Value #D": "GPU3",
+              "Value #E": "GPU4",
+              "Value #F": "GPU5",
+              "Value #G": "GPU6",
+              "Value #H": "GPU7",
+              "Value #I": "GPU8",
+              "Value #J": "GPU9",
+              "Value #K": "GPU10",
+              "Value #L": "GPU11",
+              "Value #M": "GPU12",
+              "Value #N": "GPU13",
+              "job": "Machine"
+            }
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "Machine"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "mode": "gradient",
+              "type": "color-background"
+            },
+            "filterable": false,
+            "inspect": false,
+            "minWidth": 55
+          },
+          "decimals": 0,
+          "mappings": [
+            {
+              "options": {
+                "from": 0,
+                "result": {
                   "color": "blue",
                   "index": 0
                 },
@@ -2596,8 +3711,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "transparent",
-                "value": null
+                "color": "transparent"
               }
             ]
           },
@@ -2623,7 +3737,7 @@
         "h": 27,
         "w": 12,
         "x": 12,
-        "y": 52
+        "y": 93
       },
       "id": 28,
       "options": {
@@ -2640,7 +3754,7 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -3097,1016 +4211,6 @@
                   "color": "blue",
                   "index": 0
                 },
-                "to": 50
-              },
-              "type": "range"
-            },
-            {
-              "options": {
-                "from": 51,
-                "result": {
-                  "color": "green",
-                  "index": 1
-                },
-                "to": 70
-              },
-              "type": "range"
-            },
-            {
-              "options": {
-                "from": 71,
-                "result": {
-                  "color": "yellow",
-                  "index": 2
-                },
-                "to": 80
-              },
-              "type": "range"
-            },
-            {
-              "options": {
-                "from": 81,
-                "result": {
-                  "color": "red",
-                  "index": 3
-                },
-                "to": 200
-              },
-              "type": "range"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "transparent",
-                "value": null
-              }
-            ]
-          },
-          "unit": "celsius",
-          "unitScale": true
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Machine"
-            },
-            "properties": [
-              {
-                "id": "custom.width",
-                "value": 75
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 27,
-        "w": 12,
-        "x": 0,
-        "y": 79
-      },
-      "id": 25,
-      "options": {
-        "cellHeight": "sm",
-        "footer": {
-          "countRows": false,
-          "fields": "",
-          "reducer": [
-            "sum"
-          ],
-          "show": false
-        },
-        "frameIndex": 0,
-        "showHeader": true,
-        "sortBy": []
-      },
-      "pluginVersion": "10.3.1",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"0\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"1\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"2\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "C"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"3\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "D"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"4\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "E"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"5\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "F"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"6\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "G"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"7\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "H"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"8\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "I"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"9\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "J"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"10\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "K"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"11\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "L"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"12\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "M"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_GPU_TEMP{gpu=\"13\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "N"
-        }
-      ],
-      "timeFrom": "30s",
-      "title": "Machine GPU Temps",
-      "transformations": [
-        {
-          "id": "joinByField",
-          "options": {
-            "byField": "job",
-            "mode": "outer"
-          }
-        },
-        {
-          "id": "organize",
-          "options": {
-            "excludeByName": {
-              "DCGM_FI_DRIVER_VERSION 1": true,
-              "DCGM_FI_DRIVER_VERSION 2": true,
-              "DCGM_FI_DRIVER_VERSION 3": true,
-              "DCGM_FI_DRIVER_VERSION 4": true,
-              "Hostname": true,
-              "Hostname 1": true,
-              "Hostname 10": true,
-              "Hostname 11": true,
-              "Hostname 12": true,
-              "Hostname 13": true,
-              "Hostname 14": true,
-              "Hostname 2": true,
-              "Hostname 3": true,
-              "Hostname 4": true,
-              "Hostname 5": true,
-              "Hostname 6": true,
-              "Hostname 7": true,
-              "Hostname 8": true,
-              "Hostname 9": true,
-              "Time 1": true,
-              "Time 10": true,
-              "Time 11": true,
-              "Time 12": true,
-              "Time 13": true,
-              "Time 14": true,
-              "Time 2": true,
-              "Time 3": true,
-              "Time 4": true,
-              "Time 5": true,
-              "Time 6": true,
-              "Time 7": true,
-              "Time 8": true,
-              "Time 9": true,
-              "UUID 1": true,
-              "UUID 10": true,
-              "UUID 11": true,
-              "UUID 12": true,
-              "UUID 13": true,
-              "UUID 14": true,
-              "UUID 2": true,
-              "UUID 3": true,
-              "UUID 4": true,
-              "UUID 5": true,
-              "UUID 6": true,
-              "UUID 7": true,
-              "UUID 8": true,
-              "UUID 9": true,
-              "Value #D": false,
-              "__name__": true,
-              "__name__ 1": true,
-              "__name__ 10": true,
-              "__name__ 11": true,
-              "__name__ 12": true,
-              "__name__ 13": true,
-              "__name__ 14": true,
-              "__name__ 2": true,
-              "__name__ 3": true,
-              "__name__ 4": true,
-              "__name__ 5": true,
-              "__name__ 6": true,
-              "__name__ 7": true,
-              "__name__ 8": true,
-              "__name__ 9": true,
-              "device 1": true,
-              "device 10": true,
-              "device 11": true,
-              "device 12": true,
-              "device 13": true,
-              "device 14": true,
-              "device 2": true,
-              "device 3": true,
-              "device 4": true,
-              "device 5": true,
-              "device 6": true,
-              "device 7": true,
-              "device 8": true,
-              "device 9": true,
-              "gpu 1": true,
-              "gpu 10": true,
-              "gpu 11": true,
-              "gpu 12": true,
-              "gpu 13": true,
-              "gpu 14": true,
-              "gpu 2": true,
-              "gpu 3": true,
-              "gpu 4": true,
-              "gpu 5": true,
-              "gpu 6": true,
-              "gpu 7": true,
-              "gpu 8": true,
-              "gpu 9": true,
-              "instance": true,
-              "instance 1": true,
-              "instance 10": true,
-              "instance 12": true,
-              "instance 13": true,
-              "instance 14": true,
-              "instance 2": true,
-              "instance 3": true,
-              "instance 4": true,
-              "instance 5": true,
-              "instance 6": true,
-              "instance 7": true,
-              "instance 8": true,
-              "instance 9": true,
-              "modelName": true,
-              "modelName 1": true,
-              "modelName 10": true,
-              "modelName 11": true,
-              "modelName 12": true,
-              "modelName 13": true,
-              "modelName 14": true,
-              "modelName 2": true,
-              "modelName 3": true,
-              "modelName 4": true,
-              "modelName 5": true,
-              "modelName 6": true,
-              "modelName 7": true,
-              "modelName 8": true,
-              "modelName 9": true
-            },
-            "includeByName": {},
-            "indexByName": {
-              "DCGM_FI_DRIVER_VERSION 1": 1,
-              "DCGM_FI_DRIVER_VERSION 2": 13,
-              "DCGM_FI_DRIVER_VERSION 3": 22,
-              "DCGM_FI_DRIVER_VERSION 4": 32,
-              "Hostname 1": 5,
-              "Hostname 2": 14,
-              "Hostname 3": 23,
-              "Hostname 4": 33,
-              "Time 1": 4,
-              "Time 2": 12,
-              "Time 3": 21,
-              "Time 4": 31,
-              "UUID 1": 6,
-              "UUID 2": 15,
-              "UUID 3": 24,
-              "UUID 4": 34,
-              "Value #A": 2,
-              "Value #B": 3,
-              "Value #C": 30,
-              "Value #D": 40,
-              "__name__ 1": 7,
-              "__name__ 2": 16,
-              "__name__ 3": 25,
-              "__name__ 4": 35,
-              "device 1": 8,
-              "device 2": 17,
-              "device 3": 26,
-              "device 4": 36,
-              "gpu 1": 9,
-              "gpu 2": 18,
-              "gpu 3": 27,
-              "gpu 4": 37,
-              "instance 1": 10,
-              "instance 2": 19,
-              "instance 3": 28,
-              "instance 4": 38,
-              "job": 0,
-              "modelName 1": 11,
-              "modelName 2": 20,
-              "modelName 3": 29,
-              "modelName 4": 39
-            },
-            "renameByName": {
-              "Hostname 1": "",
-              "Value #A": "GPU0",
-              "Value #B": "GPU1",
-              "Value #C": "GPU2",
-              "Value #D": "GPU3",
-              "Value #E": "GPU4",
-              "Value #F": "GPU5",
-              "Value #G": "GPU6",
-              "Value #H": "GPU7",
-              "Value #I": "GPU8",
-              "Value #J": "GPU9",
-              "Value #K": "GPU10",
-              "Value #L": "GPU11",
-              "Value #M": "GPU12",
-              "Value #N": "GPU13",
-              "job": "Machine"
-            }
-          }
-        },
-        {
-          "id": "sortBy",
-          "options": {
-            "fields": {},
-            "sort": [
-              {
-                "field": "Machine"
-              }
-            ]
-          }
-        }
-      ],
-      "type": "table"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "custom": {
-            "align": "auto",
-            "cellOptions": {
-              "mode": "gradient",
-              "type": "color-background"
-            },
-            "filterable": false,
-            "inspect": false,
-            "minWidth": 50
-          },
-          "decimals": 0,
-          "mappings": [
-            {
-              "options": {
-                "from": 0,
-                "result": {
-                  "color": "blue",
-                  "index": 0
-                },
-                "to": 50
-              },
-              "type": "range"
-            },
-            {
-              "options": {
-                "from": 51,
-                "result": {
-                  "color": "green",
-                  "index": 1
-                },
-                "to": 70
-              },
-              "type": "range"
-            },
-            {
-              "options": {
-                "from": 71,
-                "result": {
-                  "color": "yellow",
-                  "index": 2
-                },
-                "to": 90
-              },
-              "type": "range"
-            },
-            {
-              "options": {
-                "from": 91,
-                "result": {
-                  "color": "red",
-                  "index": 3
-                },
-                "to": 200
-              },
-              "type": "range"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "transparent",
-                "value": null
-              }
-            ]
-          },
-          "unit": "celsius",
-          "unitScale": true
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Machine"
-            },
-            "properties": [
-              {
-                "id": "custom.width",
-                "value": 75
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 27,
-        "w": 12,
-        "x": 12,
-        "y": 79
-      },
-      "id": 31,
-      "options": {
-        "cellHeight": "sm",
-        "footer": {
-          "countRows": false,
-          "fields": "",
-          "reducer": [
-            "sum"
-          ],
-          "show": false
-        },
-        "frameIndex": 0,
-        "showHeader": true,
-        "sortBy": []
-      },
-      "pluginVersion": "10.3.1",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"0\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"1\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"2\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "C"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"3\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "D"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"4\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "E"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"5\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "F"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"6\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "G"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"7\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "H"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"8\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "I"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"9\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "J"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"10\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "K"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"11\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "L"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"12\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "M"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"13\"}",
-          "format": "table",
-          "hide": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "N"
-        }
-      ],
-      "timeFrom": "30s",
-      "title": "Machine GPU VRAM Temps ",
-      "transformations": [
-        {
-          "id": "joinByField",
-          "options": {
-            "byField": "job",
-            "mode": "outer"
-          }
-        },
-        {
-          "id": "organize",
-          "options": {
-            "excludeByName": {
-              "DCGM_FI_DRIVER_VERSION 1": true,
-              "DCGM_FI_DRIVER_VERSION 2": true,
-              "DCGM_FI_DRIVER_VERSION 3": true,
-              "DCGM_FI_DRIVER_VERSION 4": true,
-              "Hostname 1": true,
-              "Hostname 2": true,
-              "Hostname 3": true,
-              "Hostname 4": true,
-              "Hostname 5": true,
-              "Hostname 6": true,
-              "Hostname 7": true,
-              "Hostname 8": true,
-              "Time 1": true,
-              "Time 10": true,
-              "Time 11": true,
-              "Time 12": true,
-              "Time 13": true,
-              "Time 14": true,
-              "Time 2": true,
-              "Time 3": true,
-              "Time 4": true,
-              "Time 5": true,
-              "Time 6": true,
-              "Time 7": true,
-              "Time 8": true,
-              "Time 9": true,
-              "UUID 1": true,
-              "UUID 10": true,
-              "UUID 11": true,
-              "UUID 12": true,
-              "UUID 13": true,
-              "UUID 14": true,
-              "UUID 2": true,
-              "UUID 3": true,
-              "UUID 4": true,
-              "UUID 5": true,
-              "UUID 6": true,
-              "UUID 7": true,
-              "UUID 8": true,
-              "UUID 9": true,
-              "Value #D": false,
-              "__name__": true,
-              "__name__ 1": true,
-              "__name__ 10": true,
-              "__name__ 11": true,
-              "__name__ 12": true,
-              "__name__ 13": true,
-              "__name__ 14": true,
-              "__name__ 2": true,
-              "__name__ 3": true,
-              "__name__ 4": true,
-              "__name__ 5": true,
-              "__name__ 6": true,
-              "__name__ 7": true,
-              "__name__ 8": true,
-              "__name__ 9": true,
-              "device 1": true,
-              "device 2": true,
-              "device 3": true,
-              "device 4": true,
-              "device 5": true,
-              "device 6": true,
-              "device 7": true,
-              "device 8": true,
-              "gpu 1": true,
-              "gpu 10": true,
-              "gpu 11": true,
-              "gpu 12": true,
-              "gpu 13": true,
-              "gpu 14": true,
-              "gpu 2": true,
-              "gpu 3": true,
-              "gpu 4": true,
-              "gpu 5": true,
-              "gpu 6": true,
-              "gpu 7": true,
-              "gpu 8": true,
-              "gpu 9": true,
-              "instance": true,
-              "instance 1": true,
-              "instance 10": true,
-              "instance 11": true,
-              "instance 12": true,
-              "instance 13": true,
-              "instance 14": true,
-              "instance 2": true,
-              "instance 3": true,
-              "instance 4": true,
-              "instance 5": true,
-              "instance 6": true,
-              "instance 7": true,
-              "instance 8": true,
-              "instance 9": true,
-              "modelName 1": true,
-              "modelName 2": true,
-              "modelName 3": true,
-              "modelName 4": true,
-              "modelName 5": true,
-              "modelName 6": true,
-              "modelName 7": true,
-              "modelName 8": true
-            },
-            "includeByName": {},
-            "indexByName": {
-              "DCGM_FI_DRIVER_VERSION 1": 1,
-              "DCGM_FI_DRIVER_VERSION 2": 13,
-              "DCGM_FI_DRIVER_VERSION 3": 22,
-              "DCGM_FI_DRIVER_VERSION 4": 32,
-              "Hostname 1": 5,
-              "Hostname 2": 14,
-              "Hostname 3": 23,
-              "Hostname 4": 33,
-              "Time 1": 4,
-              "Time 2": 12,
-              "Time 3": 21,
-              "Time 4": 31,
-              "UUID 1": 6,
-              "UUID 2": 15,
-              "UUID 3": 24,
-              "UUID 4": 34,
-              "Value #A": 2,
-              "Value #B": 3,
-              "Value #C": 30,
-              "Value #D": 40,
-              "__name__ 1": 7,
-              "__name__ 2": 16,
-              "__name__ 3": 25,
-              "__name__ 4": 35,
-              "device 1": 8,
-              "device 2": 17,
-              "device 3": 26,
-              "device 4": 36,
-              "gpu 1": 9,
-              "gpu 2": 18,
-              "gpu 3": 27,
-              "gpu 4": 37,
-              "instance 1": 10,
-              "instance 2": 19,
-              "instance 3": 28,
-              "instance 4": 38,
-              "job": 0,
-              "modelName 1": 11,
-              "modelName 2": 20,
-              "modelName 3": 29,
-              "modelName 4": 39
-            },
-            "renameByName": {
-              "Hostname 1": "",
-              "Time 13": "",
-              "Value #A": "GPU0",
-              "Value #B": "GPU1",
-              "Value #C": "GPU2",
-              "Value #D": "GPU3",
-              "Value #E": "GPU4",
-              "Value #F": "GPU5",
-              "Value #G": "GPU6",
-              "Value #H": "GPU7",
-              "Value #I": "GPU8",
-              "Value #J": "GPU9",
-              "Value #K": "GPU10",
-              "Value #L": "GPU11",
-              "Value #M": "GPU12",
-              "Value #N": "GPU13",
-              "job": "Machine"
-            }
-          }
-        },
-        {
-          "id": "sortBy",
-          "options": {
-            "fields": {},
-            "sort": [
-              {
-                "field": "Machine"
-              }
-            ]
-          }
-        }
-      ],
-      "type": "table"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "custom": {
-            "align": "auto",
-            "cellOptions": {
-              "mode": "gradient",
-              "type": "color-background"
-            },
-            "filterable": false,
-            "inspect": false,
-            "minWidth": 55
-          },
-          "decimals": 0,
-          "mappings": [
-            {
-              "options": {
-                "from": 0,
-                "result": {
-                  "color": "blue",
-                  "index": 0
-                },
                 "to": 50.999
               },
               "type": "range"
@@ -4149,8 +4253,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "transparent",
-                "value": null
+                "color": "transparent"
               }
             ]
           },
@@ -4176,7 +4279,7 @@
         "h": 28,
         "w": 12,
         "x": 0,
-        "y": 106
+        "y": 120
       },
       "id": 30,
       "options": {
@@ -4193,7 +4296,7 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -4617,6 +4720,501 @@
             },
             "filterable": false,
             "inspect": false,
+            "minWidth": 50
+          },
+          "decimals": 0,
+          "mappings": [
+            {
+              "options": {
+                "from": 0,
+                "result": {
+                  "color": "blue",
+                  "index": 0
+                },
+                "to": 50
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 51,
+                "result": {
+                  "color": "green",
+                  "index": 1
+                },
+                "to": 70
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 71,
+                "result": {
+                  "color": "yellow",
+                  "index": 2
+                },
+                "to": 90
+              },
+              "type": "range"
+            },
+            {
+              "options": {
+                "from": 91,
+                "result": {
+                  "color": "red",
+                  "index": 3
+                },
+                "to": 200
+              },
+              "type": "range"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "transparent"
+              }
+            ]
+          },
+          "unit": "celsius",
+          "unitScale": true
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Machine"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 75
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 27,
+        "w": 12,
+        "x": 12,
+        "y": 120
+      },
+      "id": 31,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 0,
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "10.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"0\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"1\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"2\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"3\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"4\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"5\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "F"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"6\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "G"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"7\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "H"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"8\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "I"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"9\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "J"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"10\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "K"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"11\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "L"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"12\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "M"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_VRAM_TEMP{gpu=\"13\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "N"
+        }
+      ],
+      "timeFrom": "30s",
+      "title": "Machine GPU VRAM Temps ",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "job",
+            "mode": "outer"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "DCGM_FI_DRIVER_VERSION 1": true,
+              "DCGM_FI_DRIVER_VERSION 2": true,
+              "DCGM_FI_DRIVER_VERSION 3": true,
+              "DCGM_FI_DRIVER_VERSION 4": true,
+              "Hostname 1": true,
+              "Hostname 2": true,
+              "Hostname 3": true,
+              "Hostname 4": true,
+              "Hostname 5": true,
+              "Hostname 6": true,
+              "Hostname 7": true,
+              "Hostname 8": true,
+              "Time 1": true,
+              "Time 10": true,
+              "Time 11": true,
+              "Time 12": true,
+              "Time 13": true,
+              "Time 14": true,
+              "Time 2": true,
+              "Time 3": true,
+              "Time 4": true,
+              "Time 5": true,
+              "Time 6": true,
+              "Time 7": true,
+              "Time 8": true,
+              "Time 9": true,
+              "UUID 1": true,
+              "UUID 10": true,
+              "UUID 11": true,
+              "UUID 12": true,
+              "UUID 13": true,
+              "UUID 14": true,
+              "UUID 2": true,
+              "UUID 3": true,
+              "UUID 4": true,
+              "UUID 5": true,
+              "UUID 6": true,
+              "UUID 7": true,
+              "UUID 8": true,
+              "UUID 9": true,
+              "Value #D": false,
+              "__name__": true,
+              "__name__ 1": true,
+              "__name__ 10": true,
+              "__name__ 11": true,
+              "__name__ 12": true,
+              "__name__ 13": true,
+              "__name__ 14": true,
+              "__name__ 2": true,
+              "__name__ 3": true,
+              "__name__ 4": true,
+              "__name__ 5": true,
+              "__name__ 6": true,
+              "__name__ 7": true,
+              "__name__ 8": true,
+              "__name__ 9": true,
+              "device 1": true,
+              "device 2": true,
+              "device 3": true,
+              "device 4": true,
+              "device 5": true,
+              "device 6": true,
+              "device 7": true,
+              "device 8": true,
+              "gpu 1": true,
+              "gpu 10": true,
+              "gpu 11": true,
+              "gpu 12": true,
+              "gpu 13": true,
+              "gpu 14": true,
+              "gpu 2": true,
+              "gpu 3": true,
+              "gpu 4": true,
+              "gpu 5": true,
+              "gpu 6": true,
+              "gpu 7": true,
+              "gpu 8": true,
+              "gpu 9": true,
+              "instance": true,
+              "instance 1": true,
+              "instance 10": true,
+              "instance 11": true,
+              "instance 12": true,
+              "instance 13": true,
+              "instance 14": true,
+              "instance 2": true,
+              "instance 3": true,
+              "instance 4": true,
+              "instance 5": true,
+              "instance 6": true,
+              "instance 7": true,
+              "instance 8": true,
+              "instance 9": true,
+              "modelName 1": true,
+              "modelName 2": true,
+              "modelName 3": true,
+              "modelName 4": true,
+              "modelName 5": true,
+              "modelName 6": true,
+              "modelName 7": true,
+              "modelName 8": true
+            },
+            "includeByName": {},
+            "indexByName": {
+              "DCGM_FI_DRIVER_VERSION 1": 1,
+              "DCGM_FI_DRIVER_VERSION 2": 13,
+              "DCGM_FI_DRIVER_VERSION 3": 22,
+              "DCGM_FI_DRIVER_VERSION 4": 32,
+              "Hostname 1": 5,
+              "Hostname 2": 14,
+              "Hostname 3": 23,
+              "Hostname 4": 33,
+              "Time 1": 4,
+              "Time 2": 12,
+              "Time 3": 21,
+              "Time 4": 31,
+              "UUID 1": 6,
+              "UUID 2": 15,
+              "UUID 3": 24,
+              "UUID 4": 34,
+              "Value #A": 2,
+              "Value #B": 3,
+              "Value #C": 30,
+              "Value #D": 40,
+              "__name__ 1": 7,
+              "__name__ 2": 16,
+              "__name__ 3": 25,
+              "__name__ 4": 35,
+              "device 1": 8,
+              "device 2": 17,
+              "device 3": 26,
+              "device 4": 36,
+              "gpu 1": 9,
+              "gpu 2": 18,
+              "gpu 3": 27,
+              "gpu 4": 37,
+              "instance 1": 10,
+              "instance 2": 19,
+              "instance 3": 28,
+              "instance 4": 38,
+              "job": 0,
+              "modelName 1": 11,
+              "modelName 2": 20,
+              "modelName 3": 29,
+              "modelName 4": 39
+            },
+            "renameByName": {
+              "Hostname 1": "",
+              "Time 13": "",
+              "Value #A": "GPU0",
+              "Value #B": "GPU1",
+              "Value #C": "GPU2",
+              "Value #D": "GPU3",
+              "Value #E": "GPU4",
+              "Value #F": "GPU5",
+              "Value #G": "GPU6",
+              "Value #H": "GPU7",
+              "Value #I": "GPU8",
+              "Value #J": "GPU9",
+              "Value #K": "GPU10",
+              "Value #L": "GPU11",
+              "Value #M": "GPU12",
+              "Value #N": "GPU13",
+              "job": "Machine"
+            }
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "Machine"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "mode": "gradient",
+              "type": "color-background"
+            },
+            "filterable": false,
+            "inspect": false,
             "minWidth": 54
           },
           "decimals": 0,
@@ -4648,8 +5246,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "transparent",
-                "value": null
+                "color": "transparent"
               }
             ]
           },
@@ -4675,7 +5272,7 @@
         "h": 28,
         "w": 12,
         "x": 12,
-        "y": 106
+        "y": 147
       },
       "id": 33,
       "options": {
@@ -4692,7 +5289,7 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -5142,7 +5739,7 @@
                   "color": "red",
                   "index": 3
                 },
-                "to": null
+                "to": 4294967295
               },
               "type": "range"
             }
@@ -5151,8 +5748,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "transparent",
-                "value": null
+                "color": "transparent"
               }
             ]
           },
@@ -5178,7 +5774,7 @@
         "h": 28,
         "w": 12,
         "x": 0,
-        "y": 134
+        "y": 148
       },
       "id": 35,
       "options": {
@@ -5195,7 +5791,7 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -5665,8 +6261,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "transparent",
-                "value": null
+                "color": "transparent"
               }
             ]
           },
@@ -5692,7 +6287,7 @@
         "h": 28,
         "w": 12,
         "x": 12,
-        "y": 134
+        "y": 175
       },
       "id": 34,
       "options": {
@@ -5709,7 +6304,7 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "10.3.1",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -6144,8 +6739,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -6162,7 +6756,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 162
+        "y": 176
       },
       "id": 23,
       "options": {
@@ -6191,117 +6785,6 @@
         }
       ],
       "title": "Machine Internet Down speed",
-      "transformations": [
-        {
-          "filter": {
-            "id": "byRefId",
-            "options": ""
-          },
-          "id": "filterByValue",
-          "options": {
-            "filters": [],
-            "match": "any",
-            "type": "include"
-          }
-        }
-      ],
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "description": "Reported by vast api. ",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "MBs",
-          "unitScale": true
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 162
-      },
-      "id": 24,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "vastai_machine_InetUp",
-          "legendFormat": "{{machine_id}}",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Machine Internet Upload speed",
       "transformations": [
         {
           "filter": {
@@ -6383,7 +6866,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 170
+        "y": 184
       },
       "id": 18,
       "options": {
@@ -6492,118 +6975,8 @@
       "gridPos": {
         "h": 8,
         "w": 12,
-        "x": 12,
-        "y": 170
-      },
-      "id": 14,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "(sum(vastai_per_machine_gpu_earn+vastai_per_machine_bwd_earn+vastai_per_machine_bwu_earn+vastai_per_machine_sto_earn)  by (machine_id) ) !=0",
-          "legendFormat": "{{machine_id}}",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Historic Machine earnings per day",
-      "transformations": [
-        {
-          "filter": {
-            "id": "byRefId",
-            "options": ""
-          },
-          "id": "filterByValue",
-          "options": {
-            "filters": [],
-            "match": "any",
-            "type": "include"
-          }
-        }
-      ],
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "description": "As reported by vast api for the day before. ",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green"
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "currencyUSD",
-          "unitScale": true
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
         "x": 0,
-        "y": 178
+        "y": 192
       },
       "id": 17,
       "options": {
@@ -6712,8 +7085,228 @@
       "gridPos": {
         "h": 8,
         "w": 12,
+        "x": 0,
+        "y": 200
+      },
+      "id": 16,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "(sum(vastai_per_machine_sto_earn)  by (machine_id) ) !=0",
+          "legendFormat": "{{machine_id}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Historic Machine earnings storage  per day",
+      "transformations": [
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": ""
+          },
+          "id": "filterByValue",
+          "options": {
+            "filters": [],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "Reported by vast api. ",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "MBs",
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
         "x": 12,
-        "y": 178
+        "y": 203
+      },
+      "id": 24,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "vastai_machine_InetUp",
+          "legendFormat": "{{machine_id}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Machine Internet Upload speed",
+      "transformations": [
+        {
+          "filter": {
+            "id": "byRefId",
+            "options": ""
+          },
+          "id": "filterByValue",
+          "options": {
+            "filters": [],
+            "match": "any",
+            "type": "include"
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "As reported by vast api for the day before. ",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "currencyUSD",
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 208
       },
       "id": 15,
       "options": {
@@ -6823,9 +7416,9 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 186
+        "y": 216
       },
-      "id": 16,
+      "id": 14,
       "options": {
         "legend": {
           "calcs": [],
@@ -6845,13 +7438,13 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "(sum(vastai_per_machine_sto_earn)  by (machine_id) ) !=0",
+          "expr": "(sum(vastai_per_machine_gpu_earn+vastai_per_machine_bwd_earn+vastai_per_machine_bwu_earn+vastai_per_machine_sto_earn)  by (machine_id) ) !=0",
           "legendFormat": "{{machine_id}}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "Historic Machine earnings storage  per day",
+      "title": "Historic Machine earnings per day",
       "transformations": [
         {
           "filter": {
@@ -6926,6 +7519,6 @@
   "timezone": "",
   "title": "Vast Dashboard",
   "uid": "d1e22d5b-dcf4-4f54-8629-972173cb24eb",
-  "version": 33,
+  "version": 39,
   "weekStart": ""
 }
