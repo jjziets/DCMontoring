@@ -1,0 +1,97 @@
+pastebin
+Paste from root 01 March 2024 7:46 +0000
+Syntax highlighting: text
+
+View raw Copy to clipboard
+version: '3'
+services:
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "443:3000"  # Changed from "80:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./grafana.crt:/etc/grafana/grafana.crt  # update to your cert for your cert
+      - ./grafana.key:/etc/grafana/grafana.key # update to your cert for your cert
+    environment:
+      GF_DATABASE_TYPE: postgres
+      GF_DATABASE_HOST: db:5432
+      GF_DATABASE_NAME: grafana
+      GF_DATABASE_USER: grafana
+      GF_DATABASE_PASSWORD: secret_key  # update
+      GF_SERVER_PROTOCOL: https
+      GF_SERVER_HTTP_PORT: 3000
+      GF_SERVER_CERT_FILE: /etc/grafana/grafana.crt
+      GF_SERVER_CERT_KEY: /etc/grafana/grafana.key
+    restart: always
+    depends_on:
+      - db
+      - prometheus
+      - node-exporter
+      - cadvisor
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: grafana
+      POSTGRES_PASSWORD: secret_key # update
+      POSTGRES_DB: grafana
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+  prometheus:
+    image: prom/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.retention.time=30d'
+      - '--web.config.file=/etc/prometheus/web-config.yml'
+      - '--web.external-url=https://grafana.Website.co/' # update
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml   # update to your system
+      - ./web-config.yml:/etc/prometheus/web-config.yml
+      - ./grafana.crt:/etc/prometheus/grafana.crt       # update to your system
+      - ./grafana.key:/etc/prometheus/grafana.key       # update to your system
+      - prometheus-data:/prometheus  # Add this line to persist data
+    restart: always
+    stop_grace_period: 1m
+
+
+  node-exporter:
+    image: jjziets/my-node-exporter:latest
+    container_name: my-node-exporter
+    restart: unless-stopped
+    network_mode: host
+    pid: host
+    hostname: "prometheus"
+    volumes:
+      - "/:/host:ro,rslave"
+    command: ["--path.rootfs=/host"]
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:v0.47.1
+    container_name: cadvisor
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - "/:/rootfs:ro"
+      - "/var/run:/var/run:ro"
+      - "/sys:/sys:ro"
+      - "/var/lib/docker/:/var/lib/docker:ro"
+      - "/dev/disk/:/dev/disk:ro"
+    privileged: true
+    devices:
+      - "/dev/kmsg:/dev/kmsg"
+
+  vastai-exporter:
+    image: jjziets/vastai-exporter
+    ports:
+      - "8622:8622"
+    command: 
+      - "--api-key=VAST_API_KEY" #Remember to replace this with your vast API Key
+    restart: always
+   
+volumes:
+  grafana-data:
+  postgres-data:
+  prometheus-data:
