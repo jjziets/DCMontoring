@@ -278,26 +278,22 @@ To effectively update your DCMonitoring setup for both server and client sides, 
     sudo docker-compose down
     ```
 
-4. **Remove Old Docker Compose**:
+4. **Update Docker Compose**: Optional 
     ```bash
     apt remove docker-compose
-    ```
-
-5. **Install Docker Compose**:
-    ```bash
     curl -L "https://github.com/docker/compose/releases/download/v2.24.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     chmod +x /usr/local/bin/docker-compose
     ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
     ```
 
-6. **Update Configuration Files**:
+5. **Update Configuration Files**: Optional and make sure to set your vastai API key if you do
     - Download the latest `docker-compose.yml`:
         ```bash
         wget -O docker-compose.yml https://raw.githubusercontent.com/jjziets/DCMontoring/main/server/docker-compose.yml
         ```
     - If required, modify `prometheus.yml` as needed.
 
-7. **Pull Latest Images and Start Services**:
+6. **Pull Latest Images and Start Services**:
     ```bash
     docker-compose pull
     docker-compose up -d
