@@ -23,7 +23,7 @@ services:
     restart: unless-stopped
     network_mode: host
     pid: host
-    hostname: "vastbackup"
+    hostname: "prometheus"
     volumes:
       - "/:/host:ro,rslave"
     command: ["--path.rootfs=/host"]
