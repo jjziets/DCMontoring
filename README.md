@@ -73,6 +73,8 @@ chmod +x /usr/local/bin/docker-compose
 ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 apt-get update && sudo apt-get install -y gettext-base
 wget -O docker-compose.yml https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/docker-compose.yml-vast
+wget -O /usr/local/bin/check-upgradable-packages.sh  https://github.com/jjziets/gddr6_temps/raw/master/update-package-count.sh;
+chmod +x /usr/local/bin/check-upgradable-packages.sh;
 docker-compose pull
 sed "s/__HOST_HOSTNAME__/$(hostname)/g" docker-compose.yml | docker-compose -f - up -d
 
@@ -319,11 +321,16 @@ https://github.com/jjziets/DCMontoring/blob/main/README.md#dashboards
     apt-get update && sudo apt-get install -y gettext-base
     ```
 
-4. **Update Configuration File**:
+4.1 **Update Configuration File**:
     - Download the latest `docker-compose.yml`:
         ```bash
         wget -O docker-compose.yml https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/docker-compose.yml-vast
         ```
+4.2  for apt update
+    ```bash
+        wget -O /usr/local/bin/check-upgradable-packages.sh  https://github.com/jjziets/gddr6_temps/raw/master/update-package-count.sh;
+        chmod +x /usr/local/bin/check-upgradable-packages.sh;
+    ```
 
 5. **Start Services with Updated Configuration**:
     ```bash
