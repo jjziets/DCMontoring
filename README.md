@@ -75,6 +75,7 @@ apt-get update && sudo apt-get install -y gettext-base
 wget -O docker-compose.yml https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/docker-compose.yml-vast
 wget -O /usr/local/bin/check-upgradable-packages.sh  https://github.com/jjziets/gddr6_temps/raw/master/update-package-count.sh;
 chmod +x /usr/local/bin/check-upgradable-packages.sh;
+sudo bash -c '(crontab -l 2>/dev/null; echo "0 * * * * /usr/local/bin/check-upgradable-packages.sh") | crontab -'
 docker-compose pull
 sed "s/__HOST_HOSTNAME__/$(hostname)/g" docker-compose.yml | docker-compose -f - up -d
 
@@ -292,6 +293,7 @@ To effectively update your DCMonitoring setup for both server and client sides, 
     - Download the latest `docker-compose.yml`:
         ```bash
         wget -O docker-compose.yml https://raw.githubusercontent.com/jjziets/DCMontoring/main/server/docker-compose.yml
+        
         ```
     - If required, modify `prometheus.yml` as needed.
 
@@ -326,10 +328,11 @@ https://github.com/jjziets/DCMontoring/blob/main/README.md#dashboards
         ```bash
         wget -O docker-compose.yml https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/docker-compose.yml-vast
         ```
-4.2  for apt update
+4.2  for apt update exporter 
     ```bash
         wget -O /usr/local/bin/check-upgradable-packages.sh  https://github.com/jjziets/gddr6_temps/raw/master/update-package-count.sh;
         chmod +x /usr/local/bin/check-upgradable-packages.sh;
+        sudo bash -c '(crontab -l 2>/dev/null; echo "0 * * * * /usr/local/bin/check-upgradable-packages.sh") | crontab -'
     ```
 
 5. **Start Services with Updated Configuration**:
