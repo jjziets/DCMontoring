@@ -45,7 +45,8 @@ services:
     privileged: true
     restart: unless-stopped
     volumes:
-      - "/var/log/syslog:/var/log/syslog:ro"
+      - "/var/log/syslog:/var/log/syslog:to"
+      - "/var/log/package-count.txt:/var/log/package-count.txt:ro"
     deploy:
       resources:
         reservations:
