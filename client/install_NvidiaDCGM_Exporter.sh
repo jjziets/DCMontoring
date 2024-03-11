@@ -4,13 +4,18 @@
 apt update
 apt install -y git wget lsb-release software-properties-common snapd
 
-# Ensure Snap's "go" is at the required version or install it
-REQUIRED_GO_VERSION="1.21" # Example version, adjust as needed
-
-# Install Go using Snap if not installed or update if not at the required version
-if ! command -v go &> /dev/null || [[ "$(go version | grep -oP 'go1\.\d+\.\d+' | tr -d 'go' | cut -d '.' -f1-2)" < "$REQUIRED_GO_VERSION" ]]; then
+# Install Go using Snap
+SNAP_GO_INSTALLED=$(snap list | grep -c "^go ")
+if [ "$SNAP_GO_INSTALLED" -eq "0" ]; then
+    echo "Installing Go using Snap..."
     snap install go --classic
+else
+    echo "Go is already installed via Snap."
 fi
+
+# Re-export PATH just in case it's needed for immediate use
+export PATH=$PATH:/snap/bin
+
 
 # Ensure the PATH includes Go binaries from Snap
 export PATH=$PATH:/snap/bin
