@@ -1,20 +1,9 @@
 version: '3.8'
 
 services:
-  dcgm-exporter:
-    image: jjziets/dcgm-exporter:latest
-    container_name: safe_runpod-dcgm-exporter
-    restart: unless-stopped
-    ports:
-      - "9400:9400"
-    runtime: nvidia
-    environment:
-      - NVIDIA_VISIBLE_DEVICES=all
-    hostname: "__HOST_HOSTNAME__"
-
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:v0.47.1
-    container_name: safe_runpod-cadvisor
+    container_name: safe_runpod
     userns_mode: host
     restart: unless-stopped
     ports:
