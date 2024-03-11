@@ -2,35 +2,25 @@
 
 # Update and install necessary packages
 apt update
-apt remove -y golang
 apt install -y git wget lsb-release software-properties-common
 
-# Define Go version
-GO_VERSION=1.21
-GO_TAR_FILE="go${GO_VERSION}.linux-amd64.tar.gz"
+# Determine if Go is installed and at the correct version
+GO_VERSION=$(go version 2>/dev/null | grep -oP 'go1\.\d+\.\d+' || echo "")
+REQUIRED_GO_VERSION="1.21"
 
-# Clean up previous Go installation if the version is not the one we want
-if [[ -d "/usr/local/go" && "$(go version)" != *"$GO_VERSION"* ]]; then
-  echo "Removing previous Go installation."
-  rm -rf /usr/local/go
+if [[ -z "$GO_VERSION" || "$GO_VERSION" < "$REQUIRED_GO_VERSION" ]]; then
+    # Remove any previous Go installation
+    rm -rf /usr/local/go
+
+    # Install the required Go version
+    wget https://go.dev/dl/go${REQUIRED_GO_VERSION}.linux-amd64.tar.gz
+    tar -C /usr/local -xzf go${REQUIRED_GO_VERSION}.linux-amd64.tar.gz
+    rm go${REQUIRED_GO_VERSION}.linux-amd64.tar.gz
+
+    # Set Go PATH
+    echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.profile
+    export PATH=$PATH:/usr/local/go/bin
 fi
-
-# Install Go if it is not already installed or if the wrong version is installed
-if ! [[ -x "$(command -v go)" && "$(go version)" == *"$GO_VERSION"* ]]; then
-  echo "Installing Go $GO_VERSION."
-  wget "https://go.dev/dl/$GO_TAR_FILE"
-  tar -C /usr/local -xzf "$GO_TAR_FILE"
-  rm "$GO_TAR_FILE"
-else
-  echo "Go $GO_VERSION is already installed."
-fi
-
-# Ensure Go binary is in PATH
-export PATH=$PATH:/usr/local/go/bin
-if ! grep -q 'export PATH=$PATH:/usr/local/go/bin' ~/.profile; then
-  echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.profile
-fi
-
 # Determine Ubuntu version
 UBUNTU_VERSION=$(lsb_release -sr | tr -d '.')
 UBUNTU_CODENAME=$(lsb_release -sc)
