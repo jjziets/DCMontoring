@@ -2,26 +2,20 @@
 
 # Update and install necessary packages
 apt update
-apt install -y git wget lsb-release software-properties-common
+apt install -y git wget lsb-release software-properties-common snapd
 
-# Determine if Go is installed and at the correct version
-GO_VERSION=$(go version 2>/dev/null | grep -oP 'go1\.\d+\.\d+' || echo "")
-REQUIRED_GO_VERSION="1.21"
+# Ensure Snap's "go" is at the required version or install it
+REQUIRED_GO_VERSION="1.21" # Example version, adjust as needed
 
-if [[ -z "$GO_VERSION" || "$GO_VERSION" < "$REQUIRED_GO_VERSION" ]]; then
-    # Remove any previous Go installation
-    rm -rf /usr/local/go
-
-    # Install the required Go version
-    wget https://go.dev/dl/go${REQUIRED_GO_VERSION}.linux-amd64.tar.gz
-    tar -C /usr/local -xzf go${REQUIRED_GO_VERSION}.linux-amd64.tar.gz
-    rm go${REQUIRED_GO_VERSION}.linux-amd64.tar.gz
-
-    # Set Go PATH
-    echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.profile
-    export PATH=$PATH:/usr/local/go/bin
+# Install Go using Snap if not installed or update if not at the required version
+if ! command -v go &> /dev/null || [[ "$(go version | grep -oP 'go1\.\d+\.\d+' | tr -d 'go' | cut -d '.' -f1-2)" < "$REQUIRED_GO_VERSION" ]]; then
+    snap install go --classic
 fi
-# Determine Ubuntu version
+
+# Ensure the PATH includes Go binaries from Snap
+export PATH=$PATH:/snap/bin
+
+# Determine Ubuntu version and codename
 UBUNTU_VERSION=$(lsb_release -sr | tr -d '.')
 UBUNTU_CODENAME=$(lsb_release -sc)
 
