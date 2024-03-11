@@ -3,6 +3,7 @@
 # Update and install necessary packages
 apt update
 apt install -y git wget lsb-release software-properties-common snapd
+export DEBIAN_FRONTEND=noninteractive
 
 # Install Go using Snap
 SNAP_GO_INSTALLED=$(snap list | grep -c "^go ")
