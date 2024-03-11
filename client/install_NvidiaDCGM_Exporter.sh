@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 apt update
 apt remove -y golang
 apt install -y git
