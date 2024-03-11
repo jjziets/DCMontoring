@@ -99,6 +99,14 @@ sudo wget -q -O /etc/systemd/system/gddr6-metrics-exporter.service https://raw.g
 sudo systemctl daemon-reload && \
 sudo systemctl enable gddr6-metrics-exporter && \
 sudo systemctl start gddr6-metrics-exporter"
+
+curl -L "https://github.com/docker/compose/releases/download/v2.24.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+apt-get update && sudo apt-get install -y gettext-base
+wget -O docker-compose.yml https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/docker-compose.yml-runpod 
+docker-compose up -d 
+
 ```
 
 
