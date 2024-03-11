@@ -6,8 +6,7 @@ apt install -y git wget lsb-release software-properties-common snapd
 export DEBIAN_FRONTEND=noninteractive
 
 # Install Go using Snap
-SNAP_GO_INSTALLED=$(snap list | grep -c "^go ")
-if [ "$SNAP_GO_INSTALLED" -eq "0" ]; then
+if ! command -v go &>/dev/null; then
     echo "Installing Go using Snap..."
     snap install go --classic
 else
@@ -17,23 +16,27 @@ fi
 # Re-export PATH just in case it's needed for immediate use
 export PATH=$PATH:/snap/bin
 
-
-# Ensure the PATH includes Go binaries from Snap
-export PATH=$PATH:/snap/bin
-
-# Determine Ubuntu version and codename
+# Determine Ubuntu version
 UBUNTU_VERSION=$(lsb_release -sr | tr -d '.')
-UBUNTU_CODENAME=$(lsb_release -sc)
 
-# Ensure the CUDA keyring and repository are correctly set up
+# Define CUDA keyring package and repository URL
 CUDA_KEYRING_PKG="cuda-keyring_1.0-1_all.deb"
 CUDA_REPO_URL="https://developer.download.nvidia.com/compute/cuda/repos/ubuntu${UBUNTU_VERSION}/x86_64"
 
-if ! apt-key list | grep -q "CUDA"; then
-  wget "$CUDA_REPO_URL/$CUDA_KEYRING_PKG"
-  dpkg -i "$CUDA_KEYRING_PKG"
-  add-apt-repository -y "deb $CUDA_REPO_URL/ /"
-  rm "$CUDA_KEYRING_PKG"
+# Function to check if CUDA repo is already added
+is_cuda_repo_added() {
+    grep -q "^deb .*$CUDA_REPO_URL" /etc/apt/sources.list /etc/apt/sources.list.d/*.list
+}
+
+# Only add CUDA repo if it's not already added
+if ! is_cuda_repo_added; then
+    echo "Adding CUDA repository..."
+    wget "$CUDA_REPO_URL/$CUDA_KEYRING_PKG"
+    dpkg -i "$CUDA_KEYRING_PKG"
+    add-apt-repository -y "deb $CUDA_REPO_URL/ /"
+    rm "$CUDA_KEYRING_PKG"
+else
+    echo "CUDA repository is already configured."
 fi
 
 # Install Data Center GPU Manager
@@ -42,7 +45,7 @@ apt-get install -y datacenter-gpu-manager
 
 # Clone, build, and install DCGM Exporter
 if [ ! -d "dcgm-exporter" ]; then
-  git clone https://github.com/NVIDIA/dcgm-exporter.git
+    git clone https://github.com/NVIDIA/dcgm-exporter.git
 fi
 cd dcgm-exporter
 make binary
