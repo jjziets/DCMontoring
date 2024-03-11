@@ -5,35 +5,62 @@ apt update
 apt remove -y golang
 apt install -y git wget lsb-release software-properties-common
 
-# Install Go
-wget https://go.dev/dl/go1.20.5.linux-amd64.tar.gz
-tar -C /usr/local -xzf go1.20.5.linux-amd64.tar.gz
-rm go1.20.5.linux-amd64.tar.gz
+# Define Go version
+GO_VERSION=1.21
+GO_TAR_FILE="go${GO_VERSION}.linux-amd64.tar.gz"
+
+# Clean up previous Go installation if the version is not the one we want
+if [[ -d "/usr/local/go" && "$(go version)" != *"$GO_VERSION"* ]]; then
+  echo "Removing previous Go installation."
+  rm -rf /usr/local/go
+fi
+
+# Install Go if it is not already installed or if the wrong version is installed
+if ! [[ -x "$(command -v go)" && "$(go version)" == *"$GO_VERSION"* ]]; then
+  echo "Installing Go $GO_VERSION."
+  wget "https://go.dev/dl/$GO_TAR_FILE"
+  tar -C /usr/local -xzf "$GO_TAR_FILE"
+  rm "$GO_TAR_FILE"
+else
+  echo "Go $GO_VERSION is already installed."
+fi
+
+# Ensure Go binary is in PATH
 export PATH=$PATH:/usr/local/go/bin
-echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.profile
+if ! grep -q 'export PATH=$PATH:/usr/local/go/bin' ~/.profile; then
+  echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.profile
+fi
 
 # Determine Ubuntu version
-UBUNTU_VERSION=$(lsb_release -sr)
-UBUNTU_VERSION=${UBUNTU_VERSION//.}  # Remove dot from version number (e.g., 20.04 -> 2004)
+UBUNTU_VERSION=$(lsb_release -sr | tr -d '.')
+UBUNTU_CODENAME=$(lsb_release -sc)
 
-# Download CUDA keyring and add CUDA repository based on Ubuntu version
-wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu${UBUNTU_VERSION}/x86_64/cuda-keyring_1.0-1_all.deb
-dpkg -i cuda-keyring_1.0-1_all.deb
-add-apt-repository -y "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu${UBUNTU_VERSION}/x86_64/ /"
+# Ensure the CUDA keyring and repository are correctly set up
+CUDA_KEYRING_PKG="cuda-keyring_1.0-1_all.deb"
+CUDA_REPO_URL="https://developer.download.nvidia.com/compute/cuda/repos/ubuntu${UBUNTU_VERSION}/x86_64"
+
+if ! apt-key list | grep -q "CUDA"; then
+  wget "$CUDA_REPO_URL/$CUDA_KEYRING_PKG"
+  dpkg -i "$CUDA_KEYRING_PKG"
+  add-apt-repository -y "deb $CUDA_REPO_URL/ /"
+  rm "$CUDA_KEYRING_PKG"
+fi
 
 # Install Data Center GPU Manager
 apt-get update
 apt-get install -y datacenter-gpu-manager
 
 # Clone, build, and install DCGM Exporter
-git clone https://github.com/NVIDIA/dcgm-exporter.git
+if [ ! -d "dcgm-exporter" ]; then
+  git clone https://github.com/NVIDIA/dcgm-exporter.git
+fi
 cd dcgm-exporter
 make binary
 make install
 
 # Configure DCGM Exporter
 mkdir -p /etc/dcgm-exporter/
-wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/dcgm-exporter/custom-collectors.csv -O /etc/dcgm-exporter/default-counters.csv
+wget -O /etc/dcgm-exporter/default-counters.csv https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/dcgm-exporter/custom-collectors.csv
 
 # Setup DCGM Exporter service
 echo '[Unit]
