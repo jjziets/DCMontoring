@@ -64,9 +64,9 @@ DCGM_FI_DEV_UNCORRECTABLE_REMAPPED_ROWS, counter, Number of remapped rows for un
 DCGM_FI_DEV_CORRECTABLE_REMAPPED_ROWS,   counter, Number of remapped rows for correctable errors
 DCGM_FI_DEV_ROW_REMAP_FAILURE,           gauge,   Whether remapping of rows has failed
 
-#DCGM_FI_PROF_PCIE_RX_BYTES, gauge, Number of bytes received via PCIe.
-#DCGM_FI_PROF_PCIE_TX_BYTES, gauge, Number of bytes transmitted via PCIe.
+DCGM_FI_PROF_PCIE_RX_BYTES, gauge, Number of bytes received via PCIe.
+DCGM_FI_PROF_PCIE_TX_BYTES, gauge, Number of bytes transmitted via PCIe.
 DCGM_FI_DEV_FAN_SPEED, gauge, Fan speed for the device.
-#DCGM_FI_PROF_GR_ENGINE_ACTIVE, gauge, Time the GR engine is active.
-#DCGM_FI_PROF_PIPE_TENSOR_ACTIVE, gauge, Time the Tensor pipes are active.
-#DCGM_FI_PROF_DRAM_ACTIVE, gauge, Time the DRAM is active.
+DCGM_FI_PROF_GR_ENGINE_ACTIVE, gauge, Time the GR engine is active.
+DCGM_FI_PROF_PIPE_TENSOR_ACTIVE, gauge, Time the Tensor pipes are active.
+DCGM_FI_PROF_DRAM_ACTIVE, gauge, Time the DRAM is active.
