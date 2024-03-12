@@ -7,6 +7,8 @@ services:
     restart: unless-stopped
     ports:
       - "9400:9400"
+    cap_add:
+      - SYS_ADMIN
     runtime: nvidia
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
