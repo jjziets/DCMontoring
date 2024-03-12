@@ -1,5 +1,7 @@
 #!/bin/bash
-
+# this build is for creating the docker image that is used. oit requires that you get clone https://github.com/NVIDIA/dcgm-exporter.git 
+# modify the Dockerfile in ./docker and change the vertion to match the repo 
+# then move all the content one level down, download the custom-collectors.csv and run the  .build.sh
 # Set variables
 DOCKER_USERNAME="jjziets"
 IMAGE_NAME="dcgm-exporter"
