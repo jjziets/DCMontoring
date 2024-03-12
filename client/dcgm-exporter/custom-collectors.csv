@@ -70,3 +70,7 @@ DCGM_FI_DEV_FAN_SPEED, gauge, Fan speed for the device.
 #DCGM_FI_PROF_GR_ENGINE_ACTIVE, gauge, Time the GR engine is active.
 #DCGM_FI_PROF_PIPE_TENSOR_ACTIVE, gauge, Time the Tensor pipes are active.
 #DCGM_FI_PROF_DRAM_ACTIVE, gauge, Time the DRAM is active.
+
+# Driver and CUDA Versions,,
+DCGM_FI_DRIVER_VERSION, gauge, Driver version of the NVIDIA GPU.
+DCGM_FI_CUDA_DRIVER_VERSION, gauge, CUDA driver version. Retrieves a number with the major value in the thousands place and the minor value in the hundreds place.
