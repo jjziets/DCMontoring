@@ -2977,6 +2977,323 @@
             "inspect": false,
             "minWidth": 50
           },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unitScale": true
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "GPU Count"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 78
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "GPU Model Name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 202
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Hostname"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 103
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 9,
+        "x": 0,
+        "y": 29
+      },
+      "id": 13,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "10.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "count(DCGM_FI_DEV_FB_USED) by (Hostname)",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "DCGM_FI_DEV_SM_CLOCK{Hostname=~\".+\"}",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "timeFrom": "30s",
+      "title": "Reported GPU Count",
+      "transformations": [
+        {
+          "id": "joinByField",
+          "options": {
+            "byField": "Hostname",
+            "mode": "outer"
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "DCGM_FI_DRIVER_VERSION": {
+                "aggregations": [
+                  "lastNotNull"
+                ],
+                "operation": "aggregate"
+              },
+              "Hostname": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "Value": {
+                "aggregations": [
+                  "lastNotNull"
+                ],
+                "operation": "aggregate"
+              },
+              "Value #A": {
+                "aggregations": [
+                  "lastNotNull"
+                ],
+                "operation": "aggregate"
+              },
+              "Value #B": {
+                "aggregations": [
+                  "lastNotNull"
+                ]
+              },
+              "modelName": {
+                "aggregations": [
+                  "lastNotNull"
+                ],
+                "operation": "aggregate"
+              }
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {
+              "DCGM_FI_DRIVER_VERSION (lastNotNull)": 3,
+              "Hostname": 0,
+              "Value #A (lastNotNull)": 1,
+              "modelName (lastNotNull)": 2
+            },
+            "renameByName": {
+              "DCGM_FI_DRIVER_VERSION (lastNotNull)": "DCGM_FI_DRIVER_VERSION",
+              "Hostname": "",
+              "Value #A (lastNotNull)": "GPU Count",
+              "Value (lastNotNull)": "GPU COUNT",
+              "modelName (lastNotNull)": "GPU Model Name"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false,
+            "minWidth": 50
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unitScale": true
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Hostname"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 105
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 3,
+        "x": 9,
+        "y": 29
+      },
+      "id": 12,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": [
+            "Value"
+          ],
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "10.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "APT_UPGRADABLE_PACKAGES",
+          "format": "table",
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Pending Updates",
+      "transformations": [
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "Value": {
+                "aggregations": [
+                  "lastNotNull"
+                ],
+                "operation": "aggregate"
+              },
+              "job": {
+                "aggregations": [],
+                "operation": "groupby"
+              }
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Value (lastNotNull)": "Number",
+              "job": "Hostname"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false,
+            "minWidth": 50
+          },
           "decimals": 1,
           "mappings": [],
           "thresholds": {
@@ -3000,7 +3317,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 29
+        "y": 37
       },
       "id": 1,
       "options": {
@@ -3231,6 +3548,6 @@
   "timezone": "",
   "title": "DC OverView",
   "uid": "b7573857-fb4d-4389-8159-edbad8b65e5b",
-  "version": 26,
+  "version": 27,
   "weekStart": ""
 }
