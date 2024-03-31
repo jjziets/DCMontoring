@@ -299,10 +299,9 @@ To effectively update your DCMonitoring setup for both server and client sides, 
 
 5. **Update Configuration Files**: Optional and make sure to set your vastai API key if you do
     - Download the latest `docker-compose.yml`:
-        ```bash
+    ```bash
         wget -O docker-compose.yml https://raw.githubusercontent.com/jjziets/DCMontoring/main/server/docker-compose.yml
-        
-        ```
+    ```
     - If required, modify `prometheus.yml` as needed.
 
 6. **Pull Latest Images and Start Services**:
