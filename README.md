@@ -333,9 +333,9 @@ https://github.com/jjziets/DCMontoring/blob/main/README.md#dashboards
 
 4.1 **Update Configuration File**:
     - Download the latest `docker-compose.yml`:
-        ```bash
+    ```bash
         wget -O docker-compose.yml https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/docker-compose.yml-vast
-        ```
+    ```
 4.2  for apt update exporter 
     ```bash
         wget -O /usr/local/bin/check-upgradable-packages.sh  https://github.com/jjziets/gddr6_temps/raw/master/update-package-count.sh;
