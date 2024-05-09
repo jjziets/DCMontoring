@@ -325,7 +325,7 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 3,
+        "w": 2,
         "x": 6,
         "y": 0
       },
@@ -407,8 +407,8 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 3,
-        "x": 9,
+        "w": 2,
+        "x": 8,
         "y": 0
       },
       "id": 8,
@@ -474,7 +474,7 @@
       "gridPos": {
         "h": 8,
         "w": 2,
-        "x": 12,
+        "x": 10,
         "y": 0
       },
       "id": 9,
@@ -541,7 +541,7 @@
       "gridPos": {
         "h": 8,
         "w": 2,
-        "x": 14,
+        "x": 12,
         "y": 0
       },
       "id": 3,
@@ -612,7 +612,7 @@
       "gridPos": {
         "h": 8,
         "w": 2,
-        "x": 16,
+        "x": 14,
         "y": 0
       },
       "id": 5,
@@ -694,7 +694,7 @@
       "gridPos": {
         "h": 8,
         "w": 2,
-        "x": 18,
+        "x": 16,
         "y": 0
       },
       "id": 4,
@@ -776,10 +776,92 @@
       "gridPos": {
         "h": 8,
         "w": 2,
-        "x": 20,
+        "x": 18,
         "y": 0
       },
       "id": 22,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "10.4.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "sum(vastai_machine_gpu_rented_on_reserved) / sum(vast_machine_gpu_name) * 100",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "GPU Used Reserved",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 30
+              },
+              {
+                "color": "yellow",
+                "value": 50
+              },
+              {
+                "color": "blue",
+                "value": 70
+              },
+              {
+                "color": "green",
+                "value": 100
+              }
+            ]
+          },
+          "unit": "%"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 2,
+        "x": 20,
+        "y": 0
+      },
+      "id": 40,
       "options": {
         "minVizHeight": 75,
         "minVizWidth": 75,
@@ -6582,6 +6664,6 @@
   "timezone": "",
   "title": "Vast Dashboard",
   "uid": "d1e22d5b-dcf4-4f54-8629-972173cb24eb",
-  "version": 116,
+  "version": 117,
   "weekStart": ""
 }
