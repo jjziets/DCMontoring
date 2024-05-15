@@ -8,7 +8,7 @@ apt update
 apt install -y git wget lsb-release software-properties-common snapd
 export DEBIAN_FRONTEND=noninteractive
 
-rm /etc/apt/sources.list.d/archive_uri-https_developer_download_nvidia_com_compute_cuda_repos_ubuntu2204_x86_64_-jammy.list
+#rm /etc/apt/sources.list.d/archive_uri-https_developer_download_nvidia_com_compute_cuda_repos_ubuntu2204_x86_64_-jammy.list
 rm /etc/apt/sources.list.d/cuda-ubuntu2004-x86_64.list
 rm /etc/apt/sources.list.d/cuda-ubuntu2004-x86_64.list.distUpgrade
 rm /etc/apt/sources.list.d/cuda-ubuntu2004-x86_64.list.save
