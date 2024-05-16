@@ -1,10 +1,18 @@
 #!/bin/bash
 
-rm /etc/apt/sources.list.d/archive_uri-https_developer_download_nvidia_com_compute_cuda_repos_ubuntu2204_x86_64_-jammy.list
-rm /etc/apt/sources.list.d/cuda-ubuntu2004-x86_64.list
-rm /etc/apt/sources.list.d/cuda-ubuntu2004-x86_64.list.distUpgrade
-rm /etc/apt/sources.list.d/cuda-ubuntu2004-x86_64.list.save
-rm /etc/apt/sources.list.d/cuda.list
+# Attempt to update the package lists
+if ! sudo apt update; then
+  echo "apt update failed, removing conflicting repository files..."
+
+  # Remove the conflicting repository files if apt update fails
+  sudo rm -f /etc/apt/sources.list.d/archive_uri-https_developer_download_nvidia_com_compute_cuda_repos_ubuntu2204_x86_64_-jammy.list
+  sudo rm -f /etc/apt/sources.list.d/cuda-ubuntu2004-x86_64.list
+  sudo rm -f /etc/apt/sources.list.d/cuda-ubuntu2004-x86_64.list.distUpgrade
+  sudo rm -f /etc/apt/sources.list.d/cuda-ubuntu2004-x86_64.list.save
+  sudo rm -f /etc/apt/sources.list.d/cuda.list
+else
+  echo "apt update succeeded, no need to remove repository files."
+fi
 
 set -e
 
