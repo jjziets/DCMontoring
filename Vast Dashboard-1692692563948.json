@@ -1330,8 +1330,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1830,8 +1829,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2025,8 +2023,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2146,8 +2143,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2401,8 +2397,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2500,8 +2495,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2577,8 +2571,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2668,7 +2661,7 @@
               "options": {
                 "from": 1,
                 "result": {
-                  "color": "yellow",
+                  "color": "blue",
                   "index": 1,
                   "text": "I"
                 },
@@ -2692,7 +2685,7 @@
               "options": {
                 "from": 3,
                 "result": {
-                  "color": "blue",
+                  "color": "orange",
                   "index": 3,
                   "text": "R"
                 },
@@ -2705,8 +2698,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "transparent",
-                "value": null
+                "color": "transparent"
               }
             ]
           },
@@ -3021,8 +3013,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "transparent",
-                "value": null
+                "color": "transparent"
               }
             ]
           },
@@ -3376,8 +3367,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "transparent",
-                "value": null
+                "color": "transparent"
               }
             ]
           },
@@ -3741,8 +3731,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "transparent",
-                "value": null
+                "color": "transparent"
               }
             ]
           },
@@ -4107,8 +4096,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "transparent",
-                "value": null
+                "color": "transparent"
               }
             ]
           },
@@ -6657,13 +6645,13 @@
     ]
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Vast Dashboard",
   "uid": "d1e22d5b-dcf4-4f54-8629-972173cb24eb",
-  "version": 117,
+  "version": 119,
   "weekStart": ""
 }
