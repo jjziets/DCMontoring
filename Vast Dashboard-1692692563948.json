@@ -1323,14 +1323,15 @@
             },
             "inspect": false,
             "minWidth": 50,
-            "width": 50
+            "width": 65
           },
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -1598,6 +1599,19 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
+          "expr": "vastai_machine_gpu_rented_on_reserved",
+          "format": "table",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "K"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
           "expr": "vastai_machine_gpu_rented_on_demand",
           "format": "table",
           "hide": false,
@@ -1674,6 +1688,7 @@
             "excludeByName": {
               "Time": true,
               "Time 1": true,
+              "Time 10": false,
               "Time 2": true,
               "Time 3": true,
               "Time 4": true,
@@ -1685,6 +1700,7 @@
               "Value #A": false,
               "Value #B": true,
               "__name__ 1": true,
+              "__name__ 10": true,
               "__name__ 2": true,
               "__name__ 3": true,
               "__name__ 4": true,
@@ -1703,6 +1719,7 @@
               "hostname 9": true,
               "instance": true,
               "instance 1": true,
+              "instance 10": true,
               "instance 2": true,
               "instance 3": true,
               "instance 4": true,
@@ -1713,6 +1730,7 @@
               "instance 9": true,
               "job": true,
               "job 1": true,
+              "job 10": true,
               "job 2": true,
               "job 3": true,
               "job 4": true,
@@ -1721,6 +1739,7 @@
               "job 7": true,
               "job 8": true,
               "job 9": true,
+              "machine_id 10": true,
               "machine_id 2": true,
               "machine_id 3": true,
               "machine_id 4": true,
@@ -1732,64 +1751,71 @@
             },
             "includeByName": {},
             "indexByName": {
-              "Time 1": 45,
+              "Time 1": 46,
+              "Time 10": 57,
               "Time 2": 4,
               "Time 3": 9,
               "Time 4": 14,
               "Time 5": 19,
               "Time 6": 24,
-              "Time 7": 29,
-              "Time 8": 33,
-              "Time 9": 38,
-              "Value #A": 44,
+              "Time 7": 30,
+              "Time 8": 34,
+              "Time 9": 39,
+              "Value #A": 45,
               "Value #B": 8,
               "Value #C": 13,
               "Value #D": 18,
               "Value #E": 23,
-              "Value #F": 28,
-              "Value #G": 43,
-              "Value #H": 37,
-              "Value #I": 42,
+              "Value #F": 29,
+              "Value #G": 44,
+              "Value #H": 38,
+              "Value #I": 43,
+              "Value #K": 28,
               "__name__ 1": 3,
+              "__name__ 10": 58,
               "__name__ 2": 5,
               "__name__ 3": 10,
               "__name__ 4": 15,
               "__name__ 5": 20,
               "__name__ 6": 25,
-              "__name__ 7": 30,
-              "__name__ 8": 34,
-              "__name__ 9": 39,
+              "__name__ 7": 31,
+              "__name__ 8": 35,
+              "__name__ 9": 40,
               "gpu_name": 2,
               "hostname": 0,
-              "instance 1": 46,
+              "instance 1": 47,
+              "instance 10": 59,
               "instance 2": 6,
               "instance 3": 11,
               "instance 4": 16,
               "instance 5": 21,
               "instance 6": 26,
-              "instance 7": 31,
-              "instance 8": 35,
-              "instance 9": 40,
-              "job 1": 47,
+              "instance 7": 32,
+              "instance 8": 36,
+              "instance 9": 41,
+              "job 1": 48,
+              "job 10": 60,
               "job 2": 7,
               "job 3": 12,
               "job 4": 17,
               "job 5": 22,
               "job 6": 27,
-              "job 7": 32,
-              "job 8": 36,
-              "job 9": 41,
+              "job 7": 33,
+              "job 8": 37,
+              "job 9": 42,
               "machine_id 1": 1,
-              "machine_id 2": 48,
-              "machine_id 3": 49,
-              "machine_id 4": 50,
-              "machine_id 5": 51,
-              "machine_id 6": 52,
-              "machine_id 7": 53,
-              "machine_id 8": 54,
-              "machine_id 9": 55
+              "machine_id 10": 61,
+              "machine_id 2": 49,
+              "machine_id 3": 50,
+              "machine_id 4": 51,
+              "machine_id 5": 52,
+              "machine_id 6": 53,
+              "machine_id 7": 54,
+              "machine_id 8": 55,
+              "machine_id 9": 56
             },
             "renameByName": {
+              "Time 10": "",
               "Value #A": "GPU's",
               "Value #C": "Stored Jobs",
               "Value #D": "Idle",
@@ -1798,6 +1824,7 @@
               "Value #G": "Avail Space(GB)",
               "Value #H": "Listed",
               "Value #I": "Verifyd",
+              "Value #K": "Run R",
               "instance 6": "",
               "machine_id": "Machine"
             }
@@ -1829,7 +1856,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2023,7 +2051,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2143,7 +2172,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2397,7 +2427,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2495,7 +2526,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -6645,13 +6677,13 @@
     ]
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Vast Dashboard",
   "uid": "d1e22d5b-dcf4-4f54-8629-972173cb24eb",
-  "version": 119,
+  "version": 120,
   "weekStart": ""
 }
