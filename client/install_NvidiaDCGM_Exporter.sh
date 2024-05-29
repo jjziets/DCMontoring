@@ -60,6 +60,7 @@ else
     remove_duplicate_cuda_repos
 fi
 
+
 # Install Data Center GPU Manager
 echo "Updating package list and installing datacenter-gpu-manager..."
 sudo apt-get update
