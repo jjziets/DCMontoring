@@ -6,10 +6,7 @@ if ! sudo apt update; then
 
   # Remove the conflicting repository files if apt update fails
   sudo rm -f /etc/apt/sources.list.d/archive_uri-https_developer_download_nvidia_com_compute_cuda_repos_ubuntu2204_x86_64_-jammy.list
-  sudo rm -f /etc/apt/sources.list.d/cuda-ubuntu2004-x86_64.list
-  sudo rm -f /etc/apt/sources.list.d/cuda-ubuntu2004-x86_64.list.distUpgrade
-  sudo rm -f /etc/apt/sources.list.d/cuda-ubuntu2004-x86_64.list.save
-  sudo rm -f /etc/apt/sources.list.d/cuda.list
+  sudo rm -f /etc/apt/sources.list.d/cuda-ubuntu2204-x86_64.list
 else
   echo "apt update succeeded, no need to remove repository files."
 fi
@@ -18,16 +15,14 @@ set -e
 
 # Update and install necessary packages
 echo "Updating package list and installing necessary packages..."
-apt update
-apt install -y git wget lsb-release software-properties-common snapd
+sudo apt update
+sudo apt install -y git wget lsb-release software-properties-common snapd
 export DEBIAN_FRONTEND=noninteractive
-
-
 
 # Install Go using Snap
 if ! command -v go &>/dev/null; then
     echo "Installing Go using Snap..."
-    snap install go --classic
+    sudo snap install go --classic
 else
     echo "Go is already installed via Snap."
 fi
