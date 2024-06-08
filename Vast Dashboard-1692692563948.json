@@ -271,7 +271,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "sum(vastai_machine_earn_hour)*.75",
+          "expr": "sum(vastai_machine_earn_hour)",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -2603,7 +2603,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2730,7 +2731,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "transparent"
+                "color": "transparent",
+                "value": null
               }
             ]
           },
@@ -3045,7 +3047,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "transparent"
+                "color": "transparent",
+                "value": null
               }
             ]
           },
@@ -3399,7 +3402,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "transparent"
+                "color": "transparent",
+                "value": null
               }
             ]
           },
@@ -3763,7 +3767,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "transparent"
+                "color": "transparent",
+                "value": null
               }
             ]
           },
@@ -4128,7 +4133,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "transparent"
+                "color": "transparent",
+                "value": null
               }
             ]
           },
@@ -4490,12 +4496,12 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "transparent"
+                "color": "transparent",
+                "value": null
               }
             ]
           },
-          "unit": "watt",
-          "unitScale": true
+          "unit": "watt"
         },
         "overrides": []
       },
@@ -4519,7 +4525,7 @@
         "frameIndex": 0,
         "showHeader": true
       },
-      "pluginVersion": "10.3.3",
+      "pluginVersion": "10.4.2",
       "targets": [
         {
           "datasource": {
@@ -4856,12 +4862,12 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "transparent"
+                "color": "transparent",
+                "value": null
               }
             ]
           },
-          "unit": "%",
-          "unitScale": true
+          "unit": "%"
         },
         "overrides": []
       },
@@ -4885,7 +4891,7 @@
         "frameIndex": 0,
         "showHeader": true
       },
-      "pluginVersion": "10.3.3",
+      "pluginVersion": "10.4.2",
       "targets": [
         {
           "datasource": {
@@ -5222,12 +5228,12 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "transparent"
+                "color": "transparent",
+                "value": null
               }
             ]
           },
-          "unit": "none",
-          "unitScale": true
+          "unit": "none"
         },
         "overrides": []
       },
@@ -5251,7 +5257,7 @@
         "frameIndex": 0,
         "showHeader": true
       },
-      "pluginVersion": "10.3.3",
+      "pluginVersion": "10.4.2",
       "targets": [
         {
           "datasource": {
@@ -5563,12 +5569,12 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "transparent"
+                "color": "transparent",
+                "value": null
               }
             ]
           },
-          "unit": "bool",
-          "unitScale": true
+          "unit": "bool"
         },
         "overrides": []
       },
@@ -5592,7 +5598,7 @@
         "frameIndex": 0,
         "showHeader": true
       },
-      "pluginVersion": "10.3.3",
+      "pluginVersion": "10.4.2",
       "targets": [
         {
           "datasource": {
@@ -5904,7 +5910,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -5912,8 +5919,7 @@
               }
             ]
           },
-          "unit": "currencyUSD",
-          "unitScale": true
+          "unit": "currencyUSD"
         },
         "overrides": []
       },
@@ -6014,7 +6020,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -6022,8 +6029,7 @@
               }
             ]
           },
-          "unit": "currencyUSD",
-          "unitScale": true
+          "unit": "currencyUSD"
         },
         "overrides": []
       },
@@ -6124,7 +6130,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -6132,8 +6139,7 @@
               }
             ]
           },
-          "unit": "decmbytes",
-          "unitScale": true
+          "unit": "decmbytes"
         },
         "overrides": []
       },
@@ -6234,7 +6240,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -6242,8 +6249,7 @@
               }
             ]
           },
-          "unit": "currencyUSD",
-          "unitScale": true
+          "unit": "currencyUSD"
         },
         "overrides": []
       },
@@ -6344,7 +6350,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -6352,8 +6359,7 @@
               }
             ]
           },
-          "unit": "currencyUSD",
-          "unitScale": true
+          "unit": "currencyUSD"
         },
         "overrides": []
       },
@@ -6454,7 +6460,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -6462,8 +6469,7 @@
               }
             ]
           },
-          "unit": "MBs",
-          "unitScale": true
+          "unit": "MBs"
         },
         "overrides": []
       },
@@ -6564,7 +6570,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -6572,8 +6579,7 @@
               }
             ]
           },
-          "unit": "MBs",
-          "unitScale": true
+          "unit": "MBs"
         },
         "overrides": []
       },
@@ -6684,6 +6690,6 @@
   "timezone": "",
   "title": "Vast Dashboard",
   "uid": "d1e22d5b-dcf4-4f54-8629-972173cb24eb",
-  "version": 120,
+  "version": 121,
   "weekStart": ""
 }
