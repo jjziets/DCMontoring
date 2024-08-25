@@ -109,7 +109,7 @@ After=network.target
 
 [Service]
 User=root
-ExecStart=/usr/bin/dcgm-exporter
+ExecStart=/usr/bin/dcgm-exporter -c 5000
 Restart=always
 
 [Install]
