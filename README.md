@@ -80,7 +80,26 @@ docker-compose pull
 sed "s/__HOST_HOSTNAME__/$(hostname)/g" docker-compose.yml | docker-compose -f - up -d
 
 ```
+
+
 For Runpod you  need to run the following commands as sudo 
+
+Runpod is already running node-exporter on port 9097 and caviser on 9095. So jyst need to run the below exporter to get the GPU staff on port 9500. 
+**Vast host don't need to do this step as all the monitoring tools will be in docker containers. **
+```
+
+bash -c "\
+sudo wget -q -O /usr/local/bin/gddr6-metrics-exporter_supervisor_script.sh https://raw.githubusercontent.com/jjziets/gddr6_temps/master/gddr6-metrics-exporter_supervisor_script.sh && \
+sudo chmod +x /usr/local/bin/gddr6-metrics-exporter_supervisor_script.sh && \
+sudo wget -q -O /etc/systemd/system/gddr6-metrics-exporter.service https://raw.githubusercontent.com/jjziets/gddr6_temps/master/gddr6-metrics-exporter.service && \
+sudo systemctl daemon-reload && \
+sudo systemctl enable gddr6-metrics-exporter && \
+sudo systemctl start gddr6-metrics-exporter"
+
+```
+
+
+For any other service that don't allow docker to run use the following commands as sudo 
 
 **Vast host don't need to do this step as all the monitoring tools will be in docker containers. **
 ```
@@ -99,13 +118,6 @@ sudo wget -q -O /etc/systemd/system/gddr6-metrics-exporter.service https://raw.g
 sudo systemctl daemon-reload && \
 sudo systemctl enable gddr6-metrics-exporter && \
 sudo systemctl start gddr6-metrics-exporter"
-
-curl -L "https://github.com/docker/compose/releases/download/v2.24.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
-ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-apt-get update && sudo apt-get install -y gettext-base
-wget -O docker-compose.yml https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/docker-compose.yml-runpod 
-docker-compose up -d 
 
 ```
 
@@ -137,7 +149,8 @@ ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/server/docker-compose.yml
 ```
 
-also, make a prometheus.yml that looks like this https://github.com/jjziets/DCMontoring/blob/main/server/prometheus.yml
+also, for vast make a prometheus.yml that looks like this https://github.com/jjziets/DCMontoring/blob/main/server/prometheus.yml 
+and for Runpod use https://github.com/jjziets/DCMontoring/blob/main/server/prometheus.yml.runpod as they is already running node-exporter on port 9097 and caviser on 9095  
 change the job(Machine) names and IP's for the machine you want to scrape. The server that runs grafana/prometheuse needs to be able to access the host ips. I use tailscale and run a VPS but if its on your local host you can use the local IP's
 
 you should edit the docker-compose.yml to add your vast api key under vastai-exporter: look for the section and replace the vastkey with the key for your account
