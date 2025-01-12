@@ -133,17 +133,7 @@ sudo apt  install docker.io
 Below is for getting the Grafana, Prometheus db up and running and the vast node exporter.
 
 ```
-sudo su -c "apt remove -y docker-compose && \
-curl -L 'https://github.com/docker/compose/releases/download/v2.24.4/docker-compose-$(uname -s)-$(uname -m)' -o /usr/local/bin/docker-compose && \
-chmod +x /usr/local/bin/docker-compose && \
-ln -sf /usr/local/bin/docker-compose /usr/bin/docker-compose && \
-apt-get update && apt-get install -y gettext-base && \
-wget -O docker-compose.yml https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/docker-compose.yml-vast && \
-wget -O /usr/local/bin/check-upgradable-packages.sh https://github.com/jjziets/gddr6_temps/raw/master/update-package-count.sh && \
-chmod +x /usr/local/bin/check-upgradable-packages.sh && \
-bash -c '(crontab -l 2>/dev/null; echo \"0 * * * * /usr/local/bin/check-upgradable-packages.sh\") | crontab -' && \
-docker-compose pull && \
-sed \"s/__HOST_HOSTNAME__/$(hostname)/g\" docker-compose.yml | docker-compose -f - up -d"
+sudo su -c 'apt remove docker-compose -y && curl -L "https://github.com/docker/compose/releases/download/v2.24.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose && ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose && wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/server/docker-compose.yml'
 ```
 
 also, for vast make a prometheus.yml that looks like this https://github.com/jjziets/DCMontoring/blob/main/server/prometheus.yml 
