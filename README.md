@@ -66,19 +66,17 @@ Alerting with telegram alarms
 
 for vastai following the following steps
 ```
-sudo su
-apt remove docker-compose
-curl -L "https://github.com/docker/compose/releases/download/v2.24.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
-ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-apt-get update && sudo apt-get install -y gettext-base
-wget -O docker-compose.yml https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/docker-compose.yml-vast
-wget -O /usr/local/bin/check-upgradable-packages.sh  https://github.com/jjziets/gddr6_temps/raw/master/update-package-count.sh;
-chmod +x /usr/local/bin/check-upgradable-packages.sh;
-sudo bash -c '(crontab -l 2>/dev/null; echo "0 * * * * /usr/local/bin/check-upgradable-packages.sh") | crontab -'
-docker-compose pull
-sed "s/__HOST_HOSTNAME__/$(hostname)/g" docker-compose.yml | docker-compose -f - up -d
-
+sudo bash -c "apt remove -y docker-compose && \
+curl -L 'https://github.com/docker/compose/releases/download/v2.24.4/docker-compose-$(uname -s)-$(uname -m)' -o /usr/local/bin/docker-compose && \
+chmod +x /usr/local/bin/docker-compose && \
+ln -sf /usr/local/bin/docker-compose /usr/bin/docker-compose && \
+apt-get update && apt-get install -y gettext-base && \
+wget -O docker-compose.yml https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/docker-compose.yml-vast && \
+wget -O /usr/local/bin/check-upgradable-packages.sh https://github.com/jjziets/gddr6_temps/raw/master/update-package-count.sh && \
+chmod +x /usr/local/bin/check-upgradable-packages.sh && \
+(crontab -l 2>/dev/null; echo '0 * * * * /usr/local/bin/check-upgradable-packages.sh') | crontab - && \
+docker-compose pull && \
+sed 's/__HOST_HOSTNAME__/$(hostname)/g' docker-compose.yml | docker-compose -f - up -d"
 ```
 
 
@@ -86,15 +84,9 @@ For Runpod you  need to run the following commands as sudo
 
 Runpod is already running node-exporter on port 9097 and caviser on 9095. So jyst need to run the below exporter to get the GPU staff on port 9500. 
 **Vast host don't need to do this step as all the monitoring tools will be in docker containers. **
-```
 
-bash -c "\
-sudo wget -q -O /usr/local/bin/gddr6-metrics-exporter_supervisor_script.sh https://raw.githubusercontent.com/jjziets/gddr6_temps/master/gddr6-metrics-exporter_supervisor_script.sh && \
-sudo chmod +x /usr/local/bin/gddr6-metrics-exporter_supervisor_script.sh && \
-sudo wget -q -O /etc/systemd/system/gddr6-metrics-exporter.service https://raw.githubusercontent.com/jjziets/gddr6_temps/master/gddr6-metrics-exporter.service && \
-sudo systemctl daemon-reload && \
-sudo systemctl enable gddr6-metrics-exporter && \
-sudo systemctl start gddr6-metrics-exporter"
+```
+sudo wget -q -O /usr/local/bin/gddr6-metrics-exporter_supervisor_script.sh https://raw.githubusercontent.com/jjziets/gddr6_temps/master/gddr6-metrics-exporter_supervisor_script.sh && sudo chmod +x /usr/local/bin/gddr6-metrics-exporter_supervisor_script.sh && sudo wget -q -O /etc/systemd/system/gddr6-metrics-exporter.service https://raw.githubusercontent.com/jjziets/gddr6_temps/master/gddr6-metrics-exporter.service && sudo systemctl daemon-reload && sudo systemctl enable gddr6-metrics-exporter && sudo systemctl start gddr6-metrics-exporter
 
 ```
 
@@ -141,12 +133,17 @@ sudo apt  install docker.io
 Below is for getting the Grafana, Prometheus db up and running and the vast node exporter.
 
 ```
-sudo su
-apt remove docker-compose
-curl -L "https://github.com/docker/compose/releases/download/v2.24.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
-ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/server/docker-compose.yml
+sudo su -c "apt remove -y docker-compose && \
+curl -L 'https://github.com/docker/compose/releases/download/v2.24.4/docker-compose-$(uname -s)-$(uname -m)' -o /usr/local/bin/docker-compose && \
+chmod +x /usr/local/bin/docker-compose && \
+ln -sf /usr/local/bin/docker-compose /usr/bin/docker-compose && \
+apt-get update && apt-get install -y gettext-base && \
+wget -O docker-compose.yml https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/docker-compose.yml-vast && \
+wget -O /usr/local/bin/check-upgradable-packages.sh https://github.com/jjziets/gddr6_temps/raw/master/update-package-count.sh && \
+chmod +x /usr/local/bin/check-upgradable-packages.sh && \
+bash -c '(crontab -l 2>/dev/null; echo \"0 * * * * /usr/local/bin/check-upgradable-packages.sh\") | crontab -' && \
+docker-compose pull && \
+sed \"s/__HOST_HOSTNAME__/$(hostname)/g\" docker-compose.yml | docker-compose -f - up -d"
 ```
 
 also, for vast make a prometheus.yml that looks like this https://github.com/jjziets/DCMontoring/blob/main/server/prometheus.yml 
