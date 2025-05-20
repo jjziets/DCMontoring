@@ -82,10 +82,12 @@ sed "s/__HOST_HOSTNAME__/$(hostname)/g" docker-compose.yml | docker-compose -f -
 ```
 
 
-For Runpod you  need to run the following commands as sudo 
+If you prefer to run these as services so that it can not interfere with docker then use below. For example: Run the following commands as root 
 
-Runpod is already running node-exporter on port 9097 and caviser on 9095. So jyst need to run the below exporter to get the GPU staff on port 9500. 
+
 **Vast host don't need to do this step as all the monitoring tools will be in docker containers. **
+
+exporter to get the GPU staff on port 9500. 
 ```
 
 bash -c "\
@@ -96,13 +98,6 @@ sudo systemctl daemon-reload && \
 sudo systemctl enable gddr6-metrics-exporter && \
 sudo systemctl start gddr6-metrics-exporter"
 
-```
-
-
-For any other service that don't allow docker to run use the following commands as sudo 
-
-**Vast host don't need to do this step as all the monitoring tools will be in docker containers. **
-```
 wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/install_node_exporter.sh
 chmod +x install_node_exporter.sh
 ./install_node_exporter.sh
@@ -110,14 +105,6 @@ chmod +x install_node_exporter.sh
 wget https://raw.githubusercontent.com/jjziets/DCMontoring/main/client/install_NvidiaDCGM_Exporter.sh
 chmod +x install_NvidiaDCGM_Exporter.sh
 ./install_NvidiaDCGM_Exporter.sh
-
-bash -c "\
-sudo wget -q -O /usr/local/bin/gddr6-metrics-exporter_supervisor_script.sh https://raw.githubusercontent.com/jjziets/gddr6_temps/master/gddr6-metrics-exporter_supervisor_script.sh && \
-sudo chmod +x /usr/local/bin/gddr6-metrics-exporter_supervisor_script.sh && \
-sudo wget -q -O /etc/systemd/system/gddr6-metrics-exporter.service https://raw.githubusercontent.com/jjziets/gddr6_temps/master/gddr6-metrics-exporter.service && \
-sudo systemctl daemon-reload && \
-sudo systemctl enable gddr6-metrics-exporter && \
-sudo systemctl start gddr6-metrics-exporter"
 
 ```
 
