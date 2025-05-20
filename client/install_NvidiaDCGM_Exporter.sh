@@ -34,7 +34,7 @@ export PATH=$PATH:/snap/bin
 UBUNTU_VERSION=$(lsb_release -sr | tr -d '.')
 
 # Define CUDA keyring package and repository URL
-CUDA_KEYRING_PKG="cuda-keyring_1.0-1_all.deb"
+CUDA_KEYRING_PKG="cuda-keyring_1.1-1_all.deb"
 CUDA_REPO_URL="https://developer.download.nvidia.com/compute/cuda/repos/ubuntu${UBUNTU_VERSION}/x86_64"
 
 # Function to check if CUDA repo is already added
