@@ -61,12 +61,22 @@ else
 fi
 
 
-# Install Data Center GPU Manager
-echo "Updating package list and installing datacenter-gpu-manager..."
-sudo apt-get update
-sudo apt-get install -y datacenter-gpu-manager
+# Install Data Center GPU Manager refer to https://docs.nvidia.com/datacenter/dcgm/latest/user-guide/getting-started.html 
+sudo dpkg --list datacenter-gpu-manager &> /dev/null && \
+echo "Updating package list and installing datacenter-gpu-manager..." 
+  sudo apt purge --yes datacenter-gpu-manager
 
-# Remove existing dcgm-exporter directory if it exists
+sudo dpkg --list datacenter-gpu-manager-config &> /dev/null && \
+  sudo apt purge --yes datacenter-gpu-manager-config
+  
+sudo apt-get update
+CUDA_VERSION=$(nvidia-smi | sed -E -n 's/.*CUDA Version: ([0-9]+)[.].*/\1/p')
+sudo apt-get install --yes \
+                       --install-recommends \
+                       datacenter-gpu-manager-4-cuda${CUDA_VERSION}
+sudo apt install --yes datacenter-gpu-manager-4-dev
+
+# Remove the existing dcgm-exporter directory if it exists
 if [ -d "dcgm-exporter" ]; then
     echo "Removing existing dcgm-exporter directory..."
     rm -rf dcgm-exporter
